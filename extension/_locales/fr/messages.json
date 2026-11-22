@@ -618,5 +618,11 @@
   },
   "langue": {
     "message": "fr"
+  },
+  "saveRules": {
+    "message": "Sauvegarder"
+  },
+  "rulesUnsaved": {
+    "message": "Modifications non enregistrées"
   }
 }

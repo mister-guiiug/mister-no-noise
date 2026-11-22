@@ -618,5 +618,11 @@
   },
   "langue": {
     "message": "hi"
+  },
+  "saveRules": {
+    "message": "Save"
+  },
+  "rulesUnsaved": {
+    "message": "Unsaved changes"
   }
 }

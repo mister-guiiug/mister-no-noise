@@ -4,11 +4,16 @@ const t = S.t;
 const $ = (id) => document.getElementById(id);
 const send = (m) => browser.runtime.sendMessage(m);
 let cfg = null;
+/** Dernière version des règles écrite en storage — Annuler y revient. */
+let savedRules = null;
+let rulesDirty = false;
 
 /* ------------------------- loading & rendering ------------------------ */
 async function load() {
   S.localizeDom();
   cfg = await S.loadConfig();
+  savedRules = S.clone(cfg.rules);
+  setRulesDirty(false);
   renderSettings();
   renderRules();
   await renderStats();
@@ -33,7 +38,52 @@ function renderSettings() {
   $('syncSettings').checked = s.syncSettings;
 }
 
-async function saveCfg() { cfg = await S.saveConfig(cfg); }
+function setRulesDirty(dirty) {
+  rulesDirty = !!dirty;
+  $('saveRules').disabled = !rulesDirty;
+  $('cancelRules').disabled = !rulesDirty;
+  $('rulesActions').classList.toggle('dirty', rulesDirty);
+  $('rulesDirtyHint').classList.toggle('hidden', !rulesDirty);
+}
+function markRulesDirty() { setRulesDirty(true); }
+
+/** Persiste les réglages sans écraser un brouillon de règles. */
+async function saveSettings() {
+  const draft = rulesDirty ? S.clone(cfg.rules) : null;
+  const out = await S.saveConfig({ settings: cfg.settings, rules: savedRules });
+  cfg.settings = out.settings;
+  savedRules = S.clone(out.rules);
+  cfg.rules = draft || S.clone(out.rules);
+}
+
+/** Enregistre les règles affichées (et les réglages courants). */
+async function saveRulesNow() {
+  cfg = await S.saveConfig(cfg);
+  savedRules = S.clone(cfg.rules);
+  setRulesDirty(false);
+}
+
+function cancelRulesEdits() {
+  cfg.rules = S.clone(savedRules);
+  renderRules();
+  runTest();
+  setRulesDirty(false);
+  $('packsMsg').textContent = '';
+}
+
+$('saveRules').addEventListener('click', async () => {
+  await saveRulesNow();
+  renderRules();
+  runTest();
+});
+$('cancelRules').addEventListener('click', () => cancelRulesEdits());
+
+window.addEventListener('beforeunload', (e) => {
+  if (!rulesDirty) return;
+  e.preventDefault();
+  e.returnValue = '';
+});
+
 function trunc(r) { return r && r.truncated ? ' ' + t('scanTruncated') : ''; }
 
 /* ------------------------------ settings ------------------------------ */
@@ -45,7 +95,7 @@ function bindSetting(id, prop, kind) {
     else if (kind === 'select') v = el.value;
     else v = el.checked;
     cfg.settings[prop] = v;
-    await saveCfg();
+    await saveSettings();
     if (kind === 'num') el.value = cfg.settings[prop];
     if (prop === 'caseSensitive') renderRules();
     runTest();
@@ -68,9 +118,9 @@ $('notifications').addEventListener('change', async (e) => {
     let granted = false;
     try { granted = await browser.permissions.request({ permissions: ['notifications'] }); } catch (err) { granted = false; }
     if (!granted) { e.target.checked = false; return; }
-    cfg.settings.notifications = true; await saveCfg();
+    cfg.settings.notifications = true; await saveSettings();
   } else {
-    cfg.settings.notifications = false; await saveCfg();
+    cfg.settings.notifications = false; await saveSettings();
     try { await browser.permissions.remove({ permissions: ['notifications'] }); } catch (err) { /* */ }
   }
 });
@@ -81,14 +131,14 @@ bindSetting('ctxMenu', 'contextMenu');
 bindSetting('syncSettings', 'syncSettings');
 
 document.querySelectorAll('[data-pack]').forEach((btn) => {
-  btn.addEventListener('click', async () => {
+  btn.addEventListener('click', () => {
     const added = S.rulesFromPack(btn.dataset.pack, cfg.rules);
     if (!added.length) {
       $('packsMsg').textContent = t('packsAlready');
       return;
     }
     cfg.rules = cfg.rules.concat(added);
-    await saveCfg();
+    markRulesDirty();
     renderRules();
     runTest();
     $('packsMsg').textContent = t('packsAdded', [String(added.length)]);
@@ -113,25 +163,25 @@ function ruleCard(r, index) {
   const main = div('rule-main');
   const en = input('checkbox'); en.checked = r.enabled;
   en.setAttribute('aria-label', t('optEnabled'));
-  en.addEventListener('change', async () => { r.enabled = en.checked; card.classList.toggle('disabled', !en.checked); await saveCfg(); runTest(); });
+  en.addEventListener('change', () => { r.enabled = en.checked; card.classList.toggle('disabled', !en.checked); markRulesDirty(); runTest(); });
   main.appendChild(en);
 
   const kind = select(S.RULE_KINDS, r.kind, (v) => v === 'allow' ? (t('ruleKindAllow') || 'Keep') : (t('ruleKindBlock') || 'Delete'));
   kind.classList.add('sel-kind');
-  kind.addEventListener('change', async () => { r.kind = kind.value; card.classList.toggle('allow', r.kind === 'allow'); await saveCfg(); runTest(); });
+  kind.addEventListener('change', () => { r.kind = kind.value; card.classList.toggle('allow', r.kind === 'allow'); markRulesDirty(); runTest(); });
   card.classList.toggle('allow', r.kind === 'allow');
   main.appendChild(kind);
 
   const type = select(S.RULE_TYPE_KEYS, r.type, (v) => S.ruleTypeLabel(v));
-  type.addEventListener('change', async () => { r.type = type.value; await saveCfg(); updateWarn(); runTest(); });
+  type.addEventListener('change', () => { r.type = type.value; markRulesDirty(); updateWarn(); runTest(); });
   main.appendChild(type);
 
   const val = input('text', 'in'); val.value = r.value; val.placeholder = t('ruleValuePlaceholder');
-  val.addEventListener('input', debounce(async () => { r.value = val.value; card.dataset.hay = (r.value + ' ' + r.note + ' ' + r.type + ' ' + r.kind).toLowerCase(); await saveCfg(); updateWarn(); runTest(); }, 300));
+  val.addEventListener('input', debounce(() => { r.value = val.value; card.dataset.hay = (r.value + ' ' + r.note + ' ' + r.type + ' ' + r.kind).toLowerCase(); markRulesDirty(); updateWarn(); runTest(); }, 300));
   main.appendChild(val);
 
   const note = input('text', 'in'); note.value = r.note; note.placeholder = t('notePlaceholder');
-  note.addEventListener('input', debounce(async () => { r.note = note.value; await saveCfg(); }, 300));
+  note.addEventListener('input', debounce(() => { r.note = note.value; markRulesDirty(); }, 300));
   main.appendChild(note);
   card.appendChild(main);
 
@@ -140,7 +190,7 @@ function ruleCard(r, index) {
   const whenWrap = span('meta-item');
   whenWrap.appendChild(labelText(t('ruleModeLabel')));
   const mode = select(S.RULE_MODES, r.mode, (v) => t('mode_' + v) || v);
-  mode.addEventListener('change', async () => { r.mode = mode.value; await saveCfg(); });
+  mode.addEventListener('change', () => { r.mode = mode.value; markRulesDirty(); });
   whenWrap.appendChild(mode);
   meta.appendChild(whenWrap);
 
@@ -148,11 +198,10 @@ function ruleCard(r, index) {
   ageWrap.appendChild(labelText(t('ruleAgeLabel')));
   const age = input('number', 'in num sm'); age.min = '0'; age.value = r.olderThanDays;
   age.setAttribute('aria-label', t('ruleAgeLabel') + ' (' + t('unitDays') + ')');
-  age.addEventListener('change', async () => { r.olderThanDays = Math.max(0, parseInt(age.value, 10) || 0); age.value = r.olderThanDays; await saveCfg(); });
+  age.addEventListener('change', () => { r.olderThanDays = Math.max(0, parseInt(age.value, 10) || 0); age.value = r.olderThanDays; markRulesDirty(); });
   ageWrap.appendChild(age);
   ageWrap.appendChild(labelText(t('unitDays')));
   meta.appendChild(ageWrap);
-
   const warn = span('rule-warn hidden');
   meta.appendChild(warn);
 
@@ -172,7 +221,7 @@ function ruleCard(r, index) {
   const up = iconBtn('↑', t('moveUp')); up.addEventListener('click', () => move(index, -1)); meta.appendChild(up);
   const down = iconBtn('↓', t('moveDown')); down.addEventListener('click', () => move(index, 1)); meta.appendChild(down);
   const del = iconBtn('✕', t('deleteRuleTitle')); del.classList.add('del');
-  del.addEventListener('click', async () => { cfg.rules = cfg.rules.filter((x) => x.id !== r.id); await saveCfg(); renderRules(); runTest(); });
+  del.addEventListener('click', () => { cfg.rules = cfg.rules.filter((x) => x.id !== r.id); markRulesDirty(); renderRules(); runTest(); });
   meta.appendChild(del);
 
   card.appendChild(meta);
@@ -190,12 +239,13 @@ function move(i, dir) {
   const j = i + dir;
   if (j < 0 || j >= cfg.rules.length) return;
   const a = cfg.rules; const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
-  saveCfg().then(renderRules);
+  markRulesDirty();
+  renderRules();
 }
 
-$('addRule').addEventListener('click', async () => {
+$('addRule').addEventListener('click', () => {
   cfg.rules.push(S.rule('contains', '', ''));
-  await saveCfg();
+  markRulesDirty();
   // Vider le filtre sinon la nouvelle règle (valeur vide) peut rester cachée.
   $('filter').value = '';
   renderRules();
@@ -214,8 +264,7 @@ function applyFilter() {
 
 $('enableAll').addEventListener('click', () => bulk(true));
 $('disableAll').addEventListener('click', () => bulk(false));
-async function bulk(v) { cfg.rules.forEach((r) => { r.enabled = v; }); await saveCfg(); renderRules(); runTest(); }
-
+function bulk(v) { cfg.rules.forEach((r) => { r.enabled = v; }); markRulesDirty(); renderRules(); runTest(); }
 /* ------------------------------ URL test ------------------------------ */
 function runTest() {
   const url = $('testUrl').value.trim();
@@ -250,9 +299,11 @@ function suggestRow(it) {
   const host = span('sg-host'); host.textContent = it.host;
   const cnt = span('sg-count'); cnt.textContent = t('suggestEntries', [String(it.count)]);
   const add = document.createElement('button'); add.className = 'btn'; add.textContent = t('suggestAdd');
-  add.addEventListener('click', async () => {
+  add.addEventListener('click', () => {
     cfg.rules.push(S.rule('domain', it.host, ''));
-    await saveCfg(); renderRules(); row.remove();
+    markRulesDirty();
+    renderRules();
+    row.remove();
   });
   row.append(host, cnt, add);
   return row;
@@ -357,7 +408,7 @@ $('impCancel').addEventListener('click', () => { closeImportConfirm(); ieMsg(t('
 $('impReplace').addEventListener('click', async () => {
   if (!pendingImport) return;
   cfg = pendingImport;
-  await saveCfg(); closeImportConfirm();
+  await saveRulesNow(); closeImportConfirm();
   renderSettings(); renderRules(); runTest();
   ieMsg(t('cfgImported'), true);
 });
@@ -365,7 +416,7 @@ $('impMerge').addEventListener('click', async () => {
   if (!pendingImport) return;
   const wanted = cfg.rules.length + pendingImport.rules.length;
   cfg.rules = cfg.rules.concat(pendingImport.rules);
-  await saveCfg(); closeImportConfirm(); // saveCfg normalizes (caps at MAX_RULES)
+  await saveRulesNow(); closeImportConfirm(); // normalise et plafonne à MAX_RULES
   renderRules(); runTest();
   const dropped = Math.max(0, wanted - cfg.rules.length);
   ieMsg(dropped ? t('importCapped', [String(cfg.rules.length), String(dropped)]) : t('cfgImported'), true);
@@ -375,7 +426,7 @@ $('legacyBtn').addEventListener('click', async () => {
   const rules = S.parseLegacy($('legacy').value);
   if (!rules.length) { ieMsg(t('noPattern'), false); return; }
   cfg.rules = $('legacyReplace').checked ? rules : cfg.rules.concat(rules);
-  await saveCfg(); renderRules(); runTest();
+  await saveRulesNow(); renderRules(); runTest();
   $('legacy').value = '';
   ieMsg(t('patternsImported', [String(rules.length)]), true);
 });
