@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "Gürültüsüz"
+  },
+  "extShortName": {
+    "message": "Gürültüsüz"
+  },
+  "extDescription": {
+    "message": "Gezinme geçmişinizdeki tekrarlayan gürültüyü temizler — seçtiğiniz siteler, sizin kurallarınızla. Gerçek zamanlı, periyodik veya elle. Tamamen yerel."
+  },
+  "actionTitle": {
+    "message": "Gürültüsüz"
+  },
+  "appSubtitle": {
+    "message": "Geçmiş temizleyici"
+  },
+  "masterTitle": {
+    "message": "Eklentiyi aç / kapat"
+  },
+  "bannerDryRun": {
+    "message": "Simülasyon modu — gerçek silme yok"
+  },
+  "cleanNow": {
+    "message": "Şimdi temizle"
+  },
+  "preview": {
+    "message": "Önizleme"
+  },
+  "toggleRealtime": {
+    "message": "Gerçek zamanlı (uyarlanabilir)"
+  },
+  "togglePeriodic": {
+    "message": "Periyodik tarama"
+  },
+  "toggleDryRun": {
+    "message": "Simülasyon (dry-run)"
+  },
+  "statTotal": {
+    "message": "toplam silinen"
+  },
+  "statRules": {
+    "message": "aktif kurallar"
+  },
+  "openOptions": {
+    "message": "Kuralları ve ayarları yönet →"
+  },
+  "cleaning": {
+    "message": "Temizleniyor…"
+  },
+  "analyzing": {
+    "message": "Analiz ediliyor…"
+  },
+  "resDeleted": {
+    "message": "✓ $count$ kayıt silindi.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "$count$ kayıt silinecek.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "Eşleşen kayıt yok."
+  },
+  "err": {
+    "message": "Hata: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "Son temizlik: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "Henüz temizlik yapılmadı"
+  },
+  "optTagline": {
+    "message": "Firefox geçmiş temizleyici — uyarlanabilir ve yapılandırılabilir"
+  },
+  "rulesTitle": {
+    "message": "Temizlik kuralları"
+  },
+  "addRule": {
+    "message": "+ Kural ekle"
+  },
+  "rulesHint": {
+    "message": "Geçmişteki bir URL, en az bir aktif kuralla eşleşirse silinir."
+  },
+  "colType": {
+    "message": "Tür"
+  },
+  "colValue": {
+    "message": "Değer"
+  },
+  "colNote": {
+    "message": "Not"
+  },
+  "noRules": {
+    "message": "Henüz kural yok. Bir tane ekleyin veya yapılandırma içe aktarın."
+  },
+  "testTitle": {
+    "message": "URL test et"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "Günlük ve istatistikler"
+  },
+  "reset": {
+    "message": "Sıfırla"
+  },
+  "logColWhen": {
+    "message": "Ne zaman"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "Kural"
+  },
+  "noLog": {
+    "message": "Kayıtlı silme yok."
+  },
+  "behaviorTitle": {
+    "message": "Davranış"
+  },
+  "optEnabled": {
+    "message": "Eklenti aktif"
+  },
+  "optRealtime": {
+    "message": "Gerçek zamanlı (uyarlanabilir)"
+  },
+  "optRealtimeHint": {
+    "message": "Ziyaret edilen her sayfada siler"
+  },
+  "optPeriodic": {
+    "message": "Periyodik tarama"
+  },
+  "optPeriodicHint": {
+    "message": "Geçmişi düzenli aralıklarla temizler"
+  },
+  "optInterval": {
+    "message": "Aralık"
+  },
+  "unitMin": {
+    "message": "dk"
+  },
+  "optDryRun": {
+    "message": "Simülasyon (dry-run)"
+  },
+  "optDryRunHint": {
+    "message": "Silmeden analiz eder ve kaydeder"
+  },
+  "optNotifications": {
+    "message": "Masaüstü bildirimleri"
+  },
+  "optCaseSensitive": {
+    "message": "Büyük/küçük harf duyarlı"
+  },
+  "importExportTitle": {
+    "message": "İçe aktar / Dışa aktar"
+  },
+  "exportBtn": {
+    "message": "Dışa aktar (JSON)"
+  },
+  "importBtn": {
+    "message": "İçe aktar (JSON)"
+  },
+  "legacySummary": {
+    "message": "Desen listesi içe aktar"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# # ile başlayan satırlar yok sayılır"
+  },
+  "legacyReplace": {
+    "message": "Mevcut kuralları değiştir"
+  },
+  "legacyBtn": {
+    "message": "Bu desenleri içe aktar"
+  },
+  "footer": {
+    "message": "Gürültüsüz — verileriniz tarayıcınızdan asla çıkmaz."
+  },
+  "ruleValuePlaceholder": {
+    "message": "örn. facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "not"
+  },
+  "deleteRuleTitle": {
+    "message": "Kuralı sil"
+  },
+  "testMatch": {
+    "message": "🗑️ Eşleşme — bu URL silinirdi. Kural(lar): "
+  },
+  "testNoMatch": {
+    "message": "✓ Eşleşme yok — bu URL tutulurdu."
+  },
+  "lastPrefix": {
+    "message": "Son: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[simülasyon] "
+  },
+  "cfgImported": {
+    "message": "Yapılandırma içe aktarıldı."
+  },
+  "invalidFile": {
+    "message": "Geçersiz dosya: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "Desen algılanmadı."
+  },
+  "patternsImported": {
+    "message": "$count$ desen içe aktarıldı.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "İçerir"
+  },
+  "ruleType_domain": {
+    "message": "Alan adı"
+  },
+  "ruleType_wildcard": {
+    "message": "Joker (*)"
+  },
+  "ruleType_regex": {
+    "message": "Düzenli ifade"
+  },
+  "notifTitle": {
+    "message": "Gürültüsüz"
+  },
+  "notifDeleted": {
+    "message": "Silindi: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "$count$ kayıt silindi.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "Sosyal medya"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "içe aktarıldı"
+  },
+  "cmdCleanNow": {
+    "message": "Geçmişi şimdi temizle"
+  },
+  "ctxAddSite": {
+    "message": "Bu siteyi Gürültüsüz'e ekle"
+  },
+  "ctxAdded": {
+    "message": "$host$ için kural eklendi",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "Sil"
+  },
+  "cancel": {
+    "message": "İptal"
+  },
+  "cancelled": {
+    "message": "İptal edildi"
+  },
+  "confirmMass": {
+    "message": "$count$ kayıt kalıcı olarak silinecek. Devam edilsin mi?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "Taranıyor… $count$ sayfa",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "Siliniyor… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "Gürültüsüz'e hoş geldiniz 🧹"
+  },
+  "welcomeBody": {
+    "message": "Gürültüsüz, geçmişinizdeki tekrarlayan gürültüyü kaldırarak yeniden bulmanızı sağlar. Geçmişinizi tarayarak veya elle kural ekleyerek başlayın."
+  },
+  "welcomeDismiss": {
+    "message": "Kapat"
+  },
+  "filterPlaceholder": {
+    "message": "Kuralları filtrele…"
+  },
+  "enableAll": {
+    "message": "Tümünü aç"
+  },
+  "disableAll": {
+    "message": "Tümünü kapat"
+  },
+  "suggestionsTitle": {
+    "message": "Geçmiş gürültüsü"
+  },
+  "analyzeBtn": {
+    "message": "Geçmişimi tara"
+  },
+  "suggestEmpty": {
+    "message": "Geçmişinizi en çok kirleten alan adlarını bulmak için bir tarama çalıştırın."
+  },
+  "suggestNone": {
+    "message": "Temizlenecek bir şey kalmadı — kurallarınız gürültüyü zaten kapsıyor."
+  },
+  "suggestScan": {
+    "message": "Taranıyor… $count$ alan adı",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "$count$ sayfa tarandı",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ kayıt",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "Kural ekle"
+  },
+  "ruleKindBlock": {
+    "message": "Sil"
+  },
+  "ruleKindAllow": {
+    "message": "Tut"
+  },
+  "ruleModeLabel": {
+    "message": "Ne zaman:"
+  },
+  "mode_both": {
+    "message": "Her zaman"
+  },
+  "mode_realtime": {
+    "message": "Yalnızca gerçek zamanlı"
+  },
+  "mode_periodic": {
+    "message": "Yalnızca taramalar"
+  },
+  "ruleAgeLabel": {
+    "message": "şundan eski"
+  },
+  "unitDays": {
+    "message": "gün"
+  },
+  "unitEntries": {
+    "message": "kayıt"
+  },
+  "testRuleBtn": {
+    "message": "Geçmişteki eşleşmeleri say"
+  },
+  "testRuleResult": {
+    "message": "geçmişte $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "Yukarı taşı"
+  },
+  "moveDown": {
+    "message": "Aşağı taşı"
+  },
+  "ruleInvalid": {
+    "message": "Geçersiz desen."
+  },
+  "ruleUnsafe": {
+    "message": "Bu desen çok yavaş olabilir ve atlanır."
+  },
+  "testKept": {
+    "message": "🛡 Tutuldu — bir Tut kuralı bu URL'yi koruyor."
+  },
+  "confirmManualLabel": {
+    "message": "Elle temizlemeden önce sor"
+  },
+  "massThresholdLabel": {
+    "message": "Şunun üzerinde uyar"
+  },
+  "notifDetailLabel": {
+    "message": "Bildirim içeriği"
+  },
+  "notifDetail_count": {
+    "message": "Yalnızca sayı"
+  },
+  "notifDetail_host": {
+    "message": "Alan adı"
+  },
+  "logDetailLabel": {
+    "message": "Geçmiş günlüğü"
+  },
+  "logDetail_host": {
+    "message": "Yalnızca alan adı"
+  },
+  "logDetail_full": {
+    "message": "Tam URL"
+  },
+  "logDetail_off": {
+    "message": "Kapalı"
+  },
+  "importCapped": {
+    "message": "$count$ kural içe aktarıldı, $dropped$ yok sayıldı.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "Sağ tık menüsü \"Bu siteyi ekle\""
+  },
+  "scanTruncated": {
+    "message": "Çok büyük geçmiş — kısmi tarama."
+  },
+  "importPreviewMsg": {
+    "message": "$blocks$ Sil kuralı, $allows$ Tut kuralı, $bad$ geçersiz veya çok yavaş.",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "Birleştir"
+  },
+  "importReplace": {
+    "message": "Tümünü değiştir"
+  }
+}

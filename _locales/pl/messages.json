@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "Bez szumu"
+  },
+  "extShortName": {
+    "message": "Bez szumu"
+  },
+  "extDescription": {
+    "message": "Usuwa powtarzający się szum z historii przeglądania — wybrane przez Ciebie witryny, według Twoich reguł. W czasie rzeczywistym, okresowo lub ręcznie. Całkowicie lokalnie."
+  },
+  "actionTitle": {
+    "message": "Bez szumu"
+  },
+  "appSubtitle": {
+    "message": "Czyszczenie historii"
+  },
+  "masterTitle": {
+    "message": "Włącz / wyłącz rozszerzenie"
+  },
+  "bannerDryRun": {
+    "message": "Tryb symulacji — bez faktycznego usuwania"
+  },
+  "cleanNow": {
+    "message": "Wyczyść teraz"
+  },
+  "preview": {
+    "message": "Podgląd"
+  },
+  "toggleRealtime": {
+    "message": "Czas rzeczywisty (adaptacyjny)"
+  },
+  "togglePeriodic": {
+    "message": "Okresowe skanowanie"
+  },
+  "toggleDryRun": {
+    "message": "Symulacja (dry-run)"
+  },
+  "statTotal": {
+    "message": "usuniętych łącznie"
+  },
+  "statRules": {
+    "message": "aktywne reguły"
+  },
+  "openOptions": {
+    "message": "Zarządzaj regułami i ustawieniami →"
+  },
+  "cleaning": {
+    "message": "Czyszczenie…"
+  },
+  "analyzing": {
+    "message": "Analizowanie…"
+  },
+  "resDeleted": {
+    "message": "✓ Usunięto $count$ wpisów.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "$count$ wpisów zostałoby usuniętych.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "Brak pasującego wpisu."
+  },
+  "err": {
+    "message": "Błąd: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "Ostatnie czyszczenie: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "Jeszcze nie wykonano czyszczenia"
+  },
+  "optTagline": {
+    "message": "Czyszczenie historii Firefoksa — adaptacyjne i konfigurowalne"
+  },
+  "rulesTitle": {
+    "message": "Reguły czyszczenia"
+  },
+  "addRule": {
+    "message": "+ Dodaj regułę"
+  },
+  "rulesHint": {
+    "message": "Adres URL z historii jest usuwany, jeśli pasuje do co najmniej jednej aktywnej reguły."
+  },
+  "colType": {
+    "message": "Typ"
+  },
+  "colValue": {
+    "message": "Wartość"
+  },
+  "colNote": {
+    "message": "Notatka"
+  },
+  "noRules": {
+    "message": "Brak reguł. Dodaj jedną lub zaimportuj konfigurację."
+  },
+  "testTitle": {
+    "message": "Przetestuj URL"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "Dziennik i statystyki"
+  },
+  "reset": {
+    "message": "Resetuj"
+  },
+  "logColWhen": {
+    "message": "Kiedy"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "Reguła"
+  },
+  "noLog": {
+    "message": "Brak zarejestrowanych usunięć."
+  },
+  "behaviorTitle": {
+    "message": "Zachowanie"
+  },
+  "optEnabled": {
+    "message": "Rozszerzenie aktywne"
+  },
+  "optRealtime": {
+    "message": "Czas rzeczywisty (adaptacyjny)"
+  },
+  "optRealtimeHint": {
+    "message": "Usuwa przy każdej odwiedzonej stronie"
+  },
+  "optPeriodic": {
+    "message": "Okresowe skanowanie"
+  },
+  "optPeriodicHint": {
+    "message": "Czyści historię w regularnych odstępach"
+  },
+  "optInterval": {
+    "message": "Interwał"
+  },
+  "unitMin": {
+    "message": "min"
+  },
+  "optDryRun": {
+    "message": "Symulacja (dry-run)"
+  },
+  "optDryRunHint": {
+    "message": "Analizuje i rejestruje bez usuwania czegokolwiek"
+  },
+  "optNotifications": {
+    "message": "Powiadomienia pulpitu"
+  },
+  "optCaseSensitive": {
+    "message": "Uwzględniaj wielkość liter"
+  },
+  "importExportTitle": {
+    "message": "Import / Eksport"
+  },
+  "exportBtn": {
+    "message": "Eksportuj (JSON)"
+  },
+  "importBtn": {
+    "message": "Importuj (JSON)"
+  },
+  "legacySummary": {
+    "message": "Importuj listę wzorców"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# linie zaczynające się od # są ignorowane"
+  },
+  "legacyReplace": {
+    "message": "Zastąp istniejące reguły"
+  },
+  "legacyBtn": {
+    "message": "Importuj te wzorce"
+  },
+  "footer": {
+    "message": "Bez szumu — Twoje dane nigdy nie opuszczają przeglądarki."
+  },
+  "ruleValuePlaceholder": {
+    "message": "np. facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "notatka"
+  },
+  "deleteRuleTitle": {
+    "message": "Usuń regułę"
+  },
+  "testMatch": {
+    "message": "🗑️ Dopasowanie — ten URL zostałby usunięty. Reguła(y): "
+  },
+  "testNoMatch": {
+    "message": "✓ Brak dopasowania — ten URL zostałby zachowany."
+  },
+  "lastPrefix": {
+    "message": "Ostatnie: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[symulacja] "
+  },
+  "cfgImported": {
+    "message": "Konfiguracja zaimportowana."
+  },
+  "invalidFile": {
+    "message": "Nieprawidłowy plik: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "Nie wykryto wzorca."
+  },
+  "patternsImported": {
+    "message": "Zaimportowano $count$ wzorców.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "Zawiera"
+  },
+  "ruleType_domain": {
+    "message": "Domena"
+  },
+  "ruleType_wildcard": {
+    "message": "Symbol wieloznaczny (*)"
+  },
+  "ruleType_regex": {
+    "message": "Wyrażenie regularne"
+  },
+  "notifTitle": {
+    "message": "Bez szumu"
+  },
+  "notifDeleted": {
+    "message": "Usunięto: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "Usunięto $count$ wpisów.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "Media społecznościowe"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "zaimportowano"
+  },
+  "cmdCleanNow": {
+    "message": "Wyczyść historię teraz"
+  },
+  "ctxAddSite": {
+    "message": "Dodaj tę witrynę do Bez szumu"
+  },
+  "ctxAdded": {
+    "message": "Dodano regułę dla $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "Usuń"
+  },
+  "cancel": {
+    "message": "Anuluj"
+  },
+  "cancelled": {
+    "message": "Anulowano"
+  },
+  "confirmMass": {
+    "message": "$count$ wpisów zostanie trwale usuniętych. Kontynuować?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "Skanowanie… $count$ stron",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "Usuwanie… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "Witaj w Bez szumu 🧹"
+  },
+  "welcomeBody": {
+    "message": "Bez szumu usuwa powtarzający się szum z historii, abyś mógł znów znaleźć to, czego szukasz. Zacznij od skanowania historii lub dodaj reguły ręcznie."
+  },
+  "welcomeDismiss": {
+    "message": "Zamknij"
+  },
+  "filterPlaceholder": {
+    "message": "Filtruj reguły…"
+  },
+  "enableAll": {
+    "message": "Włącz wszystkie"
+  },
+  "disableAll": {
+    "message": "Wyłącz wszystkie"
+  },
+  "suggestionsTitle": {
+    "message": "Szum historii"
+  },
+  "analyzeBtn": {
+    "message": "Przeskanuj moją historię"
+  },
+  "suggestEmpty": {
+    "message": "Uruchom skanowanie, aby znaleźć domeny, które najbardziej zaśmiecają Twoją historię."
+  },
+  "suggestNone": {
+    "message": "Nie ma już nic do wyczyszczenia — Twoje reguły już pokrywają szum."
+  },
+  "suggestScan": {
+    "message": "Skanowanie… $count$ domen",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "Przeskanowano $count$ stron",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ wpisów",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "Dodaj regułę"
+  },
+  "ruleKindBlock": {
+    "message": "Usuń"
+  },
+  "ruleKindAllow": {
+    "message": "Zachowaj"
+  },
+  "ruleModeLabel": {
+    "message": "Kiedy:"
+  },
+  "mode_both": {
+    "message": "Zawsze"
+  },
+  "mode_realtime": {
+    "message": "Tylko czas rzeczywisty"
+  },
+  "mode_periodic": {
+    "message": "Tylko skanowania"
+  },
+  "ruleAgeLabel": {
+    "message": "starsze niż"
+  },
+  "unitDays": {
+    "message": "dni"
+  },
+  "unitEntries": {
+    "message": "wpisów"
+  },
+  "testRuleBtn": {
+    "message": "Policz dopasowania w historii"
+  },
+  "testRuleResult": {
+    "message": "$count$ w historii",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "W górę"
+  },
+  "moveDown": {
+    "message": "W dół"
+  },
+  "ruleInvalid": {
+    "message": "Nieprawidłowy wzorzec."
+  },
+  "ruleUnsafe": {
+    "message": "Ten wzorzec może być zbyt wolny i zostanie pominięty."
+  },
+  "testKept": {
+    "message": "🛡 Zachowano — reguła Zachowaj chroni ten URL."
+  },
+  "confirmManualLabel": {
+    "message": "Pytaj przed ręcznym czyszczeniem"
+  },
+  "massThresholdLabel": {
+    "message": "Ostrzegaj powyżej"
+  },
+  "notifDetailLabel": {
+    "message": "Treść powiadomienia"
+  },
+  "notifDetail_count": {
+    "message": "Tylko liczba"
+  },
+  "notifDetail_host": {
+    "message": "Nazwa domeny"
+  },
+  "logDetailLabel": {
+    "message": "Dziennik historii"
+  },
+  "logDetail_host": {
+    "message": "Tylko domena"
+  },
+  "logDetail_full": {
+    "message": "Pełny URL"
+  },
+  "logDetail_off": {
+    "message": "Wyłączony"
+  },
+  "importCapped": {
+    "message": "Zaimportowano $count$ reguł, zignorowano $dropped$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "Menu kontekstowe „Dodaj tę witrynę”"
+  },
+  "scanTruncated": {
+    "message": "Bardzo duża historia — skan częściowy."
+  },
+  "importPreviewMsg": {
+    "message": "$blocks$ reguł Usuń, $allows$ reguł Zachowaj, $bad$ nieprawidłowych lub zbyt wolnych.",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "Scal"
+  },
+  "importReplace": {
+    "message": "Zastąp wszystko"
+  }
+}

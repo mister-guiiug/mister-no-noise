@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "ノイズなし"
+  },
+  "extShortName": {
+    "message": "ノイズなし"
+  },
+  "extDescription": {
+    "message": "閲覧履歴から繰り返しのノイズを削除します — 選んだサイトを、自分のルールで。リアルタイム、定期、または手動。すべてローカル。"
+  },
+  "actionTitle": {
+    "message": "ノイズなし"
+  },
+  "appSubtitle": {
+    "message": "履歴クリーナー"
+  },
+  "masterTitle": {
+    "message": "拡張機能の有効 / 無効"
+  },
+  "bannerDryRun": {
+    "message": "シミュレーションモード — 実際には削除しません"
+  },
+  "cleanNow": {
+    "message": "今すぐクリーン"
+  },
+  "preview": {
+    "message": "プレビュー"
+  },
+  "toggleRealtime": {
+    "message": "リアルタイム（適応型）"
+  },
+  "togglePeriodic": {
+    "message": "定期スキャン"
+  },
+  "toggleDryRun": {
+    "message": "シミュレーション（dry-run）"
+  },
+  "statTotal": {
+    "message": "合計削除数"
+  },
+  "statRules": {
+    "message": "有効なルール"
+  },
+  "openOptions": {
+    "message": "ルールと設定を管理 →"
+  },
+  "cleaning": {
+    "message": "クリーン中…"
+  },
+  "analyzing": {
+    "message": "分析中…"
+  },
+  "resDeleted": {
+    "message": "✓ $count$ 件のエントリを削除しました。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "$count$ 件のエントリが削除されます。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "一致するエントリはありません。"
+  },
+  "err": {
+    "message": "エラー: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "前回のクリーン: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "まだクリーンを実行していません"
+  },
+  "optTagline": {
+    "message": "Firefox 履歴クリーナー — 適応型 & 設定可能"
+  },
+  "rulesTitle": {
+    "message": "クリーンルール"
+  },
+  "addRule": {
+    "message": "+ ルールを追加"
+  },
+  "rulesHint": {
+    "message": "履歴の URL は、有効なルールに 1 つ以上一致すると削除されます。"
+  },
+  "colType": {
+    "message": "種類"
+  },
+  "colValue": {
+    "message": "値"
+  },
+  "colNote": {
+    "message": "メモ"
+  },
+  "noRules": {
+    "message": "ルールがありません。追加するか、設定をインポートしてください。"
+  },
+  "testTitle": {
+    "message": "URL をテスト"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "ログと統計"
+  },
+  "reset": {
+    "message": "リセット"
+  },
+  "logColWhen": {
+    "message": "日時"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "ルール"
+  },
+  "noLog": {
+    "message": "削除の記録はありません。"
+  },
+  "behaviorTitle": {
+    "message": "動作"
+  },
+  "optEnabled": {
+    "message": "拡張機能を有効"
+  },
+  "optRealtime": {
+    "message": "リアルタイム（適応型）"
+  },
+  "optRealtimeHint": {
+    "message": "訪問したページごとに削除"
+  },
+  "optPeriodic": {
+    "message": "定期スキャン"
+  },
+  "optPeriodicHint": {
+    "message": "一定間隔で履歴をクリーン"
+  },
+  "optInterval": {
+    "message": "間隔"
+  },
+  "unitMin": {
+    "message": "分"
+  },
+  "optDryRun": {
+    "message": "シミュレーション（dry-run）"
+  },
+  "optDryRunHint": {
+    "message": "削除せずに分析してログに記録"
+  },
+  "optNotifications": {
+    "message": "デスクトップ通知"
+  },
+  "optCaseSensitive": {
+    "message": "大文字と小文字を区別"
+  },
+  "importExportTitle": {
+    "message": "インポート / エクスポート"
+  },
+  "exportBtn": {
+    "message": "エクスポート（JSON）"
+  },
+  "importBtn": {
+    "message": "インポート（JSON）"
+  },
+  "legacySummary": {
+    "message": "パターンリストをインポート"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# # で始まる行は無視されます"
+  },
+  "legacyReplace": {
+    "message": "既存のルールを置き換える"
+  },
+  "legacyBtn": {
+    "message": "これらのパターンをインポート"
+  },
+  "footer": {
+    "message": "ノイズなし — データはブラウザから出ません。"
+  },
+  "ruleValuePlaceholder": {
+    "message": "例: facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "メモ"
+  },
+  "deleteRuleTitle": {
+    "message": "ルールを削除"
+  },
+  "testMatch": {
+    "message": "🗑️ 一致 — この URL は削除されます。ルール: "
+  },
+  "testNoMatch": {
+    "message": "✓ 不一致 — この URL は保持されます。"
+  },
+  "lastPrefix": {
+    "message": "前回: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[シミュレーション] "
+  },
+  "cfgImported": {
+    "message": "設定をインポートしました。"
+  },
+  "invalidFile": {
+    "message": "無効なファイル: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "パターンが検出されませんでした。"
+  },
+  "patternsImported": {
+    "message": "$count$ 件のパターンをインポートしました。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "含む"
+  },
+  "ruleType_domain": {
+    "message": "ドメイン"
+  },
+  "ruleType_wildcard": {
+    "message": "ワイルドカード (*)"
+  },
+  "ruleType_regex": {
+    "message": "正規表現"
+  },
+  "notifTitle": {
+    "message": "ノイズなし"
+  },
+  "notifDeleted": {
+    "message": "削除: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "$count$ 件のエントリを削除しました。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "ソーシャルメディア"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "インポート済み"
+  },
+  "cmdCleanNow": {
+    "message": "今すぐ履歴をクリーン"
+  },
+  "ctxAddSite": {
+    "message": "このサイトをノイズなしに追加"
+  },
+  "ctxAdded": {
+    "message": "$host$ のルールを追加しました",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "削除"
+  },
+  "cancel": {
+    "message": "キャンセル"
+  },
+  "cancelled": {
+    "message": "キャンセルしました"
+  },
+  "confirmMass": {
+    "message": "$count$ 件のエントリが完全に削除されます。続行しますか？",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "スキャン中… $count$ ページ",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "削除中… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "ノイズなしへようこそ 🧹"
+  },
+  "welcomeBody": {
+    "message": "ノイズなしは履歴から繰り返しのノイズを取り除き、探しものを見つけやすくします。履歴のスキャンから始めるか、ルールを手動で追加してください。"
+  },
+  "welcomeDismiss": {
+    "message": "閉じる"
+  },
+  "filterPlaceholder": {
+    "message": "ルールを絞り込み…"
+  },
+  "enableAll": {
+    "message": "すべて有効"
+  },
+  "disableAll": {
+    "message": "すべて無効"
+  },
+  "suggestionsTitle": {
+    "message": "履歴のノイズ"
+  },
+  "analyzeBtn": {
+    "message": "履歴をスキャン"
+  },
+  "suggestEmpty": {
+    "message": "スキャンを実行して、履歴を最も散らかしているドメインを見つけます。"
+  },
+  "suggestNone": {
+    "message": "クリーン対象はもうありません — ルールがノイズをカバーしています。"
+  },
+  "suggestScan": {
+    "message": "スキャン中… $count$ ドメイン",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "$count$ ページをスキャンしました",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ 件",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "ルールを追加"
+  },
+  "ruleKindBlock": {
+    "message": "削除"
+  },
+  "ruleKindAllow": {
+    "message": "保持"
+  },
+  "ruleModeLabel": {
+    "message": "タイミング:"
+  },
+  "mode_both": {
+    "message": "常に"
+  },
+  "mode_realtime": {
+    "message": "リアルタイムのみ"
+  },
+  "mode_periodic": {
+    "message": "スキャンのみ"
+  },
+  "ruleAgeLabel": {
+    "message": "これより古い"
+  },
+  "unitDays": {
+    "message": "日"
+  },
+  "unitEntries": {
+    "message": "件"
+  },
+  "testRuleBtn": {
+    "message": "履歴内の一致数を数える"
+  },
+  "testRuleResult": {
+    "message": "履歴に $count$ 件",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "上へ"
+  },
+  "moveDown": {
+    "message": "下へ"
+  },
+  "ruleInvalid": {
+    "message": "無効なパターンです。"
+  },
+  "ruleUnsafe": {
+    "message": "このパターンは遅すぎる可能性があるためスキップされます。"
+  },
+  "testKept": {
+    "message": "🛡 保持 — 保持ルールがこの URL を保護しています。"
+  },
+  "confirmManualLabel": {
+    "message": "手動クリーンの前に確認"
+  },
+  "massThresholdLabel": {
+    "message": "この数を超えたら警告"
+  },
+  "notifDetailLabel": {
+    "message": "通知の内容"
+  },
+  "notifDetail_count": {
+    "message": "件数のみ"
+  },
+  "notifDetail_host": {
+    "message": "ドメイン名"
+  },
+  "logDetailLabel": {
+    "message": "履歴ログ"
+  },
+  "logDetail_host": {
+    "message": "ドメインのみ"
+  },
+  "logDetail_full": {
+    "message": "完全な URL"
+  },
+  "logDetail_off": {
+    "message": "無効"
+  },
+  "importCapped": {
+    "message": "$count$ 件のルールをインポート、$dropped$ 件を無視しました。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "右クリックメニュー「このサイトを追加」"
+  },
+  "scanTruncated": {
+    "message": "履歴が非常に大きいため — 部分スキャンです。"
+  },
+  "importPreviewMsg": {
+    "message": "削除ルール $blocks$ 件、保持ルール $allows$ 件、無効または遅すぎる $bad$ 件。",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "マージ"
+  },
+  "importReplace": {
+    "message": "すべて置き換え"
+  }
+}

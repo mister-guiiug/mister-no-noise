@@ -10,16 +10,39 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/mister-guiiug/mister-no-noise/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/mister-guiiug/mister-no-noise/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/mister-guiiug/mister-no-noise/releases/latest"><img alt="Dernière version" src="https://img.shields.io/github/v/release/mister-guiiug/mister-no-noise?label=version&color=7c4dff"></a>
   <img alt="Firefox 140+" src="https://img.shields.io/badge/Firefox-140%2B-FF7139?logo=firefoxbrowser&logoColor=white">
   <img alt="Firefox pour Android 142+" src="https://img.shields.io/badge/Android-142%2B-FF7139?logo=firefoxbrowser&logoColor=white">
-  <img alt="8 langues" src="https://img.shields.io/badge/langues-8-d6336c">
+  <img alt="15 langues" src="https://img.shields.io/badge/langues-15-d6336c">
   <img alt="Aucune donnée collectée" src="https://img.shields.io/badge/donn%C3%A9es%20collect%C3%A9es-aucune-2ea44f">
-  <a href="LICENSE"><img alt="Licence MIT" src="https://img.shields.io/badge/licence-MIT-blue"></a>
+  <a href="LICENSE"><img alt="Licence MIT" src="https://img.shields.io/github/license/mister-guiiug/mister-no-noise?label=licence&color=blue"></a>
 </p>
 
 <p align="center">
-  <a href="README.md">Read in English</a>
+  <a href="https://github.com/mister-guiiug/mister-no-noise/releases/latest">Télécharger le .xpi signé</a>
+  · <a href="README.md">Read in English</a>
+  · <a href="https://github.com/mister-guiiug/mister-no-prices">Extension sœur : Sans prix</a>
 </p>
+
+<table>
+  <tr>
+    <td><img src="amo/captures/1-popup.png" alt="Popup : interrupteur, nettoyer, modes temps réel et périodique"></td>
+    <td><img src="amo/captures/2-regles.png" alt="Règles Supprimer et Conserver dans les options"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Le réglage, à un clic</sub></td>
+    <td align="center"><sub>Règles Supprimer et Conserver</sub></td>
+  </tr>
+  <tr>
+    <td><img src="amo/captures/3-bruit.png" alt="Analyseur de bruit de l’historique"></td>
+    <td><img src="amo/captures/4-apercu.png" alt="Aperçu en mode simulation"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Analyseur de bruit</sub></td>
+    <td align="center"><sub>Aperçu en simulation</sub></td>
+  </tr>
+</table>
 
 ## Pourquoi
 
@@ -55,29 +78,22 @@ votre machine.
   avertissement au-delà d’un seuil configurable.
 - **Journal prudent** : noms de domaine seulement par défaut (URL complète ou
   désactivé en option) ; notifications optionnelles.
-- **Testeur d’URL**, statistiques, import/export JSON (aperçu fusion / remplacement)
-  et import d’une liste de motifs en texte.
-- **Huit langues**, selon la locale du navigateur. 100 % local.
+- **Testeur d’URL**, statistiques, import/export JSON (aperçu fusion /
+  remplacement) et import d’une liste de motifs en texte.
+- **Quinze langues**, sur ordinateur et Android. 100 % local.
 
-## Installation (développement)
+## Installation
 
 Firefox 140 ou plus récent sur ordinateur, Firefox pour Android 142 ou plus.
 
-| Méthode | Comment |
-| ------- | ------- |
-| **Temporaire, depuis les sources** | `about:debugging#/runtime/this-firefox` → *Charger un module temporaire…* → choisir `manifest.json` |
-| **Avec web-ext** | `npm install` puis `npm start` |
+| Méthode | Durée | Comment |
+| ------- | ----- | ------- |
+| **Fichier signé d’une release** (recommandé) | durable, mises à jour auto une fois listée | ouvrir le `.xpi` de la [dernière release](https://github.com/mister-guiiug/mister-no-noise/releases/latest) dans Firefox |
+| **Temporaire, depuis les sources** | jusqu’au redémarrage | `about:debugging#/runtime/this-firefox` → *Charger un module temporaire…* → `manifest.json` |
+| **Avec web-ext** | jusqu’à la fermeture de la fenêtre | `npm install` puis `npm start` |
 
-```bash
-npm install
-npm test            # tests unitaires
-npm run lint        # web-ext lint (Mozilla)
-npm run lint:js     # ESLint
-npm run build       # .zip dans web-ext-artifacts/
-```
-
-La publication sur Modules Firefox viendra plus tard — le dépôt est préparé
-(`mister-no-noise@mister-guiiug`) mais pas encore soumis.
+Modules Firefox (canal listed) — dossier [`amo/`](amo/) prêt, soumission au go.
+Id : `mister-no-noise@mister-guiiug`.
 
 ## Vie privée
 
@@ -85,27 +101,65 @@ La publication sur Modules Firefox viendra plus tard — le dépôt est prépar�
 (`data_collection_permissions: none`). Pas d’analytique, pas de compte, pas de
 publicité.
 
-Règles, réglages, journal et statistiques restent dans le navigateur
-(`storage.local`). Les notifications bureau ne sont demandées que si vous les
-activez. Le menu clic droit peut être désactivé dans les options.
+- Règles, réglages, journal et statistiques restent dans Firefox
+  (`storage.local`).
+- L’extension **n’émet aucune requête réseau** qui lui soit propre.
+- Les notifications bureau ne sont demandées que si vous les activez ; le menu
+  clic droit peut être désactivé.
+- Le journal stocke **les noms de domaine seulement** par défaut.
 
-## Permissions
+## Fonctionnement
 
-| Permission | Rôle |
-| ---------- | ---- |
-| `history` | Lire et supprimer des entrées d’historique |
-| `storage` | Stocker règles, réglages et statistiques |
-| `alarms` | Déclencher le balayage périodique |
-| `contextMenus` | Entrée « Ajouter ce site » (désactivable) |
-| `notifications` | Signaler les nettoyages (**optionnel**) |
+Les règles vivent dans le stockage local. La page d’arrière-plan compare chaque
+URL visitée (et chaque fenêtre de balayage) aux motifs Supprimer / Conserver
+compilés, avec une garde ReDoS sur les regex utilisateur. Les balayages
+parcourent l’historique par fenêtres temporelles et suppriment par lots ; un
+aperçu renvoie un jeton de courte durée pour que « Nettoyer » ne rescane pas.
 
 ## Langues
 
-Anglais (défaut), français, espagnol, allemand, italien, portugais (Brésil),
-russe, chinois simplifié. Pour en ajouter une : copier
-`_locales/en/messages.json` vers `_locales/<code>/messages.json` et traduire
-les valeurs `message`.
+Anglais, français, espagnol, allemand, italien, portugais, néerlandais,
+polonais, chinois simplifié, japonais, arabe (droite-à-gauche), coréen, turc,
+hindi et russe. L’extension suit la langue de Firefox.
+
+Les traductions hors français et anglais n’ont pas encore été relues par des
+locuteurs natifs. Les corrections sont bienvenues : un fichier par langue,
+[`_locales/<langue>/messages.json`](_locales).
+
+## Contribuer
+
+Issues et pull requests bienvenues. Pour ajouter une langue : copier
+`_locales/en/messages.json` et traduire les `message` (placeholders inchangés).
+`npm test` vérifie que toutes les locales ont les mêmes clés.
+
+## Développement
+
+Node.js 22 ou plus récent.
+
+```bash
+npm install
+npm start            # Firefox avec l’extension, rechargement à chaque changement
+npm test
+npm run lint
+npm run lint:js
+npm run build
+```
+
+## Versions
+
+Incrémenter `version` dans `manifest.json` et `package.json`, fusionner dans
+`main`. La signature pour une release GitHub utilise le canal AMO unlisted
+tant que la publication listed n’est pas approuvée. Textes et captures :
+[`amo/`](amo/) — détail dans [docs/AMO.md](docs/AMO.md).
+
+## Limites connues
+
+- L’historique déjà purgé par les politiques de rétention de Firefox est perdu.
+- Un historique très volumineux peut n’être scanné qu’en partie ; l’UI le dit.
+- Les regex hostiles sont ignorées par la garde ReDoS.
+- Le support Chrome (`manifest.chrome.json`) est expérimental.
 
 ## Licence
 
-[MIT](LICENSE) — © GuiiuG
+[MIT](LICENSE). Projet indépendant, non affilié à Mozilla au-delà de la revue
+habituelle des modules.

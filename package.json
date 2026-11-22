@@ -1,6 +1,6 @@
 {
   "name": "mister-no-noise",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Firefox extension that removes recurring noise from your browsing history — by your rules, entirely local.",
   "private": true,
   "license": "MIT",
@@ -11,7 +11,8 @@
     "lint:js": "eslint .",
     "format": "prettier --write .",
     "test": "node --test",
-    "build": "web-ext build --config web-ext-config.mjs --overwrite-dest"
+    "build": "web-ext build --config web-ext-config.mjs --overwrite-dest",
+    "captures": "node scripts/captures-amo.mjs"
   },
   "devDependencies": {
     "eslint": "^9.13.0",

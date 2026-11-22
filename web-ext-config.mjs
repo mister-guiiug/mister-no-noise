@@ -8,6 +8,12 @@ export default {
     'web-ext-artifacts/**',
     'test',
     'test/**',
+    'scripts',
+    'scripts/**',
+    'amo',
+    'amo/**',
+    'docs',
+    'docs/**',
     'package.json',
     'package-lock.json',
     'web-ext-config.mjs',
@@ -31,5 +37,6 @@ export default {
   ],
   build: {
     overwriteDest: true,
+    filename: 'mister-no-noise-{version}.zip',
   },
 };

@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "Zonder ruis"
+  },
+  "extShortName": {
+    "message": "Zonder ruis"
+  },
+  "extDescription": {
+    "message": "Verwijdert terugkerende ruis uit je browsegeschiedenis — sites die jij kiest, volgens jouw regels. Realtime, periodiek of handmatig. Volledig lokaal."
+  },
+  "actionTitle": {
+    "message": "Zonder ruis"
+  },
+  "appSubtitle": {
+    "message": "Geschiedenisopschoner"
+  },
+  "masterTitle": {
+    "message": "Extensie in- / uitschakelen"
+  },
+  "bannerDryRun": {
+    "message": "Simulatiemodus — geen echte verwijdering"
+  },
+  "cleanNow": {
+    "message": "Nu opschonen"
+  },
+  "preview": {
+    "message": "Voorbeeld"
+  },
+  "toggleRealtime": {
+    "message": "Realtime (adaptief)"
+  },
+  "togglePeriodic": {
+    "message": "Periodieke scan"
+  },
+  "toggleDryRun": {
+    "message": "Simulatie (dry-run)"
+  },
+  "statTotal": {
+    "message": "in totaal verwijderd"
+  },
+  "statRules": {
+    "message": "actieve regels"
+  },
+  "openOptions": {
+    "message": "Regels en instellingen beheren →"
+  },
+  "cleaning": {
+    "message": "Opschonen…"
+  },
+  "analyzing": {
+    "message": "Analyseren…"
+  },
+  "resDeleted": {
+    "message": "✓ $count$ vermeldingen verwijderd.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "$count$ vermeldingen zouden worden verwijderd.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "Geen overeenkomende vermelding."
+  },
+  "err": {
+    "message": "Fout: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "Laatste opschoning: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "Nog geen opschoning uitgevoerd"
+  },
+  "optTagline": {
+    "message": "Firefox-geschiedenisopschoner — adaptief & configureerbaar"
+  },
+  "rulesTitle": {
+    "message": "Opschoningsregels"
+  },
+  "addRule": {
+    "message": "+ Regel toevoegen"
+  },
+  "rulesHint": {
+    "message": "Een geschiedenis-URL wordt verwijderd als deze overeenkomt met minstens één actieve regel."
+  },
+  "colType": {
+    "message": "Type"
+  },
+  "colValue": {
+    "message": "Waarde"
+  },
+  "colNote": {
+    "message": "Notitie"
+  },
+  "noRules": {
+    "message": "Nog geen regels. Voeg er een toe of importeer een configuratie."
+  },
+  "testTitle": {
+    "message": "URL testen"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "Logboek & statistieken"
+  },
+  "reset": {
+    "message": "Resetten"
+  },
+  "logColWhen": {
+    "message": "Wanneer"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "Regel"
+  },
+  "noLog": {
+    "message": "Geen verwijdering geregistreerd."
+  },
+  "behaviorTitle": {
+    "message": "Gedrag"
+  },
+  "optEnabled": {
+    "message": "Extensie actief"
+  },
+  "optRealtime": {
+    "message": "Realtime (adaptief)"
+  },
+  "optRealtimeHint": {
+    "message": "Verwijdert bij elke bezochte pagina"
+  },
+  "optPeriodic": {
+    "message": "Periodieke scan"
+  },
+  "optPeriodicHint": {
+    "message": "Schoont de geschiedenis op vaste intervallen op"
+  },
+  "optInterval": {
+    "message": "Interval"
+  },
+  "unitMin": {
+    "message": "min"
+  },
+  "optDryRun": {
+    "message": "Simulatie (dry-run)"
+  },
+  "optDryRunHint": {
+    "message": "Analyseert en logt zonder iets te verwijderen"
+  },
+  "optNotifications": {
+    "message": "Bureaubladmeldingen"
+  },
+  "optCaseSensitive": {
+    "message": "Hoofdlettergevoelig"
+  },
+  "importExportTitle": {
+    "message": "Importeren / Exporteren"
+  },
+  "exportBtn": {
+    "message": "Exporteren (JSON)"
+  },
+  "importBtn": {
+    "message": "Importeren (JSON)"
+  },
+  "legacySummary": {
+    "message": "Patroonlijst importeren"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# regels die met # beginnen worden genegeerd"
+  },
+  "legacyReplace": {
+    "message": "Bestaande regels vervangen"
+  },
+  "legacyBtn": {
+    "message": "Deze patronen importeren"
+  },
+  "footer": {
+    "message": "Zonder ruis — je gegevens verlaten nooit je browser."
+  },
+  "ruleValuePlaceholder": {
+    "message": "bijv. facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "notitie"
+  },
+  "deleteRuleTitle": {
+    "message": "Regel verwijderen"
+  },
+  "testMatch": {
+    "message": "🗑️ Overeenkomst — deze URL zou worden verwijderd. Regel(s): "
+  },
+  "testNoMatch": {
+    "message": "✓ Geen overeenkomst — deze URL zou behouden blijven."
+  },
+  "lastPrefix": {
+    "message": "Laatste: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[simulatie] "
+  },
+  "cfgImported": {
+    "message": "Configuratie geïmporteerd."
+  },
+  "invalidFile": {
+    "message": "Ongeldig bestand: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "Geen patroon gedetecteerd."
+  },
+  "patternsImported": {
+    "message": "$count$ patroon/patronen geïmporteerd.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "Bevat"
+  },
+  "ruleType_domain": {
+    "message": "Domein"
+  },
+  "ruleType_wildcard": {
+    "message": "Wildcard (*)"
+  },
+  "ruleType_regex": {
+    "message": "Reguliere expressie"
+  },
+  "notifTitle": {
+    "message": "Zonder ruis"
+  },
+  "notifDeleted": {
+    "message": "Verwijderd: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "$count$ vermeldingen verwijderd.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "Sociale media"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "geïmporteerd"
+  },
+  "cmdCleanNow": {
+    "message": "Geschiedenis nu opschonen"
+  },
+  "ctxAddSite": {
+    "message": "Deze site toevoegen aan Zonder ruis"
+  },
+  "ctxAdded": {
+    "message": "Regel toegevoegd voor $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "Verwijderen"
+  },
+  "cancel": {
+    "message": "Annuleren"
+  },
+  "cancelled": {
+    "message": "Geannuleerd"
+  },
+  "confirmMass": {
+    "message": "$count$ vermeldingen worden permanent verwijderd. Doorgaan?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "Scannen… $count$ pagina's",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "Verwijderen… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "Welkom bij Zonder ruis 🧹"
+  },
+  "welcomeBody": {
+    "message": "Zonder ruis verwijdert de terugkerende ruis uit je geschiedenis zodat je dingen weer kunt vinden. Begin met het scannen van je geschiedenis, of voeg handmatig regels toe."
+  },
+  "welcomeDismiss": {
+    "message": "Sluiten"
+  },
+  "filterPlaceholder": {
+    "message": "Regels filteren…"
+  },
+  "enableAll": {
+    "message": "Alles inschakelen"
+  },
+  "disableAll": {
+    "message": "Alles uitschakelen"
+  },
+  "suggestionsTitle": {
+    "message": "Geschiedenisruis"
+  },
+  "analyzeBtn": {
+    "message": "Mijn geschiedenis scannen"
+  },
+  "suggestEmpty": {
+    "message": "Voer een scan uit om de domeinen te vinden die je geschiedenis het meest vervuilen."
+  },
+  "suggestNone": {
+    "message": "Niets meer op te schonen — je regels dekken de ruis al."
+  },
+  "suggestScan": {
+    "message": "Scannen… $count$ domeinen",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "$count$ pagina's gescand",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ vermeldingen",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "Regel toevoegen"
+  },
+  "ruleKindBlock": {
+    "message": "Verwijderen"
+  },
+  "ruleKindAllow": {
+    "message": "Behouden"
+  },
+  "ruleModeLabel": {
+    "message": "Wanneer:"
+  },
+  "mode_both": {
+    "message": "Altijd"
+  },
+  "mode_realtime": {
+    "message": "Alleen realtime"
+  },
+  "mode_periodic": {
+    "message": "Alleen scans"
+  },
+  "ruleAgeLabel": {
+    "message": "ouder dan"
+  },
+  "unitDays": {
+    "message": "dagen"
+  },
+  "unitEntries": {
+    "message": "vermeldingen"
+  },
+  "testRuleBtn": {
+    "message": "Overeenkomsten in geschiedenis tellen"
+  },
+  "testRuleResult": {
+    "message": "$count$ in geschiedenis",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "Omhoog"
+  },
+  "moveDown": {
+    "message": "Omlaag"
+  },
+  "ruleInvalid": {
+    "message": "Ongeldig patroon."
+  },
+  "ruleUnsafe": {
+    "message": "Dit patroon kan te traag zijn en wordt overgeslagen."
+  },
+  "testKept": {
+    "message": "🛡 Behouden — een Behouden-regel beschermt deze URL."
+  },
+  "confirmManualLabel": {
+    "message": "Vragen vóór handmatige opschoning"
+  },
+  "massThresholdLabel": {
+    "message": "Waarschuwen boven"
+  },
+  "notifDetailLabel": {
+    "message": "Inhoud van melding"
+  },
+  "notifDetail_count": {
+    "message": "Alleen aantal"
+  },
+  "notifDetail_host": {
+    "message": "Domeinnaam"
+  },
+  "logDetailLabel": {
+    "message": "Geschiedenislogboek"
+  },
+  "logDetail_host": {
+    "message": "Alleen domein"
+  },
+  "logDetail_full": {
+    "message": "Volledige URL"
+  },
+  "logDetail_off": {
+    "message": "Uitgeschakeld"
+  },
+  "importCapped": {
+    "message": "$count$ regels geïmporteerd, $dropped$ genegeerd.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "Contextmenu \"Deze site toevoegen\""
+  },
+  "scanTruncated": {
+    "message": "Zeer grote geschiedenis — gedeeltelijke scan."
+  },
+  "importPreviewMsg": {
+    "message": "$blocks$ Verwijder-regel(s), $allows$ Behouden-regel(s), $bad$ ongeldig of te traag.",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "Samenvoegen"
+  },
+  "importReplace": {
+    "message": "Alles vervangen"
+  }
+}

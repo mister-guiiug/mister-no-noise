@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "बिना शोर"
+  },
+  "extShortName": {
+    "message": "बिना शोर"
+  },
+  "extDescription": {
+    "message": "आपके ब्राउज़िंग इतिहास से दोहराए जाने वाला शोर हटाता है — आपके चुने साइट, आपके नियमों से। रियल-टाइम, आवधिक या मैन्युअल। पूरी तरह स्थानीय।"
+  },
+  "actionTitle": {
+    "message": "बिना शोर"
+  },
+  "appSubtitle": {
+    "message": "इतिहास क्लीनर"
+  },
+  "masterTitle": {
+    "message": "एक्सटेंशन चालू / बंद करें"
+  },
+  "bannerDryRun": {
+    "message": "सिमुलेशन मोड — कोई वास्तविक हटाना नहीं"
+  },
+  "cleanNow": {
+    "message": "अभी साफ़ करें"
+  },
+  "preview": {
+    "message": "पूर्वावलोकन"
+  },
+  "toggleRealtime": {
+    "message": "रियल-टाइम (अनुकूलनशील)"
+  },
+  "togglePeriodic": {
+    "message": "आवधिक स्कैन"
+  },
+  "toggleDryRun": {
+    "message": "सिमुलेशन (dry-run)"
+  },
+  "statTotal": {
+    "message": "कुल हटाए गए"
+  },
+  "statRules": {
+    "message": "सक्रिय नियम"
+  },
+  "openOptions": {
+    "message": "नियम और सेटिंग प्रबंधित करें →"
+  },
+  "cleaning": {
+    "message": "साफ़ हो रहा है…"
+  },
+  "analyzing": {
+    "message": "विश्लेषण हो रहा है…"
+  },
+  "resDeleted": {
+    "message": "✓ $count$ प्रविष्टियाँ हटाई गईं।",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "$count$ प्रविष्टियाँ हटाई जाएँगी।",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "कोई मेल खाती प्रविष्टि नहीं।"
+  },
+  "err": {
+    "message": "त्रुटि: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "अंतिम सफ़ाई: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "अभी तक कोई सफ़ाई नहीं की गई"
+  },
+  "optTagline": {
+    "message": "Firefox इतिहास क्लीनर — अनुकूलनशील और कॉन्फ़िगर करने योग्य"
+  },
+  "rulesTitle": {
+    "message": "सफ़ाई नियम"
+  },
+  "addRule": {
+    "message": "+ नियम जोड़ें"
+  },
+  "rulesHint": {
+    "message": "इतिहास का URL हटाया जाता है यदि वह कम से कम एक सक्रिय नियम से मेल खाता है।"
+  },
+  "colType": {
+    "message": "प्रकार"
+  },
+  "colValue": {
+    "message": "मान"
+  },
+  "colNote": {
+    "message": "नोट"
+  },
+  "noRules": {
+    "message": "अभी कोई नियम नहीं। एक जोड़ें या कॉन्फ़िगरेशन आयात करें।"
+  },
+  "testTitle": {
+    "message": "URL जाँचें"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "लॉग और आँकड़े"
+  },
+  "reset": {
+    "message": "रीसेट"
+  },
+  "logColWhen": {
+    "message": "कब"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "नियम"
+  },
+  "noLog": {
+    "message": "कोई हटाना दर्ज नहीं।"
+  },
+  "behaviorTitle": {
+    "message": "व्यवहार"
+  },
+  "optEnabled": {
+    "message": "एक्सटेंशन सक्रिय"
+  },
+  "optRealtime": {
+    "message": "रियल-टाइम (अनुकूलनशील)"
+  },
+  "optRealtimeHint": {
+    "message": "प्रत्येक देखे गए पृष्ठ पर हटाता है"
+  },
+  "optPeriodic": {
+    "message": "आवधिक स्कैन"
+  },
+  "optPeriodicHint": {
+    "message": "नियमित अंतराल पर इतिहास साफ़ करता है"
+  },
+  "optInterval": {
+    "message": "अंतराल"
+  },
+  "unitMin": {
+    "message": "मिनट"
+  },
+  "optDryRun": {
+    "message": "सिमुलेशन (dry-run)"
+  },
+  "optDryRunHint": {
+    "message": "बिना हटाए विश्लेषण और लॉग करता है"
+  },
+  "optNotifications": {
+    "message": "डेस्कटॉप सूचनाएँ"
+  },
+  "optCaseSensitive": {
+    "message": "केस-संवेदनशील"
+  },
+  "importExportTitle": {
+    "message": "आयात / निर्यात"
+  },
+  "exportBtn": {
+    "message": "निर्यात (JSON)"
+  },
+  "importBtn": {
+    "message": "आयात (JSON)"
+  },
+  "legacySummary": {
+    "message": "पैटर्न सूची आयात करें"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# # से शुरू होने वाली पंक्तियाँ अनदेखी की जाती हैं"
+  },
+  "legacyReplace": {
+    "message": "मौजूदा नियम बदलें"
+  },
+  "legacyBtn": {
+    "message": "ये पैटर्न आयात करें"
+  },
+  "footer": {
+    "message": "बिना शोर — आपका डेटा कभी ब्राउज़र से बाहर नहीं जाता।"
+  },
+  "ruleValuePlaceholder": {
+    "message": "जैसे facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "नोट"
+  },
+  "deleteRuleTitle": {
+    "message": "नियम हटाएँ"
+  },
+  "testMatch": {
+    "message": "🗑️ मेल — यह URL हटाया जाएगा। नियम: "
+  },
+  "testNoMatch": {
+    "message": "✓ कोई मेल नहीं — यह URL रखा जाएगा।"
+  },
+  "lastPrefix": {
+    "message": "अंतिम: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[सिमुलेशन] "
+  },
+  "cfgImported": {
+    "message": "कॉन्फ़िगरेशन आयात हो गया।"
+  },
+  "invalidFile": {
+    "message": "अमान्य फ़ाइल: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "कोई पैटर्न नहीं मिला।"
+  },
+  "patternsImported": {
+    "message": "$count$ पैटर्न आयात हुए।",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "शामिल"
+  },
+  "ruleType_domain": {
+    "message": "डोमेन"
+  },
+  "ruleType_wildcard": {
+    "message": "वाइल्डकार्ड (*)"
+  },
+  "ruleType_regex": {
+    "message": "रेगुलर एक्सप्रेशन"
+  },
+  "notifTitle": {
+    "message": "बिना शोर"
+  },
+  "notifDeleted": {
+    "message": "हटाया: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "$count$ प्रविष्टियाँ हटाई गईं।",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "सोशल मीडिया"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "आयातित"
+  },
+  "cmdCleanNow": {
+    "message": "अभी इतिहास साफ़ करें"
+  },
+  "ctxAddSite": {
+    "message": "इस साइट को बिना शोर में जोड़ें"
+  },
+  "ctxAdded": {
+    "message": "$host$ के लिए नियम जोड़ा गया",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "हटाएँ"
+  },
+  "cancel": {
+    "message": "रद्द करें"
+  },
+  "cancelled": {
+    "message": "रद्द"
+  },
+  "confirmMass": {
+    "message": "$count$ प्रविष्टियाँ स्थायी रूप से हटाई जाएँगी। जारी रखें?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "स्कैन हो रहा है… $count$ पृष्ठ",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "हटाया जा रहा है… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "बिना शोर में आपका स्वागत है 🧹"
+  },
+  "welcomeBody": {
+    "message": "बिना शोर आपके इतिहास से दोहराए जाने वाला शोर हटाता है ताकि आप चीज़ें फिर से ढूँढ सकें। अपने इतिहास को स्कैन करके शुरू करें, या नियम मैन्युअल जोड़ें।"
+  },
+  "welcomeDismiss": {
+    "message": "बंद करें"
+  },
+  "filterPlaceholder": {
+    "message": "नियम फ़िल्टर करें…"
+  },
+  "enableAll": {
+    "message": "सभी चालू करें"
+  },
+  "disableAll": {
+    "message": "सभी बंद करें"
+  },
+  "suggestionsTitle": {
+    "message": "इतिहास का शोर"
+  },
+  "analyzeBtn": {
+    "message": "मेरा इतिहास स्कैन करें"
+  },
+  "suggestEmpty": {
+    "message": "स्कैन चलाएँ और वे डोमेन खोजें जो आपके इतिहास को सबसे अधिक भरते हैं।"
+  },
+  "suggestNone": {
+    "message": "साफ़ करने को कुछ नहीं बचा — आपके नियम पहले से शोर को कवर करते हैं।"
+  },
+  "suggestScan": {
+    "message": "स्कैन हो रहा है… $count$ डोमेन",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "$count$ पृष्ठ स्कैन हुए",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ प्रविष्टियाँ",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "नियम जोड़ें"
+  },
+  "ruleKindBlock": {
+    "message": "हटाएँ"
+  },
+  "ruleKindAllow": {
+    "message": "रखें"
+  },
+  "ruleModeLabel": {
+    "message": "कब:"
+  },
+  "mode_both": {
+    "message": "हमेशा"
+  },
+  "mode_realtime": {
+    "message": "केवल रियल-टाइम"
+  },
+  "mode_periodic": {
+    "message": "केवल स्कैन"
+  },
+  "ruleAgeLabel": {
+    "message": "इससे पुराना"
+  },
+  "unitDays": {
+    "message": "दिन"
+  },
+  "unitEntries": {
+    "message": "प्रविष्टियाँ"
+  },
+  "testRuleBtn": {
+    "message": "इतिहास में मेल गिनें"
+  },
+  "testRuleResult": {
+    "message": "इतिहास में $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "ऊपर ले जाएँ"
+  },
+  "moveDown": {
+    "message": "नीचे ले जाएँ"
+  },
+  "ruleInvalid": {
+    "message": "अमान्य पैटर्न।"
+  },
+  "ruleUnsafe": {
+    "message": "यह पैटर्न बहुत धीमा हो सकता है और छोड़ दिया जाता है।"
+  },
+  "testKept": {
+    "message": "🛡 रखा गया — एक रखें नियम इस URL की रक्षा करता है।"
+  },
+  "confirmManualLabel": {
+    "message": "मैन्युअल सफ़ाई से पहले पूछें"
+  },
+  "massThresholdLabel": {
+    "message": "इससे ऊपर चेतावनी"
+  },
+  "notifDetailLabel": {
+    "message": "सूचना सामग्री"
+  },
+  "notifDetail_count": {
+    "message": "केवल संख्या"
+  },
+  "notifDetail_host": {
+    "message": "डोमेन नाम"
+  },
+  "logDetailLabel": {
+    "message": "इतिहास लॉग"
+  },
+  "logDetail_host": {
+    "message": "केवल डोमेन"
+  },
+  "logDetail_full": {
+    "message": "पूरा URL"
+  },
+  "logDetail_off": {
+    "message": "बंद"
+  },
+  "importCapped": {
+    "message": "$count$ नियम आयात, $dropped$ अनदेखे।",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "राइट-क्लिक मेनू \"यह साइट जोड़ें\""
+  },
+  "scanTruncated": {
+    "message": "बहुत बड़ा इतिहास — आंशिक स्कैन।"
+  },
+  "importPreviewMsg": {
+    "message": "$blocks$ हटाएँ नियम, $allows$ रखें नियम, $bad$ अमान्य या बहुत धीमे।",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "मर्ज"
+  },
+  "importReplace": {
+    "message": "सभी बदलें"
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "fichier": "1-popup.png",
+    "legende": {
+      "fr": "Le popup : interrupteur, nettoyage à la demande, modes temps réel et périodique, compteurs.",
+      "en-US": "The popup: on/off switch, clean on demand, real-time and periodic modes, counters.",
+      "es-ES": "El popup: interruptor, limpieza a demanda, modos en tiempo real y periódico, contadores.",
+      "de": "Das Popup: Schalter, Reinigung auf Abruf, Echtzeit- und Periodikmodus, Zähler.",
+      "it": "Il popup: interruttore, pulizia a richiesta, modalità in tempo reale e periodica, contatori.",
+      "pt-PT": "O popup: interruptor, limpeza a pedido, modos em tempo real e periódico, contadores.",
+      "nl": "De popup: schakelaar, opschonen op verzoek, realtime- en periodieke modus, tellers.",
+      "pl": "Wyskakujące okienko: przełącznik, czyszczenie na żądanie, tryb czasu rzeczywistego i okresowy, liczniki.",
+      "zh-CN": "弹出窗口：开关、按需清理、实时与定期模式、计数器。",
+      "ja": "ポップアップ：オン／オフ、手動クリーン、リアルタイムと定期モード、カウンター。",
+      "ko": "팝업: 켜기/끄기, 즉시 정리, 실시간·주기 모드, 카운터.",
+      "tr": "Açılır pencere: anahtar, isteğe bağlı temizleme, gerçek zamanlı ve periyodik modlar, sayaçlar.",
+      "ru": "Всплывающее окно: переключатель, очистка по запросу, режимы в реальном времени и по расписанию, счётчики."
+    }
+  },
+  {
+    "fichier": "2-regles.png",
+    "legende": {
+      "fr": "Les règles Supprimer et Conserver : domaine, contient, joker ou expression régulière.",
+      "en-US": "Delete and Keep rules: domain, contains, wildcard or regular expression.",
+      "es-ES": "Reglas Eliminar y Conservar: dominio, contiene, comodín o expresión regular.",
+      "de": "Löschen- und Behalten-Regeln: Domain, enthält, Platzhalter oder regulärer Ausdruck.",
+      "it": "Regole Elimina e Conserva: dominio, contiene, jolly o espressione regolare.",
+      "pt-PT": "Regras Eliminar e Conservar: domínio, contém, curinga ou expressão regular.",
+      "nl": "Verwijder- en Bewaar-regels: domein, bevat, jokerteken of reguliere expressie.",
+      "pl": "Reguły Usuń i Zachowaj: domena, zawiera, wieloznak lub wyrażenie regularne.",
+      "zh-CN": "删除与保留规则：域名、包含、通配符或正则表达式。",
+      "ja": "削除と保持のルール：ドメイン、含む、ワイルドカード、正規表現。",
+      "ko": "삭제·유지 규칙: 도메인, 포함, 와일드카드 또는 정규식.",
+      "tr": "Sil ve Tut kuralları: alan adı, içerir, joker veya düzenli ifade.",
+      "ru": "Правила «Удалить» и «Сохранить»: домен, содержит, подстановочный знак или регулярное выражение."
+    }
+  },
+  {
+    "fichier": "3-bruit.png",
+    "legende": {
+      "fr": "L'analyseur de bruit : les domaines qui encombrent le plus l'historique, une règle en un clic.",
+      "en-US": "The noise analyzer: domains that clutter history most, a rule in one click.",
+      "es-ES": "El analizador de ruido: los dominios que más llenan el historial, una regla en un clic.",
+      "de": "Der Rausch-Analysator: Domains, die den Verlauf am meisten füllen — Regel mit einem Klick.",
+      "it": "L'analizzatore di rumore: i domini che riempiono di più la cronologia, una regola in un clic.",
+      "pt-PT": "O analisador de ruído: os domínios que mais enchem o histórico, uma regra num clique.",
+      "nl": "De ruisanalyser: domeinen die je geschiedenis het meest vervuilen, een regel met één klik.",
+      "pl": "Analizator szumu: domeny, które najbardziej zaśmiecają historię — reguła jednym kliknięciem.",
+      "zh-CN": "噪音分析器：最常刷屏的域名，一键添加规则。",
+      "ja": "ノイズ分析：履歴を一番汚すドメインを表示し、ワンクリックでルール追加。",
+      "ko": "노이즈 분석기: 기록을 가장 많이 채우는 도메인, 클릭 한 번으로 규칙 추가.",
+      "tr": "Gürültü çözümleyicisi: geçmişi en çok dolduran alan adları, bir tıkla kural.",
+      "ru": "Анализатор шума: домены, сильнее всего засоряющие историю — правило в один клик."
+    }
+  },
+  {
+    "fichier": "4-apercu.png",
+    "legende": {
+      "fr": "L'aperçu en mode simulation : combien d'entrées seraient retirées, sans rien supprimer.",
+      "en-US": "Preview in simulation mode: how many entries would be removed, without deleting anything.",
+      "es-ES": "Vista previa en modo simulación: cuántas entradas se eliminarían, sin borrar nada.",
+      "de": "Vorschau im Simulationsmodus: wie viele Einträge entfernt würden — ohne zu löschen.",
+      "it": "Anteprima in modalità simulazione: quante voci verrebbero rimosse, senza cancellare nulla.",
+      "pt-PT": "Pré-visualização em modo simulação: quantas entradas seriam removidas, sem apagar nada.",
+      "nl": "Voorbeeld in simulatiemodus: hoeveel items zouden verdwijnen, zonder iets te verwijderen.",
+      "pl": "Podgląd w trybie symulacji: ile wpisów zostałoby usuniętych, bez kasowania.",
+      "zh-CN": "模拟预览：将删除多少条记录，实际不会删除。",
+      "ja": "シミュレーションのプレビュー：何件消えるか確認、実際には削除しません。",
+      "ko": "시뮬레이션 미리보기: 몇 개가 지워질지 확인, 실제 삭제는 없음.",
+      "tr": "Simülasyon önizlemesi: kaç kayıt silinirdi, hiçbir şey silmeden.",
+      "ru": "Предпросмотр в режиме симуляции: сколько записей удалилось бы — без удаления."
+    }
+  }
+]

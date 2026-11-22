@@ -10,16 +10,39 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/mister-guiiug/mister-no-noise/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/mister-guiiug/mister-no-noise/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/mister-guiiug/mister-no-noise/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/mister-guiiug/mister-no-noise?label=release&color=7c4dff"></a>
   <img alt="Firefox 140+" src="https://img.shields.io/badge/Firefox-140%2B-FF7139?logo=firefoxbrowser&logoColor=white">
   <img alt="Firefox for Android 142+" src="https://img.shields.io/badge/Android-142%2B-FF7139?logo=firefoxbrowser&logoColor=white">
-  <img alt="8 languages" src="https://img.shields.io/badge/languages-8-d6336c">
+  <img alt="15 languages" src="https://img.shields.io/badge/languages-15-d6336c">
   <img alt="No data collected" src="https://img.shields.io/badge/data%20collected-none-2ea44f">
-  <a href="LICENSE"><img alt="MIT licence" src="https://img.shields.io/badge/licence-MIT-blue"></a>
+  <a href="LICENSE"><img alt="MIT licence" src="https://img.shields.io/github/license/mister-guiiug/mister-no-noise?color=blue"></a>
 </p>
 
 <p align="center">
-  <a href="README.fr.md">Lire en français</a>
+  <a href="https://github.com/mister-guiiug/mister-no-noise/releases/latest">Download the signed .xpi</a>
+  · <a href="README.fr.md">Lire en français</a>
+  · <a href="https://github.com/mister-guiiug/mister-no-prices">Sister extension: No Prices</a>
 </p>
+
+<table>
+  <tr>
+    <td><img src="amo/captures/1-popup.png" alt="Toolbar popup: switch, clean now, real-time and periodic modes"></td>
+    <td><img src="amo/captures/2-regles.png" alt="Delete and Keep rules in the options page"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Settings, one click away</sub></td>
+    <td align="center"><sub>Delete and Keep rules</sub></td>
+  </tr>
+  <tr>
+    <td><img src="amo/captures/3-bruit.png" alt="History noise analyzer suggesting domains to clean"></td>
+    <td><img src="amo/captures/4-apercu.png" alt="Simulation preview of entries that would be deleted"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>History noise analyzer</sub></td>
+    <td align="center"><sub>Preview in simulation mode</sub></td>
+  </tr>
+</table>
 
 ## Why
 
@@ -54,67 +77,117 @@ as you browse — and never sends a byte off your machine.
   opt-in); notifications are optional.
 - **URL tester**, statistics, JSON import/export (with merge/replace preview)
   and a plain-text pattern importer.
-- **Eight languages**, selected from the browser locale. 100 % local.
+- **Fifteen languages**, on desktop and Android. 100 % local.
 
-## Install (development)
+## Install
 
 Firefox 140 or later on desktop, Firefox for Android 142 or later.
 
-| Method | How |
-| ------ | --- |
-| **Temporary, from source** | `about:debugging#/runtime/this-firefox` → *Load Temporary Add-on…* → pick `manifest.json` |
-| **With web-ext** | `npm install` then `npm start` |
+| Method | Lasts | How |
+| ------ | ----- | --- |
+| **Signed file from a release** (recommended) | permanent, auto-updates once listed | open the `.xpi` of the [latest release](https://github.com/mister-guiiug/mister-no-noise/releases/latest) in Firefox |
+| **Temporary, from source** | until Firefox restarts | `about:debugging#/runtime/this-firefox` → *Load Temporary Add-on…* → pick `manifest.json` |
+| **With web-ext** | until the window closes | `npm install` then `npm start` |
 
-```bash
-npm install
-npm test            # unit tests
-npm run lint        # Mozilla web-ext lint
-npm run lint:js     # ESLint
-npm run build       # .zip in web-ext-artifacts/
-```
-
-Publication on Firefox Add-ons comes later — this repo is prepared for it
-(`mister-no-noise@mister-guiiug`) but not submitted yet.
+Firefox Add-ons (listed channel) — ready in the repo (`amo/`), submitted when
+you give the go. Id: `mister-no-noise@mister-guiiug`.
 
 ## Privacy
 
 **No data is collected.** The manifest declares it
-(`data_collection_permissions: none`). No analytics, no account, no ads.
+(`data_collection_permissions: none`), and the code has no analytics, no
+account and no ads.
 
-Rules, settings, logs and statistics stay in your browser
-(`storage.local`). Optional desktop notifications are requested only if you
-turn them on. The right-click menu can be disabled in the options.
+- Rules, settings, log and statistics stay in Firefox (`storage.local`).
+- The extension makes **no network request of its own**.
+- Desktop notifications are requested only if you turn them on; the
+  right-click menu can be disabled in the options.
+- The log stores **domain names only** by default (full URL or off are
+  opt-in).
 
-## Permissions
+## How it works
 
-| Permission | Purpose |
-| ---------- | ------- |
-| `history` | Read and delete history entries |
-| `storage` | Store rules, settings and statistics |
-| `alarms` | Trigger the periodic sweep |
-| `contextMenus` | “Add this site” right-click entry (can be turned off in options) |
-| `notifications` | Report cleanings (**optional**) |
+Rules live in local storage. The background page matches each visited URL
+(and each sweep window) against compiled Delete / Keep patterns, with a
+ReDoS guard on user regexes. Sweeps scan history in time windows and delete
+in batches; a preview returns a short-lived token so “Clean now” does not
+re-scan.
+
+```
+src/common/core.js      rules, matching, storage, i18n
+src/background.js       real-time, sweeps, analyzer, menu, command
+src/popup/  src/options/
+_locales/               15 languages
+amo/                    Firefox Add-ons listing texts and screenshots
+```
 
 ## Languages
 
-English (default), French, Spanish, German, Italian, Portuguese (Brazil),
-Russian, Simplified Chinese. Add one by copying `_locales/en/messages.json` to
-`_locales/<code>/messages.json` and translating the `message` values.
+English, French, Spanish, German, Italian, Portuguese, Dutch, Polish,
+Simplified Chinese, Japanese, Arabic (right-to-left), Korean, Turkish, Hindi
+and Russian. The extension follows Firefox’s language.
 
-## Project structure
+Translations other than French and English have not yet been reviewed by
+native speakers. Corrections are welcome: one file per language,
+[`_locales/<language>/messages.json`](_locales).
 
+## Contributing
+
+Issues and pull requests are welcome — a clearer rule UX, a translation fix,
+a safer default.
+
+**Adding a language**: copy `_locales/en/messages.json` to
+`_locales/<code>/messages.json` and translate the `message` values (keep
+placeholders). `npm test` checks that every locale has the same keys.
+
+## Development
+
+Requires Node.js 22 or later.
+
+```bash
+npm install
 ```
-manifest.json         MV3 (Firefox event page, 140+)
-manifest.chrome.json  Chromium variant (experimental)
-_locales/<code>/      UI translations
-icons/icon.svg        Toolbar icon
-src/common/           Compat shim + shared logic (SHC)
-src/background.js     Real-time, sweeps, analyzer, menu, command
-src/popup/            Toolbar popup
-src/options/          Full configuration page
-test/                 Unit tests (node --test)
+
+```bash
+npm start            # Firefox with the extension, reload on change
 ```
 
-## Licence
+```bash
+npm test             # matching engine, ReDoS guard, locale parity
+```
 
-[MIT](LICENSE) — © GuiiuG
+```bash
+npm run lint         # Mozilla’s web-ext validation
+```
+
+```bash
+npm run lint:js      # ESLint
+```
+
+```bash
+npm run build        # .zip in web-ext-artifacts/
+```
+
+Continuous integration runs the tests, ESLint, `web-ext lint` and packaging
+on every pull request.
+
+## Releases
+
+Bump `version` in `manifest.json` and `package.json`, merge to `main`. Signing
+for a GitHub release uses the unlisted AMO channel until the listed
+publication is approved. Listing copy and screenshots live in [`amo/`](amo/)
+— see [docs/AMO.md](docs/AMO.md).
+
+## Known limitations
+
+- History already deleted by Firefox retention policies cannot be recovered.
+- A very large history may be scanned only in part; the UI reports it.
+- Hostile regexes are skipped by the ReDoS guard; quadratic patterns on
+  URL-sized inputs may still be slow.
+- Chrome support (`manifest.chrome.json`) is experimental and needs PNG
+  toolbar icons for a polished build.
+
+## License
+
+[MIT](LICENSE). An independent project, neither endorsed by nor affiliated with
+Mozilla beyond the standard add-on review.

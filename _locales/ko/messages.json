@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "노이즈 없음"
+  },
+  "extShortName": {
+    "message": "노이즈 없음"
+  },
+  "extDescription": {
+    "message": "방문 기록에서 반복되는 노이즈를 제거합니다 — 선택한 사이트, 내 규칙대로. 실시간·주기·수동. 전부 로컬."
+  },
+  "actionTitle": {
+    "message": "노이즈 없음"
+  },
+  "appSubtitle": {
+    "message": "기록 정리기"
+  },
+  "masterTitle": {
+    "message": "확장 기능 사용 / 중지"
+  },
+  "bannerDryRun": {
+    "message": "시뮬레이션 모드 — 실제로 삭제하지 않음"
+  },
+  "cleanNow": {
+    "message": "지금 정리"
+  },
+  "preview": {
+    "message": "미리보기"
+  },
+  "toggleRealtime": {
+    "message": "실시간 (적응형)"
+  },
+  "togglePeriodic": {
+    "message": "주기적 스캔"
+  },
+  "toggleDryRun": {
+    "message": "시뮬레이션 (dry-run)"
+  },
+  "statTotal": {
+    "message": "총 삭제"
+  },
+  "statRules": {
+    "message": "활성 규칙"
+  },
+  "openOptions": {
+    "message": "규칙 및 설정 관리 →"
+  },
+  "cleaning": {
+    "message": "정리 중…"
+  },
+  "analyzing": {
+    "message": "분석 중…"
+  },
+  "resDeleted": {
+    "message": "✓ $count$개 항목이 삭제되었습니다.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "$count$개 항목이 삭제됩니다.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "일치하는 항목이 없습니다."
+  },
+  "err": {
+    "message": "오류: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "마지막 정리: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "아직 정리를 실행하지 않았습니다"
+  },
+  "optTagline": {
+    "message": "Firefox 기록 정리기 — 적응형 & 설정 가능"
+  },
+  "rulesTitle": {
+    "message": "정리 규칙"
+  },
+  "addRule": {
+    "message": "+ 규칙 추가"
+  },
+  "rulesHint": {
+    "message": "기록 URL은 활성 규칙 하나 이상과 일치하면 삭제됩니다."
+  },
+  "colType": {
+    "message": "유형"
+  },
+  "colValue": {
+    "message": "값"
+  },
+  "colNote": {
+    "message": "메모"
+  },
+  "noRules": {
+    "message": "규칙이 없습니다. 추가하거나 구성을 가져오세요."
+  },
+  "testTitle": {
+    "message": "URL 테스트"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "로그 및 통계"
+  },
+  "reset": {
+    "message": "초기화"
+  },
+  "logColWhen": {
+    "message": "언제"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "규칙"
+  },
+  "noLog": {
+    "message": "기록된 삭제가 없습니다."
+  },
+  "behaviorTitle": {
+    "message": "동작"
+  },
+  "optEnabled": {
+    "message": "확장 기능 활성"
+  },
+  "optRealtime": {
+    "message": "실시간 (적응형)"
+  },
+  "optRealtimeHint": {
+    "message": "방문한 페이지마다 삭제"
+  },
+  "optPeriodic": {
+    "message": "주기적 스캔"
+  },
+  "optPeriodicHint": {
+    "message": "일정 간격으로 기록을 정리"
+  },
+  "optInterval": {
+    "message": "간격"
+  },
+  "unitMin": {
+    "message": "분"
+  },
+  "optDryRun": {
+    "message": "시뮬레이션 (dry-run)"
+  },
+  "optDryRunHint": {
+    "message": "삭제 없이 분석하고 기록"
+  },
+  "optNotifications": {
+    "message": "데스크톱 알림"
+  },
+  "optCaseSensitive": {
+    "message": "대소문자 구분"
+  },
+  "importExportTitle": {
+    "message": "가져오기 / 내보내기"
+  },
+  "exportBtn": {
+    "message": "내보내기 (JSON)"
+  },
+  "importBtn": {
+    "message": "가져오기 (JSON)"
+  },
+  "legacySummary": {
+    "message": "패턴 목록 가져오기"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# #로 시작하는 줄은 무시됩니다"
+  },
+  "legacyReplace": {
+    "message": "기존 규칙 바꾸기"
+  },
+  "legacyBtn": {
+    "message": "이 패턴 가져오기"
+  },
+  "footer": {
+    "message": "노이즈 없음 — 데이터는 브라우저를 떠나지 않습니다."
+  },
+  "ruleValuePlaceholder": {
+    "message": "예: facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "메모"
+  },
+  "deleteRuleTitle": {
+    "message": "규칙 삭제"
+  },
+  "testMatch": {
+    "message": "🗑️ 일치 — 이 URL이 삭제됩니다. 규칙: "
+  },
+  "testNoMatch": {
+    "message": "✓ 불일치 — 이 URL은 유지됩니다."
+  },
+  "lastPrefix": {
+    "message": "마지막: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[시뮬레이션] "
+  },
+  "cfgImported": {
+    "message": "구성을 가져왔습니다."
+  },
+  "invalidFile": {
+    "message": "잘못된 파일: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "패턴이 감지되지 않았습니다."
+  },
+  "patternsImported": {
+    "message": "$count$개 패턴을 가져왔습니다.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "포함"
+  },
+  "ruleType_domain": {
+    "message": "도메인"
+  },
+  "ruleType_wildcard": {
+    "message": "와일드카드 (*)"
+  },
+  "ruleType_regex": {
+    "message": "정규식"
+  },
+  "notifTitle": {
+    "message": "노이즈 없음"
+  },
+  "notifDeleted": {
+    "message": "삭제됨: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "$count$개 항목이 삭제되었습니다.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "소셜 미디어"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "가져옴"
+  },
+  "cmdCleanNow": {
+    "message": "지금 기록 정리"
+  },
+  "ctxAddSite": {
+    "message": "이 사이트를 노이즈 없음에 추가"
+  },
+  "ctxAdded": {
+    "message": "$host$에 대한 규칙이 추가됨",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "삭제"
+  },
+  "cancel": {
+    "message": "취소"
+  },
+  "cancelled": {
+    "message": "취소됨"
+  },
+  "confirmMass": {
+    "message": "$count$개 항목이 영구적으로 삭제됩니다. 계속할까요?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "스캔 중… $count$페이지",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "삭제 중… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "노이즈 없음에 오신 것을 환영합니다 🧹"
+  },
+  "welcomeBody": {
+    "message": "노이즈 없음은 기록에서 반복되는 노이즈를 제거해 다시 찾을 수 있게 합니다. 기록을 스캔하거나 규칙을 직접 추가해 시작하세요."
+  },
+  "welcomeDismiss": {
+    "message": "닫기"
+  },
+  "filterPlaceholder": {
+    "message": "규칙 필터…"
+  },
+  "enableAll": {
+    "message": "모두 사용"
+  },
+  "disableAll": {
+    "message": "모두 중지"
+  },
+  "suggestionsTitle": {
+    "message": "기록 노이즈"
+  },
+  "analyzeBtn": {
+    "message": "내 기록 스캔"
+  },
+  "suggestEmpty": {
+    "message": "스캔을 실행해 기록을 가장 많이 어지럽히는 도메인을 찾으세요."
+  },
+  "suggestNone": {
+    "message": "정리할 것이 없습니다 — 규칙이 이미 노이즈를 커버합니다."
+  },
+  "suggestScan": {
+    "message": "스캔 중… $count$개 도메인",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "$count$페이지 스캔됨",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$개 항목",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "규칙 추가"
+  },
+  "ruleKindBlock": {
+    "message": "삭제"
+  },
+  "ruleKindAllow": {
+    "message": "유지"
+  },
+  "ruleModeLabel": {
+    "message": "언제:"
+  },
+  "mode_both": {
+    "message": "항상"
+  },
+  "mode_realtime": {
+    "message": "실시간만"
+  },
+  "mode_periodic": {
+    "message": "스캔만"
+  },
+  "ruleAgeLabel": {
+    "message": "다음보다 오래된"
+  },
+  "unitDays": {
+    "message": "일"
+  },
+  "unitEntries": {
+    "message": "항목"
+  },
+  "testRuleBtn": {
+    "message": "기록에서 일치 수 세기"
+  },
+  "testRuleResult": {
+    "message": "기록에 $count$개",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "위로"
+  },
+  "moveDown": {
+    "message": "아래로"
+  },
+  "ruleInvalid": {
+    "message": "잘못된 패턴입니다."
+  },
+  "ruleUnsafe": {
+    "message": "이 패턴은 너무 느릴 수 있어 건너뜁니다."
+  },
+  "testKept": {
+    "message": "🛡 유지됨 — 유지 규칙이 이 URL을 보호합니다."
+  },
+  "confirmManualLabel": {
+    "message": "수동 정리 전 확인"
+  },
+  "massThresholdLabel": {
+    "message": "다음 초과 시 경고"
+  },
+  "notifDetailLabel": {
+    "message": "알림 내용"
+  },
+  "notifDetail_count": {
+    "message": "개수만"
+  },
+  "notifDetail_host": {
+    "message": "도메인 이름"
+  },
+  "logDetailLabel": {
+    "message": "기록 로그"
+  },
+  "logDetail_host": {
+    "message": "도메인만"
+  },
+  "logDetail_full": {
+    "message": "전체 URL"
+  },
+  "logDetail_off": {
+    "message": "사용 안 함"
+  },
+  "importCapped": {
+    "message": "$count$개 규칙 가져옴, $dropped$개 무시됨.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "우클릭 메뉴 \"이 사이트 추가\""
+  },
+  "scanTruncated": {
+    "message": "기록이 매우 큼 — 부분 스캔."
+  },
+  "importPreviewMsg": {
+    "message": "삭제 규칙 $blocks$개, 유지 규칙 $allows$개, 잘못되었거나 너무 느림 $bad$개.",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "병합"
+  },
+  "importReplace": {
+    "message": "모두 바꾸기"
+  }
+}

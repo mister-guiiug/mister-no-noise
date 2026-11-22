@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "بلا ضوضاء"
+  },
+  "extShortName": {
+    "message": "بلا ضوضاء"
+  },
+  "extDescription": {
+    "message": "يزيل الضوضاء المتكررة من سجل التصفح — المواقع التي تختارها، بقواعدك. في الوقت الفعلي أو دوريًا أو يدويًا. محلي بالكامل."
+  },
+  "actionTitle": {
+    "message": "بلا ضوضاء"
+  },
+  "appSubtitle": {
+    "message": "منظّف السجل"
+  },
+  "masterTitle": {
+    "message": "تفعيل / تعطيل الإضافة"
+  },
+  "bannerDryRun": {
+    "message": "وضع المحاكاة — بدون حذف فعلي"
+  },
+  "cleanNow": {
+    "message": "تنظيف الآن"
+  },
+  "preview": {
+    "message": "معاينة"
+  },
+  "toggleRealtime": {
+    "message": "الوقت الفعلي (تكيّفي)"
+  },
+  "togglePeriodic": {
+    "message": "مسح دوري"
+  },
+  "toggleDryRun": {
+    "message": "محاكاة (dry-run)"
+  },
+  "statTotal": {
+    "message": "محذوفة إجمالًا"
+  },
+  "statRules": {
+    "message": "قواعد نشطة"
+  },
+  "openOptions": {
+    "message": "إدارة القواعد والإعدادات ←"
+  },
+  "cleaning": {
+    "message": "جارٍ التنظيف…"
+  },
+  "analyzing": {
+    "message": "جارٍ التحليل…"
+  },
+  "resDeleted": {
+    "message": "✓ تم حذف $count$ إدخالات.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "سيتم حذف $count$ إدخالات.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "لا يوجد إدخال مطابق."
+  },
+  "err": {
+    "message": "خطأ: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "آخر تنظيف: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "لم يُجرَ أي تنظيف بعد"
+  },
+  "optTagline": {
+    "message": "منظّف سجل Firefox — تكيّفي وقابل للضبط"
+  },
+  "rulesTitle": {
+    "message": "قواعد التنظيف"
+  },
+  "addRule": {
+    "message": "+ إضافة قاعدة"
+  },
+  "rulesHint": {
+    "message": "يُحذف عنوان URL من السجل إذا طابق قاعدة نشطة واحدة على الأقل."
+  },
+  "colType": {
+    "message": "النوع"
+  },
+  "colValue": {
+    "message": "القيمة"
+  },
+  "colNote": {
+    "message": "ملاحظة"
+  },
+  "noRules": {
+    "message": "لا قواعد بعد. أضف واحدة أو استورد إعدادًا."
+  },
+  "testTitle": {
+    "message": "اختبار عنوان URL"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "السجل والإحصاءات"
+  },
+  "reset": {
+    "message": "إعادة تعيين"
+  },
+  "logColWhen": {
+    "message": "متى"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "القاعدة"
+  },
+  "noLog": {
+    "message": "لم يُسجَّل أي حذف."
+  },
+  "behaviorTitle": {
+    "message": "السلوك"
+  },
+  "optEnabled": {
+    "message": "الإضافة نشطة"
+  },
+  "optRealtime": {
+    "message": "الوقت الفعلي (تكيّفي)"
+  },
+  "optRealtimeHint": {
+    "message": "يحذف عند كل صفحة تُزار"
+  },
+  "optPeriodic": {
+    "message": "مسح دوري"
+  },
+  "optPeriodicHint": {
+    "message": "ينظّف السجل على فترات منتظمة"
+  },
+  "optInterval": {
+    "message": "الفترة"
+  },
+  "unitMin": {
+    "message": "د"
+  },
+  "optDryRun": {
+    "message": "محاكاة (dry-run)"
+  },
+  "optDryRunHint": {
+    "message": "يحلّل ويسجّل دون حذف أي شيء"
+  },
+  "optNotifications": {
+    "message": "إشعارات سطح المكتب"
+  },
+  "optCaseSensitive": {
+    "message": "حساس لحالة الأحرف"
+  },
+  "importExportTitle": {
+    "message": "استيراد / تصدير"
+  },
+  "exportBtn": {
+    "message": "تصدير (JSON)"
+  },
+  "importBtn": {
+    "message": "استيراد (JSON)"
+  },
+  "legacySummary": {
+    "message": "استيراد قائمة أنماط"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# تُتجاهل الأسطر التي تبدأ بـ #"
+  },
+  "legacyReplace": {
+    "message": "استبدال القواعد الحالية"
+  },
+  "legacyBtn": {
+    "message": "استيراد هذه الأنماط"
+  },
+  "footer": {
+    "message": "بلا ضوضاء — بياناتك لا تغادر متصفحك أبدًا."
+  },
+  "ruleValuePlaceholder": {
+    "message": "مثال: facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "ملاحظة"
+  },
+  "deleteRuleTitle": {
+    "message": "حذف القاعدة"
+  },
+  "testMatch": {
+    "message": "🗑️ مطابقة — سيُحذف هذا العنوان. القاعدة/القواعد: "
+  },
+  "testNoMatch": {
+    "message": "✓ لا مطابقة — سيُحتفظ بهذا العنوان."
+  },
+  "lastPrefix": {
+    "message": "الأخير: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[محاكاة] "
+  },
+  "cfgImported": {
+    "message": "تم استيراد الإعداد."
+  },
+  "invalidFile": {
+    "message": "ملف غير صالح: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "لم يُكتشف أي نمط."
+  },
+  "patternsImported": {
+    "message": "تم استيراد $count$ نمط(أنماط).",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "يحتوي"
+  },
+  "ruleType_domain": {
+    "message": "النطاق"
+  },
+  "ruleType_wildcard": {
+    "message": "رمز بدل (*)"
+  },
+  "ruleType_regex": {
+    "message": "تعبير منتظم"
+  },
+  "notifTitle": {
+    "message": "بلا ضوضاء"
+  },
+  "notifDeleted": {
+    "message": "حُذف: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "تم حذف $count$ إدخالات.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "وسائل التواصل"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "مستورد"
+  },
+  "cmdCleanNow": {
+    "message": "تنظيف السجل الآن"
+  },
+  "ctxAddSite": {
+    "message": "إضافة هذا الموقع إلى بلا ضوضاء"
+  },
+  "ctxAdded": {
+    "message": "أُضيفت قاعدة لـ $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "حذف"
+  },
+  "cancel": {
+    "message": "إلغاء"
+  },
+  "cancelled": {
+    "message": "أُلغي"
+  },
+  "confirmMass": {
+    "message": "سيُحذف $count$ إدخالًا نهائيًا. المتابعة؟",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "جارٍ المسح… $count$ صفحة",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "جارٍ الحذف… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "مرحبًا بك في بلا ضوضاء 🧹"
+  },
+  "welcomeBody": {
+    "message": "يزيل بلا ضوضاء الضوضاء المتكررة من سجلك لتجد ما تبحث عنه من جديد. ابدأ بمسح سجلك، أو أضف القواعد يدويًا."
+  },
+  "welcomeDismiss": {
+    "message": "تجاهل"
+  },
+  "filterPlaceholder": {
+    "message": "تصفية القواعد…"
+  },
+  "enableAll": {
+    "message": "تفعيل الكل"
+  },
+  "disableAll": {
+    "message": "تعطيل الكل"
+  },
+  "suggestionsTitle": {
+    "message": "ضوضاء السجل"
+  },
+  "analyzeBtn": {
+    "message": "مسح سجلي"
+  },
+  "suggestEmpty": {
+    "message": "شغّل مسحًا للعثور على النطاقات التي تزدحم سجلك أكثر."
+  },
+  "suggestNone": {
+    "message": "لا شيء للتنظيف — قواعدك تغطي الضوضاء بالفعل."
+  },
+  "suggestScan": {
+    "message": "جارٍ المسح… $count$ نطاق",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "تم مسح $count$ صفحة",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ إدخال",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "إضافة قاعدة"
+  },
+  "ruleKindBlock": {
+    "message": "حذف"
+  },
+  "ruleKindAllow": {
+    "message": "إبقاء"
+  },
+  "ruleModeLabel": {
+    "message": "متى:"
+  },
+  "mode_both": {
+    "message": "دائمًا"
+  },
+  "mode_realtime": {
+    "message": "الوقت الفعلي فقط"
+  },
+  "mode_periodic": {
+    "message": "المسح فقط"
+  },
+  "ruleAgeLabel": {
+    "message": "أقدم من"
+  },
+  "unitDays": {
+    "message": "أيام"
+  },
+  "unitEntries": {
+    "message": "إدخالات"
+  },
+  "testRuleBtn": {
+    "message": "عدّ المطابقات في السجل"
+  },
+  "testRuleResult": {
+    "message": "$count$ في السجل",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "تحريك لأعلى"
+  },
+  "moveDown": {
+    "message": "تحريك لأسفل"
+  },
+  "ruleInvalid": {
+    "message": "نمط غير صالح."
+  },
+  "ruleUnsafe": {
+    "message": "قد يكون هذا النمط بطيئًا جدًا وسيُتخطى."
+  },
+  "testKept": {
+    "message": "🛡 مُبقى — قاعدة إبقاء تحمي هذا العنوان."
+  },
+  "confirmManualLabel": {
+    "message": "السؤال قبل التنظيف اليدوي"
+  },
+  "massThresholdLabel": {
+    "message": "تنبيه فوق"
+  },
+  "notifDetailLabel": {
+    "message": "محتوى الإشعار"
+  },
+  "notifDetail_count": {
+    "message": "العدد فقط"
+  },
+  "notifDetail_host": {
+    "message": "اسم النطاق"
+  },
+  "logDetailLabel": {
+    "message": "سجل التاريخ"
+  },
+  "logDetail_host": {
+    "message": "النطاق فقط"
+  },
+  "logDetail_full": {
+    "message": "عنوان URL كامل"
+  },
+  "logDetail_off": {
+    "message": "معطّل"
+  },
+  "importCapped": {
+    "message": "تم استيراد $count$ قاعدة، وتجاهل $dropped$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "قائمة النقر الأيمن «إضافة هذا الموقع»"
+  },
+  "scanTruncated": {
+    "message": "سجل كبير جدًا — مسح جزئي."
+  },
+  "importPreviewMsg": {
+    "message": "$blocks$ قاعدة حذف، $allows$ قاعدة إبقاء، $bad$ غير صالحة أو بطيئة جدًا.",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "دمج"
+  },
+  "importReplace": {
+    "message": "استبدال الكل"
+  }
+}

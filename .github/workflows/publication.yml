@@ -1,0 +1,63 @@
+# Publication AMO — ne pas lancer sans go explicite (canal listed).
+# Secrets : AMO_API_KEY, AMO_API_SECRET (jetons addons.mozilla.org).
+name: Publication AMO
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: 'Canal AMO (unlisted | listed)'
+        required: true
+        default: 'unlisted'
+        type: choice
+        options:
+          - unlisted
+          - listed
+
+permissions:
+  contents: write
+
+jobs:
+  signer:
+    name: Signer et publier
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm test
+
+      - run: npm run lint
+
+      - name: Signer (web-ext)
+        env:
+          WEB_EXT_API_KEY: ${{ secrets.AMO_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.AMO_API_SECRET }}
+        run: |
+          npx web-ext sign \
+            --config web-ext-config.mjs \
+            --channel "${{ inputs.channel }}" \
+            --artifacts-dir web-ext-artifacts \
+            --timeout 900000
+
+      - name: Attacher le .xpi à une release (tag = version)
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          XPI=$(ls web-ext-artifacts/*.xpi | head -n1)
+          gh release create "v${VERSION}" "$XPI" \
+            --title "v${VERSION}" \
+            --notes "No Noise ${VERSION} (canal ${{ inputs.channel }})." \
+            --latest \
+            || gh release upload "v${VERSION}" "$XPI" --clobber
