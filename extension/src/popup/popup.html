@@ -20,6 +20,17 @@
   </header>
 
   <div id="dry" class="banner hidden" data-i18n="bannerDryRun">Simulation mode — no actual deletion</div>
+  <div id="pauseBanner" class="banner pause-banner hidden"></div>
+
+  <section class="pause" aria-labelledby="pause-titre">
+    <div class="pause-ligne">
+      <span id="pause-titre" data-i18n="popupPause">Pause</span>
+      <button type="button" class="btn ghost sm" data-minutes="5" data-i18n="pause5">5 min</button>
+      <button type="button" class="btn ghost sm" data-minutes="15" data-i18n="pause15">15 min</button>
+      <button type="button" class="btn ghost sm" data-minutes="60" data-i18n="pause60">1 h</button>
+      <button type="button" class="btn ghost sm" id="reprendre" hidden data-i18n="pauseReprendre">Resume</button>
+    </div>
+  </section>
 
   <section class="grid">
     <button id="cleanNow" class="btn primary" data-i18n="cleanNow">Clean now</button>

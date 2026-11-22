@@ -163,3 +163,17 @@ test('normalizeConfig keeps empty draft rules (Add button)', () => {
   assert.equal(cfg.rules[1].value, '');
   assert.equal(S.patternMatches(cfg.rules[1], 'https://anything.test/', false), false);
 });
+
+test('estActif respects pauseJusqua', () => {
+  const now = Date.now();
+  assert.equal(S.estActif({ enabled: true, pauseJusqua: 0 }, now), true);
+  assert.equal(S.estActif({ enabled: true, pauseJusqua: now + 60_000 }, now), false);
+  assert.equal(S.estActif({ enabled: false, pauseJusqua: 0 }, now), false);
+});
+
+test('rulesFromPack skips duplicates already present', () => {
+  const existing = [S.rule('domain', 'facebook.com', 'Social')];
+  const added = S.rulesFromPack('social', existing);
+  assert.ok(added.every((r) => r.value !== 'facebook.com'));
+  assert.ok(added.some((r) => r.value === 'instagram.com'));
+});

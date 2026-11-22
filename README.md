@@ -72,6 +72,10 @@ as you browse — and never sends a byte off your machine.
   and optionally only entries older than N days.
 - **History noise analyzer** — scan history, see the domains that clutter it
   most, turn each into a rule in one click.
+- **Timed pause** (5 / 15 / 60 min) from the popup, and a **What’s new** page on
+  install or update.
+- **Rule packs** (social, Google, shopping, news) and optional **Firefox Sync**
+  for settings (rules stay on the device).
 - **Safety**: simulation (dry-run), confirmation before manual cleaning, warning
   above a configurable number of deletions.
 - **Privacy-minded log**: domain names only by default (full URL or off are

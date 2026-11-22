@@ -517,5 +517,106 @@
   },
   "titreInactif": {
     "message": "Sans bruit : en pause"
+  },
+  "popupPause": {
+    "message": "Mettre en pause"
+  },
+  "pause5": {
+    "message": "5 min"
+  },
+  "pause15": {
+    "message": "15 min"
+  },
+  "pause60": {
+    "message": "1 h"
+  },
+  "pauseReprendre": {
+    "message": "Reprendre"
+  },
+  "pauseJusqua": {
+    "message": "En pause jusqu’à $time$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "titrePauseJusqua": {
+    "message": "No Noise : en pause jusqu’à $time$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "packsLabel": {
+    "message": "Ajouter un pack :"
+  },
+  "packSocial": {
+    "message": "Réseaux"
+  },
+  "packGoogle": {
+    "message": "Google"
+  },
+  "packShopping": {
+    "message": "Shopping"
+  },
+  "packNews": {
+    "message": "Actus"
+  },
+  "packNoteShopping": {
+    "message": "Shopping"
+  },
+  "packNoteNews": {
+    "message": "Actualités"
+  },
+  "packsAdded": {
+    "message": "$count$ règle(s) ajoutée(s).",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "packsAlready": {
+    "message": "Toutes les règles de ce pack sont déjà présentes."
+  },
+  "optSyncSettings": {
+    "message": "Synchroniser les réglages (Firefox Sync)"
+  },
+  "optSyncSettingsHint": {
+    "message": "Les règles restent sur cet appareil ; les interrupteurs suivent le compte"
+  },
+  "nouveautesTitre": {
+    "message": "No Noise $version$",
+    "placeholders": {
+      "version": {
+        "content": "$1"
+      }
+    }
+  },
+  "nouveautesQuoiDeNeuf": {
+    "message": "Quoi de neuf"
+  },
+  "nouveautesDemarrer": {
+    "message": "Pour commencer"
+  },
+  "nouveautesDemarrerTexte": {
+    "message": "Analysez votre historique pour trouver le bruit, ou ajoutez un pack de règles prêt à l’emploi."
+  },
+  "nouveautesPoint1": {
+    "message": "Pause minutée (5 / 15 / 60 min) depuis le popup."
+  },
+  "nouveautesPoint2": {
+    "message": "Packs de règles : réseaux, Google, shopping, actualités."
+  },
+  "nouveautesPoint3": {
+    "message": "Synchronisation optionnelle des réglages (les règles restent locales)."
+  },
+  "nouveautesPoint4": {
+    "message": "Le mode simulation permet toujours d’anticiper les suppressions."
+  },
+  "langue": {
+    "message": "fr"
   }
 }

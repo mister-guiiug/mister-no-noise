@@ -6,6 +6,7 @@
  */
 const S = self.MNN;
 const ALARM = 'mnn-sweep';
+const ALARM_PAUSE = 'mnn-pause';
 const DELETE_BATCH = 100;
 const SCAN_CAP = 50000;
 const DAY = 86400000;
@@ -28,15 +29,28 @@ async function init() {
   await afficherEtat();
 }
 
-/** Pastille « off » sur l’icône quand l’extension est coupée — comme No Prices. */
+/** Pastille « off » quand coupée ou en pause minutée — comme No Prices. */
 async function afficherEtat() {
-  const actif = cfg.settings.enabled;
+  const pause = S.enPause(cfg.settings);
+  const actif = S.estActif(cfg.settings);
   try {
     await browser.action.setBadgeBackgroundColor({ color: '#4b5563' });
     await browser.action.setBadgeText({ text: actif ? '' : (S.t('badgeOff') || 'off') });
-    await browser.action.setTitle({
-      title: actif ? (S.t('titreActif') || 'No Noise') : (S.t('titreInactif') || 'No Noise'),
-    });
+    let title = S.t('titreActif') || 'No Noise';
+    if (!cfg.settings.enabled) title = S.t('titreInactif') || title;
+    else if (pause) {
+      const heure = new Date(cfg.settings.pauseJusqua).toLocaleTimeString(
+        S.t('langue') || undefined,
+        { hour: '2-digit', minute: '2-digit' },
+      );
+      title = S.t('titrePauseJusqua', [heure]) || title;
+    }
+    await browser.action.setTitle({ title });
+    if (pause && browser.alarms) {
+      browser.alarms.create(ALARM_PAUSE, { when: cfg.settings.pauseJusqua + 100 });
+    } else if (browser.alarms) {
+      await browser.alarms.clear(ALARM_PAUSE).catch(() => {});
+    }
   } catch (e) { /* Android / pas d’action */ }
 }
 
@@ -63,8 +77,11 @@ browser.runtime.onInstalled.addListener(async (details) => {
   registerMenuClick();
   await setupMenu();
   await afficherEtat();
-  if (details && details.reason === 'install') { // onboarding (F7)
-    try { await browser.storage.local.set({ 'mnn.firstRun': true }); await browser.runtime.openOptionsPage(); } catch (e) { /* */ }
+  if (details && (details.reason === 'install' || details.reason === 'update')) {
+    try {
+      if (details.reason === 'install') await browser.storage.local.set({ 'mnn.firstRun': true });
+      await browser.tabs.create({ url: browser.runtime.getURL('src/nouveautes/nouveautes.html') });
+    } catch (e) { /* */ }
   }
 });
 
@@ -77,6 +94,14 @@ browser.runtime.onStartup.addListener(async () => {
 
 // Keep the cache in sync with storage (the UI writes the config, we write stats).
 browser.storage.onChanged.addListener((changes, area) => {
+  if (area === 'sync' && changes[S.SYNC_SETTINGS_KEY] && cfg.settings.syncSettings) {
+    S.loadConfig().then((c) => {
+      cfg = c;
+      setupAlarm().catch(() => {});
+      afficherEtat().catch(() => {});
+    }).catch(() => {});
+    return;
+  }
   if (area !== 'local') return;
   if (changes[S.CONFIG_KEY]) {
     const prev = cfg.settings;
@@ -86,10 +111,13 @@ browser.storage.onChanged.addListener((changes, area) => {
     // Only touch the alarm / menu when their inputs actually changed (avoids
     // churn while the user is typing in the rule editor).
     if (prev.enabled !== cfg.settings.enabled || prev.periodic !== cfg.settings.periodic
-        || prev.intervalMinutes !== cfg.settings.intervalMinutes) {
+        || prev.intervalMinutes !== cfg.settings.intervalMinutes
+        || prev.pauseJusqua !== cfg.settings.pauseJusqua) {
       setupAlarm().catch(() => {});
     }
-    if (prev.enabled !== cfg.settings.enabled) afficherEtat().catch(() => {});
+    if (prev.enabled !== cfg.settings.enabled || prev.pauseJusqua !== cfg.settings.pauseJusqua) {
+      afficherEtat().catch(() => {});
+    }
     if (prev.contextMenu !== cfg.settings.contextMenu) setupMenu().catch(() => {});
   }
   if (changes[S.STATS_KEY]) stats = S.normalizeStats(changes[S.STATS_KEY].newValue);
@@ -110,15 +138,24 @@ async function refreshNotifPerm() {
 async function setupAlarm() {
   await browser.alarms.clear('shc-sweep').catch(() => {}); // clé avant 1.4.0
   await browser.alarms.clear(ALARM);
-  if (cfg.settings.enabled && cfg.settings.periodic) {
+  if (S.estActif(cfg.settings) && cfg.settings.periodic) {
     const m = Math.max(1, cfg.settings.intervalMinutes || 30);
     browser.alarms.create(ALARM, { periodInMinutes: m, delayInMinutes: m });
   }
 }
 browser.alarms.onAlarm.addListener(async (a) => {
+  if (a.name === ALARM_PAUSE) {
+    await ready;
+    if (cfg.settings.pauseJusqua && cfg.settings.pauseJusqua <= Date.now()) {
+      cfg.settings.pauseJusqua = 0;
+      await S.saveConfig(cfg);
+    }
+    await afficherEtat();
+    return;
+  }
   if (a.name !== ALARM) return;
   await ready;
-  if (cfg.settings.enabled && cfg.settings.periodic) await sweep(false);
+  if (S.estActif(cfg.settings) && cfg.settings.periodic) await sweep(false);
 });
 
 // Real-time cleaning ------------------------------------------------------
@@ -126,7 +163,7 @@ browser.history.onVisited.addListener((item) => {
   if (!item || !item.url) return;
   withLock(async () => {
     await ready;
-    if (!cfg.settings.enabled || !cfg.settings.realtime) return;
+    if (!S.estActif(cfg.settings) || !cfg.settings.realtime) return;
     const block = S.decide(cfg.rules, item.url, cfg.settings.caseSensitive, 'realtime');
     if (!block) return;
     if (cfg.settings.dryRun) { pushLog(item.url, block.id, true); scheduleStatsSave(); return; }

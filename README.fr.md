@@ -75,6 +75,10 @@ votre machine.
   jours.
 - **Analyseur de bruit** — scanne l’historique, montre les domaines qui
   l’encombrent le plus, en fait une règle en un clic.
+- **Pause minutée** (5 / 15 / 60 min) depuis le popup, et page **Quoi de neuf**
+  à l’installation ou à la mise à jour.
+- **Packs de règles** (réseaux, Google, shopping, actus) et **Firefox Sync**
+  optionnel pour les réglages (les règles restent sur l’appareil).
 - **Sécurité** : mode simulation, confirmation avant un nettoyage manuel,
   avertissement au-delà d’un seuil configurable.
 - **Journal prudent** : noms de domaine seulement par défaut (URL complète ou
