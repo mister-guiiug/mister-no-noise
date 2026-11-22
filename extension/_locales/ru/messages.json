@@ -618,5 +618,11 @@
   },
   "langue": {
     "message": "ru"
+  },
+  "saveRules": {
+    "message": "Save"
+  },
+  "rulesUnsaved": {
+    "message": "Unsaved changes"
   }
 }

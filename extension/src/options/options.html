@@ -48,6 +48,13 @@
           <p id="packsMsg" class="hint"></p>
           <div id="rulesBody" class="rules"></div>
           <p id="noRules" class="empty hidden" data-i18n="noRules">No rules yet. Add one or import a configuration.</p>
+          <div id="rulesActions" class="rules-actions">
+            <p id="rulesDirtyHint" class="hint rules-dirty-hint hidden" data-i18n="rulesUnsaved">Unsaved changes</p>
+            <div class="rules-actions-btns">
+              <button type="button" id="cancelRules" class="btn" disabled data-i18n="cancel">Cancel</button>
+              <button type="button" id="saveRules" class="btn primary" disabled data-i18n="saveRules">Save</button>
+            </div>
+          </div>
         </section>
 
         <section class="card">
