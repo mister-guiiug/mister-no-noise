@@ -154,3 +154,12 @@ test('storage keys use the mnn. prefix', () => {
   assert.equal(S.CONFIG_KEY, 'mnn.config');
   assert.equal(S.STATS_KEY, 'mnn.stats');
 });
+
+test('normalizeConfig keeps empty draft rules (Add button)', () => {
+  const cfg = S.normalizeConfig({
+    rules: [S.rule('contains', 'kept.com'), S.rule('contains', '', '')],
+  });
+  assert.equal(cfg.rules.length, 2);
+  assert.equal(cfg.rules[1].value, '');
+  assert.equal(S.patternMatches(cfg.rules[1], 'https://anything.test/', false), false);
+});

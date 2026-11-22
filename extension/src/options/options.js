@@ -178,9 +178,15 @@ function move(i, dir) {
 
 $('addRule').addEventListener('click', async () => {
   cfg.rules.push(S.rule('contains', '', ''));
-  await saveCfg(); renderRules();
+  await saveCfg();
+  // Vider le filtre sinon la nouvelle règle (valeur vide) peut rester cachée.
+  $('filter').value = '';
+  renderRules();
   const last = $('rulesBody').lastElementChild;
-  if (last) last.querySelector('input.in').focus();
+  if (!last) return;
+  last.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  const champ = last.querySelector('.rule-main input.in');
+  if (champ) { champ.focus(); champ.select(); }
 });
 
 $('filter').addEventListener('input', applyFilter);

@@ -264,8 +264,9 @@
 
   function normRule(r) {
     if (!r || typeof r !== 'object') return null;
+    // Valeur vide autorisée : le bouton « Ajouter » crée une règle brouillon
+    // que l'UI focus ensuite ; patternMatches ignore déjà les valeurs vides.
     let value = typeof r.value === 'string' ? r.value : '';
-    if (!value) return null;
     if (value.length > MAX_VALUE_LEN) value = value.slice(0, MAX_VALUE_LEN);
     const type = RULE_TYPE_FALLBACK[r.type] ? r.type : 'contains';
     const kind = RULE_KINDS.includes(r.kind) ? r.kind : 'block';
