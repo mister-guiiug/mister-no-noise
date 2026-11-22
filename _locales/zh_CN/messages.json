@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "无噪音"
+  },
+  "extShortName": {
+    "message": "无噪音"
+  },
+  "extDescription": {
+    "message": "清除浏览历史中的重复噪音——按你的规则只处理你选定的网站。实时、定期或手动。完全本地运行。"
+  },
+  "actionTitle": {
+    "message": "无噪音"
+  },
+  "appSubtitle": {
+    "message": "历史清理"
+  },
+  "masterTitle": {
+    "message": "启用 / 停用扩展"
+  },
+  "bannerDryRun": {
+    "message": "模拟模式 — 不会实际删除"
+  },
+  "cleanNow": {
+    "message": "立即清理"
+  },
+  "preview": {
+    "message": "预览"
+  },
+  "toggleRealtime": {
+    "message": "实时（自适应）"
+  },
+  "togglePeriodic": {
+    "message": "定期扫描"
+  },
+  "toggleDryRun": {
+    "message": "模拟（dry-run）"
+  },
+  "statTotal": {
+    "message": "已删除总数"
+  },
+  "statRules": {
+    "message": "启用的规则"
+  },
+  "openOptions": {
+    "message": "管理规则和设置 →"
+  },
+  "cleaning": {
+    "message": "正在清理…"
+  },
+  "analyzing": {
+    "message": "正在分析…"
+  },
+  "resDeleted": {
+    "message": "✓ 已删除 $count$ 条记录。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "将删除 $count$ 条记录。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "没有匹配的记录。"
+  },
+  "err": {
+    "message": "错误：$msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "上次清理：$date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "尚未执行清理"
+  },
+  "optTagline": {
+    "message": "Firefox 历史记录清理器 — 自适应且可配置"
+  },
+  "rulesTitle": {
+    "message": "清理规则"
+  },
+  "addRule": {
+    "message": "+ 添加规则"
+  },
+  "rulesHint": {
+    "message": "如果历史记录 URL 至少匹配一条启用的规则，则会被删除。"
+  },
+  "colType": {
+    "message": "类型"
+  },
+  "colValue": {
+    "message": "值"
+  },
+  "colNote": {
+    "message": "备注"
+  },
+  "noRules": {
+    "message": "暂无规则。请添加规则或导入配置。"
+  },
+  "testTitle": {
+    "message": "测试 URL"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "日志与统计"
+  },
+  "reset": {
+    "message": "重置"
+  },
+  "logColWhen": {
+    "message": "时间"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "规则"
+  },
+  "noLog": {
+    "message": "未记录任何删除。"
+  },
+  "behaviorTitle": {
+    "message": "行为"
+  },
+  "optEnabled": {
+    "message": "扩展已启用"
+  },
+  "optRealtime": {
+    "message": "实时（自适应）"
+  },
+  "optRealtimeHint": {
+    "message": "在每个访问的页面上删除"
+  },
+  "optPeriodic": {
+    "message": "定期扫描"
+  },
+  "optPeriodicHint": {
+    "message": "按固定间隔清理历史记录"
+  },
+  "optInterval": {
+    "message": "间隔"
+  },
+  "unitMin": {
+    "message": "分钟"
+  },
+  "optDryRun": {
+    "message": "模拟（dry-run）"
+  },
+  "optDryRunHint": {
+    "message": "仅分析并记录，不删除任何内容"
+  },
+  "optNotifications": {
+    "message": "桌面通知"
+  },
+  "optCaseSensitive": {
+    "message": "区分大小写"
+  },
+  "importExportTitle": {
+    "message": "导入 / 导出"
+  },
+  "exportBtn": {
+    "message": "导出（JSON）"
+  },
+  "importBtn": {
+    "message": "导入（JSON）"
+  },
+  "legacySummary": {
+    "message": "导入模式列表"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# 以 # 开头的行将被忽略"
+  },
+  "legacyReplace": {
+    "message": "替换现有规则"
+  },
+  "legacyBtn": {
+    "message": "导入这些模式"
+  },
+  "footer": {
+    "message": "无噪音 — 您的数据绝不会离开您的浏览器。"
+  },
+  "ruleValuePlaceholder": {
+    "message": "例如 facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "备注"
+  },
+  "deleteRuleTitle": {
+    "message": "删除规则"
+  },
+  "testMatch": {
+    "message": "🗑️ 匹配 — 此 URL 将被删除。规则："
+  },
+  "testNoMatch": {
+    "message": "✓ 无匹配 — 此 URL 将被保留。"
+  },
+  "lastPrefix": {
+    "message": "上次：$date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[模拟] "
+  },
+  "cfgImported": {
+    "message": "配置已导入。"
+  },
+  "invalidFile": {
+    "message": "无效文件：$msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "未检测到任何模式。"
+  },
+  "patternsImported": {
+    "message": "已导入 $count$ 个模式。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "包含"
+  },
+  "ruleType_domain": {
+    "message": "域名"
+  },
+  "ruleType_wildcard": {
+    "message": "通配符 (*)"
+  },
+  "ruleType_regex": {
+    "message": "正则表达式"
+  },
+  "notifTitle": {
+    "message": "无噪音"
+  },
+  "notifDeleted": {
+    "message": "已删除：$host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "已删除 $count$ 条记录。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "社交媒体"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "已导入"
+  },
+  "cmdCleanNow": {
+    "message": "立即清理历史记录"
+  },
+  "ctxAddSite": {
+    "message": "将此网站添加到 无噪音"
+  },
+  "ctxAdded": {
+    "message": "已为 $host$ 添加规则",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "删除"
+  },
+  "cancel": {
+    "message": "取消"
+  },
+  "cancelled": {
+    "message": "已取消"
+  },
+  "confirmMass": {
+    "message": "将永久删除 $count$ 条记录。是否继续？",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "正在扫描… $count$ 个页面",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "正在删除… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "欢迎使用 无噪音 🧹"
+  },
+  "welcomeBody": {
+    "message": "无噪音 会清除历史记录中反复出现的噪声，让你重新找到需要的内容。先扫描你的历史记录，或手动添加规则。"
+  },
+  "welcomeDismiss": {
+    "message": "关闭"
+  },
+  "filterPlaceholder": {
+    "message": "筛选规则…"
+  },
+  "enableAll": {
+    "message": "全部启用"
+  },
+  "disableAll": {
+    "message": "全部停用"
+  },
+  "suggestionsTitle": {
+    "message": "历史记录噪声"
+  },
+  "analyzeBtn": {
+    "message": "扫描我的历史记录"
+  },
+  "suggestEmpty": {
+    "message": "运行扫描以找出最扰乱你历史记录的域名。"
+  },
+  "suggestNone": {
+    "message": "没有需要清理的内容了——你的规则已覆盖这些噪声。"
+  },
+  "suggestScan": {
+    "message": "正在扫描… $count$ 个域名",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "已扫描 $count$ 个页面",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ 条记录",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "添加规则"
+  },
+  "ruleKindBlock": {
+    "message": "删除"
+  },
+  "ruleKindAllow": {
+    "message": "保留"
+  },
+  "ruleModeLabel": {
+    "message": "何时："
+  },
+  "mode_both": {
+    "message": "始终"
+  },
+  "mode_realtime": {
+    "message": "仅实时"
+  },
+  "mode_periodic": {
+    "message": "仅扫描"
+  },
+  "ruleAgeLabel": {
+    "message": "早于"
+  },
+  "unitDays": {
+    "message": "天"
+  },
+  "unitEntries": {
+    "message": "条"
+  },
+  "testRuleBtn": {
+    "message": "统计历史记录中的匹配数"
+  },
+  "testRuleResult": {
+    "message": "历史记录中 $count$ 条",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "上移"
+  },
+  "moveDown": {
+    "message": "下移"
+  },
+  "ruleInvalid": {
+    "message": "无效的模式。"
+  },
+  "ruleUnsafe": {
+    "message": "此模式可能过慢，已跳过。"
+  },
+  "testKept": {
+    "message": "🛡 已保留 —「保留」规则保护此 URL。"
+  },
+  "confirmManualLabel": {
+    "message": "手动清理前询问"
+  },
+  "massThresholdLabel": {
+    "message": "超过以下数量时警告"
+  },
+  "notifDetailLabel": {
+    "message": "通知内容"
+  },
+  "notifDetail_count": {
+    "message": "仅数量"
+  },
+  "notifDetail_host": {
+    "message": "域名"
+  },
+  "logDetailLabel": {
+    "message": "历史日志"
+  },
+  "logDetail_host": {
+    "message": "仅域名"
+  },
+  "logDetail_full": {
+    "message": "完整 URL"
+  },
+  "logDetail_off": {
+    "message": "禁用"
+  },
+  "importCapped": {
+    "message": "已导入 $count$ 条规则，忽略 $dropped$ 条。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "「添加此网站」右键菜单"
+  },
+  "scanTruncated": {
+    "message": "历史记录过大——部分扫描。"
+  },
+  "importPreviewMsg": {
+    "message": "$blocks$ 条删除规则，$allows$ 条保留规则，$bad$ 条无效或过慢。",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "合并"
+  },
+  "importReplace": {
+    "message": "全部替换"
+  }
+}

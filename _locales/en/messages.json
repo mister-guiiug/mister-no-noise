@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "No Noise"
+  },
+  "extShortName": {
+    "message": "No Noise"
+  },
+  "extDescription": {
+    "message": "Removes recurring noise from your browsing history — sites you choose, by your rules. Real-time, periodic or manual. Entirely local."
+  },
+  "actionTitle": {
+    "message": "No Noise"
+  },
+  "appSubtitle": {
+    "message": "History cleaner"
+  },
+  "masterTitle": {
+    "message": "Enable / disable the extension"
+  },
+  "bannerDryRun": {
+    "message": "Simulation mode — no actual deletion"
+  },
+  "cleanNow": {
+    "message": "Clean now"
+  },
+  "preview": {
+    "message": "Preview"
+  },
+  "toggleRealtime": {
+    "message": "Real-time (adaptive)"
+  },
+  "togglePeriodic": {
+    "message": "Periodic sweep"
+  },
+  "toggleDryRun": {
+    "message": "Simulation (dry-run)"
+  },
+  "statTotal": {
+    "message": "deleted in total"
+  },
+  "statRules": {
+    "message": "active rules"
+  },
+  "openOptions": {
+    "message": "Manage rules and settings →"
+  },
+  "cleaning": {
+    "message": "Cleaning…"
+  },
+  "analyzing": {
+    "message": "Analyzing…"
+  },
+  "resDeleted": {
+    "message": "✓ $count$ entries deleted.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "$count$ entries would be deleted.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "No matching entry."
+  },
+  "err": {
+    "message": "Error: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "Last cleanup: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "No cleanup performed yet"
+  },
+  "optTagline": {
+    "message": "Firefox history cleaner — adaptive & configurable"
+  },
+  "rulesTitle": {
+    "message": "Cleaning rules"
+  },
+  "addRule": {
+    "message": "+ Add a rule"
+  },
+  "rulesHint": {
+    "message": "A history URL is deleted if it matches at least one active rule."
+  },
+  "colType": {
+    "message": "Type"
+  },
+  "colValue": {
+    "message": "Value"
+  },
+  "colNote": {
+    "message": "Note"
+  },
+  "noRules": {
+    "message": "No rules yet. Add one or import a configuration."
+  },
+  "testTitle": {
+    "message": "Test a URL"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "Log & statistics"
+  },
+  "reset": {
+    "message": "Reset"
+  },
+  "logColWhen": {
+    "message": "When"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "Rule"
+  },
+  "noLog": {
+    "message": "No deletion recorded."
+  },
+  "behaviorTitle": {
+    "message": "Behavior"
+  },
+  "optEnabled": {
+    "message": "Extension active"
+  },
+  "optRealtime": {
+    "message": "Real-time (adaptive)"
+  },
+  "optRealtimeHint": {
+    "message": "Deletes on each visited page"
+  },
+  "optPeriodic": {
+    "message": "Periodic sweep"
+  },
+  "optPeriodicHint": {
+    "message": "Cleans history at regular intervals"
+  },
+  "optInterval": {
+    "message": "Interval"
+  },
+  "unitMin": {
+    "message": "min"
+  },
+  "optDryRun": {
+    "message": "Simulation (dry-run)"
+  },
+  "optDryRunHint": {
+    "message": "Analyzes and logs without deleting anything"
+  },
+  "optNotifications": {
+    "message": "Desktop notifications"
+  },
+  "optCaseSensitive": {
+    "message": "Case-sensitive"
+  },
+  "importExportTitle": {
+    "message": "Import / Export"
+  },
+  "exportBtn": {
+    "message": "Export (JSON)"
+  },
+  "importBtn": {
+    "message": "Import (JSON)"
+  },
+  "legacySummary": {
+    "message": "Import a pattern list"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# lines starting with # are ignored"
+  },
+  "legacyReplace": {
+    "message": "Replace existing rules"
+  },
+  "legacyBtn": {
+    "message": "Import these patterns"
+  },
+  "footer": {
+    "message": "No Noise — your data never leaves your browser."
+  },
+  "ruleValuePlaceholder": {
+    "message": "e.g. facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "note"
+  },
+  "deleteRuleTitle": {
+    "message": "Delete rule"
+  },
+  "testMatch": {
+    "message": "🗑️ Match — this URL would be deleted. Rule(s): "
+  },
+  "testNoMatch": {
+    "message": "✓ No match — this URL would be kept."
+  },
+  "lastPrefix": {
+    "message": "Last: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[simulation] "
+  },
+  "cfgImported": {
+    "message": "Configuration imported."
+  },
+  "invalidFile": {
+    "message": "Invalid file: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "No pattern detected."
+  },
+  "patternsImported": {
+    "message": "$count$ pattern(s) imported.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "Contains"
+  },
+  "ruleType_domain": {
+    "message": "Domain"
+  },
+  "ruleType_wildcard": {
+    "message": "Wildcard (*)"
+  },
+  "ruleType_regex": {
+    "message": "Regular expression"
+  },
+  "notifTitle": {
+    "message": "No Noise"
+  },
+  "notifDeleted": {
+    "message": "Deleted: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "$count$ entries deleted.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "Social media"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "imported"
+  },
+  "cmdCleanNow": {
+    "message": "Clean history now"
+  },
+  "ctxAddSite": {
+    "message": "Add this site to No Noise"
+  },
+  "ctxAdded": {
+    "message": "Rule added for $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "Delete"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "cancelled": {
+    "message": "Cancelled"
+  },
+  "confirmMass": {
+    "message": "$count$ entries will be permanently deleted. Continue?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "Scanning… $count$ pages",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "Deleting… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "Welcome to No Noise 🧹"
+  },
+  "welcomeBody": {
+    "message": "No Noise removes the recurring noise from your history so you can find things again. Start by scanning your history, or add rules manually."
+  },
+  "welcomeDismiss": {
+    "message": "Dismiss"
+  },
+  "filterPlaceholder": {
+    "message": "Filter rules…"
+  },
+  "enableAll": {
+    "message": "Enable all"
+  },
+  "disableAll": {
+    "message": "Disable all"
+  },
+  "suggestionsTitle": {
+    "message": "History noise"
+  },
+  "analyzeBtn": {
+    "message": "Scan my history"
+  },
+  "suggestEmpty": {
+    "message": "Run a scan to find the domains that clutter your history most."
+  },
+  "suggestNone": {
+    "message": "Nothing left to clean — your rules already cover the noise."
+  },
+  "suggestScan": {
+    "message": "Scanning… $count$ domains",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "$count$ pages scanned",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ entries",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "Add rule"
+  },
+  "ruleKindBlock": {
+    "message": "Delete"
+  },
+  "ruleKindAllow": {
+    "message": "Keep"
+  },
+  "ruleModeLabel": {
+    "message": "When:"
+  },
+  "mode_both": {
+    "message": "Always"
+  },
+  "mode_realtime": {
+    "message": "Real-time only"
+  },
+  "mode_periodic": {
+    "message": "Sweeps only"
+  },
+  "ruleAgeLabel": {
+    "message": "older than"
+  },
+  "unitDays": {
+    "message": "days"
+  },
+  "unitEntries": {
+    "message": "entries"
+  },
+  "testRuleBtn": {
+    "message": "Count matches in history"
+  },
+  "testRuleResult": {
+    "message": "$count$ in history",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "Move up"
+  },
+  "moveDown": {
+    "message": "Move down"
+  },
+  "ruleInvalid": {
+    "message": "Invalid pattern."
+  },
+  "ruleUnsafe": {
+    "message": "This pattern may be too slow and is skipped."
+  },
+  "testKept": {
+    "message": "🛡 Kept — a Keep rule protects this URL."
+  },
+  "confirmManualLabel": {
+    "message": "Ask before manual cleaning"
+  },
+  "massThresholdLabel": {
+    "message": "Warn above"
+  },
+  "notifDetailLabel": {
+    "message": "Notification content"
+  },
+  "notifDetail_count": {
+    "message": "Count only"
+  },
+  "notifDetail_host": {
+    "message": "Domain name"
+  },
+  "logDetailLabel": {
+    "message": "History log"
+  },
+  "logDetail_host": {
+    "message": "Domain only"
+  },
+  "logDetail_full": {
+    "message": "Full URL"
+  },
+  "logDetail_off": {
+    "message": "Disabled"
+  },
+  "importCapped": {
+    "message": "$count$ rules imported, $dropped$ ignored.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "\"Add this site\" right-click menu"
+  },
+  "scanTruncated": {
+    "message": "Very large history — partial scan."
+  },
+  "importPreviewMsg": {
+    "message": "$blocks$ Delete rule(s), $allows$ Keep rule(s), $bad$ invalid or too slow.",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "Merge"
+  },
+  "importReplace": {
+    "message": "Replace all"
+  }
+}

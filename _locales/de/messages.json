@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "Ohne Rauschen"
+  },
+  "extShortName": {
+    "message": "Ohne Rauschen"
+  },
+  "extDescription": {
+    "message": "Entfernt wiederkehrendes Rauschen aus Ihrem Verlauf — nur die von Ihnen gewählten Seiten, nach Ihren Regeln. Echtzeit, periodisch oder manuell. Vollständig lokal."
+  },
+  "actionTitle": {
+    "message": "Ohne Rauschen"
+  },
+  "appSubtitle": {
+    "message": "Verlaufsreiniger"
+  },
+  "masterTitle": {
+    "message": "Erweiterung aktivieren / deaktivieren"
+  },
+  "bannerDryRun": {
+    "message": "Simulationsmodus — keine tatsächliche Löschung"
+  },
+  "cleanNow": {
+    "message": "Jetzt reinigen"
+  },
+  "preview": {
+    "message": "Vorschau"
+  },
+  "toggleRealtime": {
+    "message": "Echtzeit (adaptiv)"
+  },
+  "togglePeriodic": {
+    "message": "Periodischer Durchlauf"
+  },
+  "toggleDryRun": {
+    "message": "Simulation (Dry-Run)"
+  },
+  "statTotal": {
+    "message": "insgesamt gelöscht"
+  },
+  "statRules": {
+    "message": "aktive Regeln"
+  },
+  "openOptions": {
+    "message": "Regeln und Einstellungen verwalten →"
+  },
+  "cleaning": {
+    "message": "Reinigung…"
+  },
+  "analyzing": {
+    "message": "Analyse…"
+  },
+  "resDeleted": {
+    "message": "✓ $count$ Eintrag/Einträge gelöscht.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "$count$ Eintrag/Einträge würden gelöscht.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "Kein passender Eintrag."
+  },
+  "err": {
+    "message": "Fehler: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "Letzte Reinigung: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "Noch keine Reinigung durchgeführt"
+  },
+  "optTagline": {
+    "message": "Firefox-Verlaufsreiniger — adaptiv & konfigurierbar"
+  },
+  "rulesTitle": {
+    "message": "Reinigungsregeln"
+  },
+  "addRule": {
+    "message": "+ Regel hinzufügen"
+  },
+  "rulesHint": {
+    "message": "Eine Verlaufs-URL wird gelöscht, wenn sie mindestens einer aktiven Regel entspricht."
+  },
+  "colType": {
+    "message": "Typ"
+  },
+  "colValue": {
+    "message": "Wert"
+  },
+  "colNote": {
+    "message": "Notiz"
+  },
+  "noRules": {
+    "message": "Noch keine Regeln. Fügen Sie eine hinzu oder importieren Sie eine Konfiguration."
+  },
+  "testTitle": {
+    "message": "URL testen"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "Protokoll & Statistiken"
+  },
+  "reset": {
+    "message": "Zurücksetzen"
+  },
+  "logColWhen": {
+    "message": "Wann"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "Regel"
+  },
+  "noLog": {
+    "message": "Keine Löschung protokolliert."
+  },
+  "behaviorTitle": {
+    "message": "Verhalten"
+  },
+  "optEnabled": {
+    "message": "Erweiterung aktiv"
+  },
+  "optRealtime": {
+    "message": "Echtzeit (adaptiv)"
+  },
+  "optRealtimeHint": {
+    "message": "Löscht bei jeder besuchten Seite"
+  },
+  "optPeriodic": {
+    "message": "Periodischer Durchlauf"
+  },
+  "optPeriodicHint": {
+    "message": "Reinigt den Verlauf in regelmäßigen Abständen"
+  },
+  "optInterval": {
+    "message": "Intervall"
+  },
+  "unitMin": {
+    "message": "Min."
+  },
+  "optDryRun": {
+    "message": "Simulation (Dry-Run)"
+  },
+  "optDryRunHint": {
+    "message": "Analysiert und protokolliert, ohne etwas zu löschen"
+  },
+  "optNotifications": {
+    "message": "Desktop-Benachrichtigungen"
+  },
+  "optCaseSensitive": {
+    "message": "Groß-/Kleinschreibung beachten"
+  },
+  "importExportTitle": {
+    "message": "Import / Export"
+  },
+  "exportBtn": {
+    "message": "Exportieren (JSON)"
+  },
+  "importBtn": {
+    "message": "Importieren (JSON)"
+  },
+  "legacySummary": {
+    "message": "Musterliste importieren"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# Zeilen, die mit # beginnen, werden ignoriert"
+  },
+  "legacyReplace": {
+    "message": "Vorhandene Regeln ersetzen"
+  },
+  "legacyBtn": {
+    "message": "Diese Muster importieren"
+  },
+  "footer": {
+    "message": "Ohne Rauschen — Ihre Daten verlassen niemals Ihren Browser."
+  },
+  "ruleValuePlaceholder": {
+    "message": "z. B. facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "Notiz"
+  },
+  "deleteRuleTitle": {
+    "message": "Regel löschen"
+  },
+  "testMatch": {
+    "message": "🗑️ Treffer — diese URL würde gelöscht. Regel(n): "
+  },
+  "testNoMatch": {
+    "message": "✓ Kein Treffer — diese URL würde behalten."
+  },
+  "lastPrefix": {
+    "message": "Letzte: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[Simulation] "
+  },
+  "cfgImported": {
+    "message": "Konfiguration importiert."
+  },
+  "invalidFile": {
+    "message": "Ungültige Datei: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "Kein Muster erkannt."
+  },
+  "patternsImported": {
+    "message": "$count$ Muster importiert.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "Enthält"
+  },
+  "ruleType_domain": {
+    "message": "Domain"
+  },
+  "ruleType_wildcard": {
+    "message": "Platzhalter (*)"
+  },
+  "ruleType_regex": {
+    "message": "Regulärer Ausdruck"
+  },
+  "notifTitle": {
+    "message": "Ohne Rauschen"
+  },
+  "notifDeleted": {
+    "message": "Gelöscht: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "$count$ Eintrag/Einträge gelöscht.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "Soziale Medien"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "importiert"
+  },
+  "cmdCleanNow": {
+    "message": "Verlauf jetzt reinigen"
+  },
+  "ctxAddSite": {
+    "message": "Diese Seite zu Ohne Rauschen hinzufügen"
+  },
+  "ctxAdded": {
+    "message": "Regel für $host$ hinzugefügt",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "Löschen"
+  },
+  "cancel": {
+    "message": "Abbrechen"
+  },
+  "cancelled": {
+    "message": "Abgebrochen"
+  },
+  "confirmMass": {
+    "message": "$count$ Einträge werden endgültig gelöscht. Fortfahren?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "Durchsuche… $count$ Seiten",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "Lösche… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "Willkommen bei Ohne Rauschen 🧹"
+  },
+  "welcomeBody": {
+    "message": "Ohne Rauschen entfernt das wiederkehrende Rauschen aus Ihrem Verlauf, damit Sie wieder finden, was Sie suchen. Starten Sie mit einer Analyse Ihres Verlaufs oder fügen Sie Regeln manuell hinzu."
+  },
+  "welcomeDismiss": {
+    "message": "Schließen"
+  },
+  "filterPlaceholder": {
+    "message": "Regeln filtern…"
+  },
+  "enableAll": {
+    "message": "Alle aktivieren"
+  },
+  "disableAll": {
+    "message": "Alle deaktivieren"
+  },
+  "suggestionsTitle": {
+    "message": "Verlaufs-Rauschen"
+  },
+  "analyzeBtn": {
+    "message": "Meinen Verlauf analysieren"
+  },
+  "suggestEmpty": {
+    "message": "Starten Sie eine Analyse, um die Domains zu finden, die Ihren Verlauf am meisten überladen."
+  },
+  "suggestNone": {
+    "message": "Nichts mehr zu reinigen — Ihre Regeln decken das Rauschen bereits ab."
+  },
+  "suggestScan": {
+    "message": "Durchsuche… $count$ Domains",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "$count$ Seiten durchsucht",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ Einträge",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "Regel hinzufügen"
+  },
+  "ruleKindBlock": {
+    "message": "Löschen"
+  },
+  "ruleKindAllow": {
+    "message": "Behalten"
+  },
+  "ruleModeLabel": {
+    "message": "Wann:"
+  },
+  "mode_both": {
+    "message": "Immer"
+  },
+  "mode_realtime": {
+    "message": "Nur Echtzeit"
+  },
+  "mode_periodic": {
+    "message": "Nur Durchläufe"
+  },
+  "ruleAgeLabel": {
+    "message": "älter als"
+  },
+  "unitDays": {
+    "message": "Tage"
+  },
+  "unitEntries": {
+    "message": "Einträge"
+  },
+  "testRuleBtn": {
+    "message": "Treffer im Verlauf zählen"
+  },
+  "testRuleResult": {
+    "message": "$count$ im Verlauf",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "Nach oben"
+  },
+  "moveDown": {
+    "message": "Nach unten"
+  },
+  "ruleInvalid": {
+    "message": "Ungültiges Muster."
+  },
+  "ruleUnsafe": {
+    "message": "Dieses Muster ist möglicherweise zu langsam und wird übersprungen."
+  },
+  "testKept": {
+    "message": "🛡 Behalten — eine Behalten-Regel schützt diese URL."
+  },
+  "confirmManualLabel": {
+    "message": "Vor manueller Reinigung nachfragen"
+  },
+  "massThresholdLabel": {
+    "message": "Warnen ab"
+  },
+  "notifDetailLabel": {
+    "message": "Benachrichtigungsinhalt"
+  },
+  "notifDetail_count": {
+    "message": "Nur Anzahl"
+  },
+  "notifDetail_host": {
+    "message": "Domainname"
+  },
+  "logDetailLabel": {
+    "message": "Verlaufsprotokoll"
+  },
+  "logDetail_host": {
+    "message": "Nur Domain"
+  },
+  "logDetail_full": {
+    "message": "Vollständige URL"
+  },
+  "logDetail_off": {
+    "message": "Deaktiviert"
+  },
+  "importCapped": {
+    "message": "$count$ Regeln importiert, $dropped$ ignoriert.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "Kontextmenü „Diese Seite hinzufügen“"
+  },
+  "scanTruncated": {
+    "message": "Sehr großer Verlauf — Analyse unvollständig."
+  },
+  "importPreviewMsg": {
+    "message": "$blocks$ Löschen-Regel(n), $allows$ Behalten-Regel(n), $bad$ ungültig oder zu langsam.",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "Zusammenführen"
+  },
+  "importReplace": {
+    "message": "Alles ersetzen"
+  }
+}

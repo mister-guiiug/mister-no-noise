@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "Sem ruído"
+  },
+  "extShortName": {
+    "message": "Sem ruído"
+  },
+  "extDescription": {
+    "message": "Remove o ruído recorrente do seu histórico — os sites que você escolher, pelas suas regras. Em tempo real, periódico ou manual. Totalmente local."
+  },
+  "actionTitle": {
+    "message": "Sem ruído"
+  },
+  "appSubtitle": {
+    "message": "Limpador de histórico"
+  },
+  "masterTitle": {
+    "message": "Ativar / desativar a extensão"
+  },
+  "bannerDryRun": {
+    "message": "Modo simulação — nenhuma exclusão real"
+  },
+  "cleanNow": {
+    "message": "Limpar agora"
+  },
+  "preview": {
+    "message": "Prévia"
+  },
+  "toggleRealtime": {
+    "message": "Tempo real (adaptável)"
+  },
+  "togglePeriodic": {
+    "message": "Varredura periódica"
+  },
+  "toggleDryRun": {
+    "message": "Simulação (dry-run)"
+  },
+  "statTotal": {
+    "message": "excluídas no total"
+  },
+  "statRules": {
+    "message": "regras ativas"
+  },
+  "openOptions": {
+    "message": "Gerenciar regras e configurações →"
+  },
+  "cleaning": {
+    "message": "Limpando…"
+  },
+  "analyzing": {
+    "message": "Analisando…"
+  },
+  "resDeleted": {
+    "message": "✓ $count$ entrada(s) excluída(s).",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "$count$ entrada(s) seriam excluídas.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "Nenhuma entrada correspondente."
+  },
+  "err": {
+    "message": "Erro: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "Última limpeza: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "Nenhuma limpeza realizada ainda"
+  },
+  "optTagline": {
+    "message": "Limpador de histórico do Firefox — adaptável e configurável"
+  },
+  "rulesTitle": {
+    "message": "Regras de limpeza"
+  },
+  "addRule": {
+    "message": "+ Adicionar uma regra"
+  },
+  "rulesHint": {
+    "message": "Uma URL do histórico é excluída se corresponder a pelo menos uma regra ativa."
+  },
+  "colType": {
+    "message": "Tipo"
+  },
+  "colValue": {
+    "message": "Valor"
+  },
+  "colNote": {
+    "message": "Nota"
+  },
+  "noRules": {
+    "message": "Nenhuma regra. Adicione uma ou importe uma configuração."
+  },
+  "testTitle": {
+    "message": "Testar uma URL"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "Registro e estatísticas"
+  },
+  "reset": {
+    "message": "Redefinir"
+  },
+  "logColWhen": {
+    "message": "Quando"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "Regra"
+  },
+  "noLog": {
+    "message": "Nenhuma exclusão registrada."
+  },
+  "behaviorTitle": {
+    "message": "Comportamento"
+  },
+  "optEnabled": {
+    "message": "Extensão ativa"
+  },
+  "optRealtime": {
+    "message": "Tempo real (adaptável)"
+  },
+  "optRealtimeHint": {
+    "message": "Exclui a cada página visitada"
+  },
+  "optPeriodic": {
+    "message": "Varredura periódica"
+  },
+  "optPeriodicHint": {
+    "message": "Limpa o histórico em intervalos regulares"
+  },
+  "optInterval": {
+    "message": "Intervalo"
+  },
+  "unitMin": {
+    "message": "min"
+  },
+  "optDryRun": {
+    "message": "Simulação (dry-run)"
+  },
+  "optDryRunHint": {
+    "message": "Analisa e registra sem excluir nada"
+  },
+  "optNotifications": {
+    "message": "Notificações da área de trabalho"
+  },
+  "optCaseSensitive": {
+    "message": "Diferenciar maiúsculas"
+  },
+  "importExportTitle": {
+    "message": "Importar / Exportar"
+  },
+  "exportBtn": {
+    "message": "Exportar (JSON)"
+  },
+  "importBtn": {
+    "message": "Importar (JSON)"
+  },
+  "legacySummary": {
+    "message": "Importar uma lista de padrões"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# linhas que começam com # são ignoradas"
+  },
+  "legacyReplace": {
+    "message": "Substituir as regras existentes"
+  },
+  "legacyBtn": {
+    "message": "Importar esses padrões"
+  },
+  "footer": {
+    "message": "Sem ruído — seus dados nunca saem do seu navegador."
+  },
+  "ruleValuePlaceholder": {
+    "message": "ex.: facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "nota"
+  },
+  "deleteRuleTitle": {
+    "message": "Excluir a regra"
+  },
+  "testMatch": {
+    "message": "🗑️ Corresponde — esta URL seria excluída. Regra(s): "
+  },
+  "testNoMatch": {
+    "message": "✓ Sem correspondência — esta URL seria mantida."
+  },
+  "lastPrefix": {
+    "message": "Última: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[simulação] "
+  },
+  "cfgImported": {
+    "message": "Configuração importada."
+  },
+  "invalidFile": {
+    "message": "Arquivo inválido: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "Nenhum padrão detectado."
+  },
+  "patternsImported": {
+    "message": "$count$ padrão(ões) importado(s).",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "Contém"
+  },
+  "ruleType_domain": {
+    "message": "Domínio"
+  },
+  "ruleType_wildcard": {
+    "message": "Curinga (*)"
+  },
+  "ruleType_regex": {
+    "message": "Expressão regular"
+  },
+  "notifTitle": {
+    "message": "Sem ruído"
+  },
+  "notifDeleted": {
+    "message": "Excluído: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "$count$ entrada(s) excluída(s).",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "Redes sociais"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "importado"
+  },
+  "cmdCleanNow": {
+    "message": "Limpar o histórico agora"
+  },
+  "ctxAddSite": {
+    "message": "Adicionar este site ao Sem ruído"
+  },
+  "ctxAdded": {
+    "message": "Regra adicionada para $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "Excluir"
+  },
+  "cancel": {
+    "message": "Cancelar"
+  },
+  "cancelled": {
+    "message": "Cancelado"
+  },
+  "confirmMass": {
+    "message": "$count$ entrada(s) serão excluídas permanentemente. Continuar?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "Analisando… $count$ páginas",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "Excluindo… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "Bem-vindo ao Sem ruído 🧹"
+  },
+  "welcomeBody": {
+    "message": "O Sem ruído remove o ruído recorrente do seu histórico para você encontrar as coisas de novo. Comece analisando seu histórico ou adicione regras manualmente."
+  },
+  "welcomeDismiss": {
+    "message": "Dispensar"
+  },
+  "filterPlaceholder": {
+    "message": "Filtrar regras…"
+  },
+  "enableAll": {
+    "message": "Ativar tudo"
+  },
+  "disableAll": {
+    "message": "Desativar tudo"
+  },
+  "suggestionsTitle": {
+    "message": "Ruído do histórico"
+  },
+  "analyzeBtn": {
+    "message": "Analisar meu histórico"
+  },
+  "suggestEmpty": {
+    "message": "Execute uma análise para encontrar os domínios que mais poluem seu histórico."
+  },
+  "suggestNone": {
+    "message": "Nada mais para limpar — suas regras já cobrem o ruído."
+  },
+  "suggestScan": {
+    "message": "Analisando… $count$ domínios",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "$count$ páginas analisadas",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ entrada(s)",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "Adicionar regra"
+  },
+  "ruleKindBlock": {
+    "message": "Excluir"
+  },
+  "ruleKindAllow": {
+    "message": "Manter"
+  },
+  "ruleModeLabel": {
+    "message": "Quando:"
+  },
+  "mode_both": {
+    "message": "Sempre"
+  },
+  "mode_realtime": {
+    "message": "Apenas tempo real"
+  },
+  "mode_periodic": {
+    "message": "Apenas varreduras"
+  },
+  "ruleAgeLabel": {
+    "message": "mais antigo que"
+  },
+  "unitDays": {
+    "message": "dias"
+  },
+  "unitEntries": {
+    "message": "entradas"
+  },
+  "testRuleBtn": {
+    "message": "Contar correspondências no histórico"
+  },
+  "testRuleResult": {
+    "message": "$count$ no histórico",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "Mover para cima"
+  },
+  "moveDown": {
+    "message": "Mover para baixo"
+  },
+  "ruleInvalid": {
+    "message": "Padrão inválido."
+  },
+  "ruleUnsafe": {
+    "message": "Este padrão pode ser muito lento e será ignorado."
+  },
+  "testKept": {
+    "message": "🛡 Mantida — uma regra Manter protege esta URL."
+  },
+  "confirmManualLabel": {
+    "message": "Perguntar antes da limpeza manual"
+  },
+  "massThresholdLabel": {
+    "message": "Avisar acima de"
+  },
+  "notifDetailLabel": {
+    "message": "Conteúdo da notificação"
+  },
+  "notifDetail_count": {
+    "message": "Apenas a contagem"
+  },
+  "notifDetail_host": {
+    "message": "Nome de domínio"
+  },
+  "logDetailLabel": {
+    "message": "Registro do histórico"
+  },
+  "logDetail_host": {
+    "message": "Apenas domínio"
+  },
+  "logDetail_full": {
+    "message": "URL completa"
+  },
+  "logDetail_off": {
+    "message": "Desativado"
+  },
+  "importCapped": {
+    "message": "$count$ regra(s) importada(s), $dropped$ ignorada(s).",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "Menu de contexto \"Adicionar este site\""
+  },
+  "scanTruncated": {
+    "message": "Histórico muito grande — análise parcial."
+  },
+  "importPreviewMsg": {
+    "message": "$blocks$ regra(s) Excluir, $allows$ regra(s) Manter, $bad$ inválida(s) ou lenta(s) demais.",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "Mesclar"
+  },
+  "importReplace": {
+    "message": "Substituir tudo"
+  }
+}

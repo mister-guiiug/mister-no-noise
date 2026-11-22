@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "Без шума"
+  },
+  "extShortName": {
+    "message": "Без шума"
+  },
+  "extDescription": {
+    "message": "Убирает повторяющийся шум из истории — только выбранные вами сайты, по вашим правилам. В реальном времени, по расписанию или вручную. Полностью локально."
+  },
+  "actionTitle": {
+    "message": "Без шума"
+  },
+  "appSubtitle": {
+    "message": "Очистка истории"
+  },
+  "masterTitle": {
+    "message": "Включить / выключить расширение"
+  },
+  "bannerDryRun": {
+    "message": "Режим симуляции — без реального удаления"
+  },
+  "cleanNow": {
+    "message": "Очистить сейчас"
+  },
+  "preview": {
+    "message": "Предпросмотр"
+  },
+  "toggleRealtime": {
+    "message": "В реальном времени (адаптивно)"
+  },
+  "togglePeriodic": {
+    "message": "Периодическая очистка"
+  },
+  "toggleDryRun": {
+    "message": "Симуляция (dry-run)"
+  },
+  "statTotal": {
+    "message": "удалено всего"
+  },
+  "statRules": {
+    "message": "активных правил"
+  },
+  "openOptions": {
+    "message": "Управление правилами и настройками →"
+  },
+  "cleaning": {
+    "message": "Очистка…"
+  },
+  "analyzing": {
+    "message": "Анализ…"
+  },
+  "resDeleted": {
+    "message": "✓ Удалено записей: $count$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "Было бы удалено записей: $count$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "Нет совпадающих записей."
+  },
+  "err": {
+    "message": "Ошибка: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "Последняя очистка: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "Очистка ещё не выполнялась"
+  },
+  "optTagline": {
+    "message": "Очистка истории Firefox — адаптивная и настраиваемая"
+  },
+  "rulesTitle": {
+    "message": "Правила очистки"
+  },
+  "addRule": {
+    "message": "+ Добавить правило"
+  },
+  "rulesHint": {
+    "message": "URL из истории удаляется, если он соответствует хотя бы одному активному правилу."
+  },
+  "colType": {
+    "message": "Тип"
+  },
+  "colValue": {
+    "message": "Значение"
+  },
+  "colNote": {
+    "message": "Заметка"
+  },
+  "noRules": {
+    "message": "Правил пока нет. Добавьте правило или импортируйте конфигурацию."
+  },
+  "testTitle": {
+    "message": "Проверить URL"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "Журнал и статистика"
+  },
+  "reset": {
+    "message": "Сбросить"
+  },
+  "logColWhen": {
+    "message": "Когда"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "Правило"
+  },
+  "noLog": {
+    "message": "Удалений не зафиксировано."
+  },
+  "behaviorTitle": {
+    "message": "Поведение"
+  },
+  "optEnabled": {
+    "message": "Расширение активно"
+  },
+  "optRealtime": {
+    "message": "В реальном времени (адаптивно)"
+  },
+  "optRealtimeHint": {
+    "message": "Удаляет при каждом посещении страницы"
+  },
+  "optPeriodic": {
+    "message": "Периодическая очистка"
+  },
+  "optPeriodicHint": {
+    "message": "Очищает историю через равные промежутки времени"
+  },
+  "optInterval": {
+    "message": "Интервал"
+  },
+  "unitMin": {
+    "message": "мин"
+  },
+  "optDryRun": {
+    "message": "Симуляция (dry-run)"
+  },
+  "optDryRunHint": {
+    "message": "Анализирует и записывает в журнал, ничего не удаляя"
+  },
+  "optNotifications": {
+    "message": "Уведомления на рабочем столе"
+  },
+  "optCaseSensitive": {
+    "message": "С учётом регистра"
+  },
+  "importExportTitle": {
+    "message": "Импорт / Экспорт"
+  },
+  "exportBtn": {
+    "message": "Экспорт (JSON)"
+  },
+  "importBtn": {
+    "message": "Импорт (JSON)"
+  },
+  "legacySummary": {
+    "message": "Импорт списка шаблонов"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# строки, начинающиеся с #, игнорируются"
+  },
+  "legacyReplace": {
+    "message": "Заменить существующие правила"
+  },
+  "legacyBtn": {
+    "message": "Импортировать эти шаблоны"
+  },
+  "footer": {
+    "message": "Без шума — ваши данные никогда не покидают браузер."
+  },
+  "ruleValuePlaceholder": {
+    "message": "напр. facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "заметка"
+  },
+  "deleteRuleTitle": {
+    "message": "Удалить правило"
+  },
+  "testMatch": {
+    "message": "🗑️ Совпадение — этот URL будет удалён. Правило(а): "
+  },
+  "testNoMatch": {
+    "message": "✓ Нет совпадений — этот URL будет сохранён."
+  },
+  "lastPrefix": {
+    "message": "Последняя: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[симуляция] "
+  },
+  "cfgImported": {
+    "message": "Конфигурация импортирована."
+  },
+  "invalidFile": {
+    "message": "Недопустимый файл: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "Шаблоны не обнаружены."
+  },
+  "patternsImported": {
+    "message": "Импортировано шаблонов: $count$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "Содержит"
+  },
+  "ruleType_domain": {
+    "message": "Домен"
+  },
+  "ruleType_wildcard": {
+    "message": "Подстановка (*)"
+  },
+  "ruleType_regex": {
+    "message": "Регулярное выражение"
+  },
+  "notifTitle": {
+    "message": "Без шума"
+  },
+  "notifDeleted": {
+    "message": "Удалено: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "Удалено записей: $count$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "Соцсети"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "импортировано"
+  },
+  "cmdCleanNow": {
+    "message": "Очистить историю сейчас"
+  },
+  "ctxAddSite": {
+    "message": "Добавить этот сайт в Без шума"
+  },
+  "ctxAdded": {
+    "message": "Правило добавлено для $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "Удалить"
+  },
+  "cancel": {
+    "message": "Отмена"
+  },
+  "cancelled": {
+    "message": "Отменено"
+  },
+  "confirmMass": {
+    "message": "Будет безвозвратно удалено записей: $count$. Продолжить?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "Сканирование… страниц: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "Удаление… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "Добро пожаловать в Без шума 🧹"
+  },
+  "welcomeBody": {
+    "message": "Без шума убирает повторяющийся шум из вашей истории, чтобы вы снова могли находить нужное. Начните с анализа истории или добавьте правила вручную."
+  },
+  "welcomeDismiss": {
+    "message": "Закрыть"
+  },
+  "filterPlaceholder": {
+    "message": "Фильтр правил…"
+  },
+  "enableAll": {
+    "message": "Включить все"
+  },
+  "disableAll": {
+    "message": "Выключить все"
+  },
+  "suggestionsTitle": {
+    "message": "Шум истории"
+  },
+  "analyzeBtn": {
+    "message": "Проанализировать историю"
+  },
+  "suggestEmpty": {
+    "message": "Запустите анализ, чтобы найти домены, которые больше всего засоряют вашу историю."
+  },
+  "suggestNone": {
+    "message": "Больше нечего чистить — ваши правила уже покрывают шум."
+  },
+  "suggestScan": {
+    "message": "Сканирование… доменов: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "Просканировано страниц: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "записей: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "Добавить правило"
+  },
+  "ruleKindBlock": {
+    "message": "Удалять"
+  },
+  "ruleKindAllow": {
+    "message": "Сохранять"
+  },
+  "ruleModeLabel": {
+    "message": "Когда:"
+  },
+  "mode_both": {
+    "message": "Всегда"
+  },
+  "mode_realtime": {
+    "message": "Только в реальном времени"
+  },
+  "mode_periodic": {
+    "message": "Только при очистке"
+  },
+  "ruleAgeLabel": {
+    "message": "старше"
+  },
+  "unitDays": {
+    "message": "дней"
+  },
+  "unitEntries": {
+    "message": "записей"
+  },
+  "testRuleBtn": {
+    "message": "Подсчитать совпадения в истории"
+  },
+  "testRuleResult": {
+    "message": "$count$ в истории",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "Вверх"
+  },
+  "moveDown": {
+    "message": "Вниз"
+  },
+  "ruleInvalid": {
+    "message": "Недопустимый шаблон."
+  },
+  "ruleUnsafe": {
+    "message": "Этот шаблон может быть слишком медленным и будет пропущен."
+  },
+  "testKept": {
+    "message": "🛡 Сохранено — правило «Сохранять» защищает этот URL."
+  },
+  "confirmManualLabel": {
+    "message": "Спрашивать перед ручной очисткой"
+  },
+  "massThresholdLabel": {
+    "message": "Предупреждать свыше"
+  },
+  "notifDetailLabel": {
+    "message": "Содержимое уведомления"
+  },
+  "notifDetail_count": {
+    "message": "Только количество"
+  },
+  "notifDetail_host": {
+    "message": "Имя домена"
+  },
+  "logDetailLabel": {
+    "message": "Журнал истории"
+  },
+  "logDetail_host": {
+    "message": "Только домен"
+  },
+  "logDetail_full": {
+    "message": "Полный URL"
+  },
+  "logDetail_off": {
+    "message": "Отключён"
+  },
+  "importCapped": {
+    "message": "Импортировано правил: $count$, пропущено: $dropped$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "Пункт контекстного меню «Добавить этот сайт»"
+  },
+  "scanTruncated": {
+    "message": "Очень большая история — частичный анализ."
+  },
+  "importPreviewMsg": {
+    "message": "Правил «Удалять»: $blocks$, правил «Сохранять»: $allows$, недопустимых или слишком медленных: $bad$.",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "Объединить"
+  },
+  "importReplace": {
+    "message": "Заменить всё"
+  }
+}

@@ -1,0 +1,511 @@
+{
+  "extName": {
+    "message": "Senza rumore"
+  },
+  "extShortName": {
+    "message": "Senza rumore"
+  },
+  "extDescription": {
+    "message": "Rimuove il rumore ricorrente dalla cronologia — i siti che scegli, secondo le tue regole. In tempo reale, periodico o manuale. Interamente locale."
+  },
+  "actionTitle": {
+    "message": "Senza rumore"
+  },
+  "appSubtitle": {
+    "message": "Pulitore della cronologia"
+  },
+  "masterTitle": {
+    "message": "Attiva / disattiva l'estensione"
+  },
+  "bannerDryRun": {
+    "message": "Modalità simulazione — nessuna eliminazione reale"
+  },
+  "cleanNow": {
+    "message": "Pulisci ora"
+  },
+  "preview": {
+    "message": "Anteprima"
+  },
+  "toggleRealtime": {
+    "message": "Tempo reale (adattivo)"
+  },
+  "togglePeriodic": {
+    "message": "Scansione periodica"
+  },
+  "toggleDryRun": {
+    "message": "Simulazione (dry-run)"
+  },
+  "statTotal": {
+    "message": "eliminate in totale"
+  },
+  "statRules": {
+    "message": "regole attive"
+  },
+  "openOptions": {
+    "message": "Gestisci regole e impostazioni →"
+  },
+  "cleaning": {
+    "message": "Pulizia…"
+  },
+  "analyzing": {
+    "message": "Analisi…"
+  },
+  "resDeleted": {
+    "message": "✓ $count$ voce/voci eliminate.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resPreview": {
+    "message": "$count$ voce/voci verrebbero eliminate.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "resNoMatch": {
+    "message": "Nessuna voce corrispondente."
+  },
+  "err": {
+    "message": "Errore: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "lastRun": {
+    "message": "Ultima pulizia: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "noRun": {
+    "message": "Nessuna pulizia effettuata"
+  },
+  "optTagline": {
+    "message": "Pulitore della cronologia di Firefox — adattivo e configurabile"
+  },
+  "rulesTitle": {
+    "message": "Regole di pulizia"
+  },
+  "addRule": {
+    "message": "+ Aggiungi una regola"
+  },
+  "rulesHint": {
+    "message": "Un URL della cronologia viene eliminato se corrisponde ad almeno una regola attiva."
+  },
+  "colType": {
+    "message": "Tipo"
+  },
+  "colValue": {
+    "message": "Valore"
+  },
+  "colNote": {
+    "message": "Nota"
+  },
+  "noRules": {
+    "message": "Nessuna regola. Aggiungine una o importa una configurazione."
+  },
+  "testTitle": {
+    "message": "Prova un URL"
+  },
+  "testPlaceholderUrl": {
+    "message": "https://www.google.com/search?q=…"
+  },
+  "journalTitle": {
+    "message": "Registro e statistiche"
+  },
+  "reset": {
+    "message": "Reimposta"
+  },
+  "logColWhen": {
+    "message": "Quando"
+  },
+  "logColUrl": {
+    "message": "URL"
+  },
+  "logColRule": {
+    "message": "Regola"
+  },
+  "noLog": {
+    "message": "Nessuna eliminazione registrata."
+  },
+  "behaviorTitle": {
+    "message": "Comportamento"
+  },
+  "optEnabled": {
+    "message": "Estensione attiva"
+  },
+  "optRealtime": {
+    "message": "Tempo reale (adattivo)"
+  },
+  "optRealtimeHint": {
+    "message": "Elimina a ogni pagina visitata"
+  },
+  "optPeriodic": {
+    "message": "Scansione periodica"
+  },
+  "optPeriodicHint": {
+    "message": "Pulisce la cronologia a intervalli regolari"
+  },
+  "optInterval": {
+    "message": "Intervallo"
+  },
+  "unitMin": {
+    "message": "min"
+  },
+  "optDryRun": {
+    "message": "Simulazione (dry-run)"
+  },
+  "optDryRunHint": {
+    "message": "Analizza e registra senza eliminare nulla"
+  },
+  "optNotifications": {
+    "message": "Notifiche desktop"
+  },
+  "optCaseSensitive": {
+    "message": "Distingue maiuscole/minuscole"
+  },
+  "importExportTitle": {
+    "message": "Importa / Esporta"
+  },
+  "exportBtn": {
+    "message": "Esporta (JSON)"
+  },
+  "importBtn": {
+    "message": "Importa (JSON)"
+  },
+  "legacySummary": {
+    "message": "Importa un elenco di criteri"
+  },
+  "legacyPlaceholder": {
+    "message": "%facebook.com%\n%www.google.com%\n# le righe che iniziano con # vengono ignorate"
+  },
+  "legacyReplace": {
+    "message": "Sostituisci le regole esistenti"
+  },
+  "legacyBtn": {
+    "message": "Importa questi criteri"
+  },
+  "footer": {
+    "message": "Senza rumore — i tuoi dati non lasciano mai il tuo browser."
+  },
+  "ruleValuePlaceholder": {
+    "message": "es. facebook.com"
+  },
+  "notePlaceholder": {
+    "message": "nota"
+  },
+  "deleteRuleTitle": {
+    "message": "Elimina la regola"
+  },
+  "testMatch": {
+    "message": "🗑️ Corrisponde — questo URL verrebbe eliminato. Regola/e: "
+  },
+  "testNoMatch": {
+    "message": "✓ Nessuna corrispondenza — questo URL verrebbe mantenuto."
+  },
+  "lastPrefix": {
+    "message": "Ultima: $date$",
+    "placeholders": {
+      "date": {
+        "content": "$1"
+      }
+    }
+  },
+  "dryTag": {
+    "message": "[simulazione] "
+  },
+  "cfgImported": {
+    "message": "Configurazione importata."
+  },
+  "invalidFile": {
+    "message": "File non valido: $msg$",
+    "placeholders": {
+      "msg": {
+        "content": "$1"
+      }
+    }
+  },
+  "noPattern": {
+    "message": "Nessun criterio rilevato."
+  },
+  "patternsImported": {
+    "message": "$count$ criterio/criteri importati.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "ruleType_contains": {
+    "message": "Contiene"
+  },
+  "ruleType_domain": {
+    "message": "Dominio"
+  },
+  "ruleType_wildcard": {
+    "message": "Carattere jolly (*)"
+  },
+  "ruleType_regex": {
+    "message": "Espressione regolare"
+  },
+  "notifTitle": {
+    "message": "Senza rumore"
+  },
+  "notifDeleted": {
+    "message": "Eliminato: $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "notifDeletedCount": {
+    "message": "$count$ voce/voci eliminate.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "noteSocial": {
+    "message": "Social media"
+  },
+  "noteGoogle": {
+    "message": "Google"
+  },
+  "noteImported": {
+    "message": "importato"
+  },
+  "cmdCleanNow": {
+    "message": "Pulisci la cronologia ora"
+  },
+  "ctxAddSite": {
+    "message": "Aggiungi questo sito a Senza rumore"
+  },
+  "ctxAdded": {
+    "message": "Regola aggiunta per $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmYes": {
+    "message": "Elimina"
+  },
+  "cancel": {
+    "message": "Annulla"
+  },
+  "cancelled": {
+    "message": "Annullato"
+  },
+  "confirmMass": {
+    "message": "$count$ voce/voci verranno eliminate definitivamente. Continuare?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressScan": {
+    "message": "Scansione… $count$ pagine",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "progressDelete": {
+    "message": "Eliminazione… $done$ / $total$",
+    "placeholders": {
+      "done": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "welcomeTitle": {
+    "message": "Benvenuto in Senza rumore 🧹"
+  },
+  "welcomeBody": {
+    "message": "Senza rumore rimuove il rumore ricorrente dalla tua cronologia per aiutarti a ritrovare le cose. Inizia analizzando la cronologia o aggiungi regole manualmente."
+  },
+  "welcomeDismiss": {
+    "message": "Chiudi"
+  },
+  "filterPlaceholder": {
+    "message": "Filtra le regole…"
+  },
+  "enableAll": {
+    "message": "Attiva tutto"
+  },
+  "disableAll": {
+    "message": "Disattiva tutto"
+  },
+  "suggestionsTitle": {
+    "message": "Rumore della cronologia"
+  },
+  "analyzeBtn": {
+    "message": "Analizza la mia cronologia"
+  },
+  "suggestEmpty": {
+    "message": "Avvia un'analisi per trovare i domini che ingombrano di più la tua cronologia."
+  },
+  "suggestNone": {
+    "message": "Niente altro da pulire — le tue regole coprono già il rumore."
+  },
+  "suggestScan": {
+    "message": "Scansione… $count$ domini",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestScanned": {
+    "message": "$count$ pagine analizzate",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestEntries": {
+    "message": "$count$ voce/voci",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "suggestAdd": {
+    "message": "Aggiungi regola"
+  },
+  "ruleKindBlock": {
+    "message": "Elimina"
+  },
+  "ruleKindAllow": {
+    "message": "Mantieni"
+  },
+  "ruleModeLabel": {
+    "message": "Quando:"
+  },
+  "mode_both": {
+    "message": "Sempre"
+  },
+  "mode_realtime": {
+    "message": "Solo tempo reale"
+  },
+  "mode_periodic": {
+    "message": "Solo scansioni"
+  },
+  "ruleAgeLabel": {
+    "message": "più vecchio di"
+  },
+  "unitDays": {
+    "message": "giorni"
+  },
+  "unitEntries": {
+    "message": "voci"
+  },
+  "testRuleBtn": {
+    "message": "Conta le corrispondenze nella cronologia"
+  },
+  "testRuleResult": {
+    "message": "$count$ nella cronologia",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "moveUp": {
+    "message": "Sposta su"
+  },
+  "moveDown": {
+    "message": "Sposta giù"
+  },
+  "ruleInvalid": {
+    "message": "Criterio non valido."
+  },
+  "ruleUnsafe": {
+    "message": "Questo criterio potrebbe essere troppo lento e viene ignorato."
+  },
+  "testKept": {
+    "message": "🛡 Mantenuta — una regola Mantieni protegge questo URL."
+  },
+  "confirmManualLabel": {
+    "message": "Chiedi prima della pulizia manuale"
+  },
+  "massThresholdLabel": {
+    "message": "Avvisa oltre"
+  },
+  "notifDetailLabel": {
+    "message": "Contenuto della notifica"
+  },
+  "notifDetail_count": {
+    "message": "Solo il numero"
+  },
+  "notifDetail_host": {
+    "message": "Nome di dominio"
+  },
+  "logDetailLabel": {
+    "message": "Registro della cronologia"
+  },
+  "logDetail_host": {
+    "message": "Solo dominio"
+  },
+  "logDetail_full": {
+    "message": "URL completo"
+  },
+  "logDetail_off": {
+    "message": "Disattivato"
+  },
+  "importCapped": {
+    "message": "$count$ regole importate, $dropped$ ignorate.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "dropped": {
+        "content": "$2"
+      }
+    }
+  },
+  "optContextMenuLabel": {
+    "message": "Menu contestuale «Aggiungi questo sito»"
+  },
+  "scanTruncated": {
+    "message": "Cronologia molto grande — analisi parziale."
+  },
+  "importPreviewMsg": {
+    "message": "$blocks$ regola/e Elimina, $allows$ regola/e Mantieni, $bad$ non valide o troppo lente.",
+    "placeholders": {
+      "blocks": {
+        "content": "$1"
+      },
+      "allows": {
+        "content": "$2"
+      },
+      "bad": {
+        "content": "$3"
+      }
+    }
+  },
+  "importMerge": {
+    "message": "Unisci"
+  },
+  "importReplace": {
+    "message": "Sostituisci tutto"
+  }
+}
