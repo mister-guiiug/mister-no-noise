@@ -20,7 +20,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/mister-guiiug/mister-no-noise/releases/latest">Télécharger le .xpi signé</a>
+  <a href="https://addons.mozilla.org/fr/firefox/addon/mister-no-noise@mister-guiiug/"><strong>L’installer depuis Modules Firefox</strong></a>
+  · <a href="https://github.com/mister-guiiug/mister-no-noise/releases/latest">Télécharger le .xpi signé</a>
   · <a href="README.md">Read in English</a>
   · <a href="https://github.com/mister-guiiug/mister-no-prices">Extension sœur : Sans prix</a>
 </p>
@@ -88,12 +89,10 @@ Firefox 140 ou plus récent sur ordinateur, Firefox pour Android 142 ou plus.
 
 | Méthode | Durée | Comment |
 | ------- | ----- | ------- |
-| **Fichier signé d’une release** (recommandé) | durable, mises à jour auto une fois listée | ouvrir le `.xpi` de la [dernière release](https://github.com/mister-guiiug/mister-no-noise/releases/latest) dans Firefox |
+| **Modules Firefox** (recommandé) | durable, mises à jour auto | ouvrir la [page de l’extension](https://addons.mozilla.org/fr/firefox/addon/mister-no-noise@mister-guiiug/) → *Ajouter à Firefox* |
+| **Fichier signé d’une release** | durable, mises à jour auto | ouvrir le `.xpi` de la [dernière release](https://github.com/mister-guiiug/mister-no-noise/releases/latest) dans Firefox |
 | **Temporaire, depuis les sources** | jusqu’au redémarrage | `about:debugging#/runtime/this-firefox` → *Charger un module temporaire…* → `manifest.json` |
 | **Avec web-ext** | jusqu’à la fermeture de la fenêtre | `npm install` puis `npm start` |
-
-Modules Firefox (canal listed) — dossier [`amo/`](amo/) prêt, soumission au go.
-Id : `mister-no-noise@mister-guiiug`.
 
 ## Vie privée
 
@@ -148,9 +147,10 @@ npm run build
 ## Versions
 
 Incrémenter `version` dans `manifest.json` et `package.json`, fusionner dans
-`main`. La signature pour une release GitHub utilise le canal AMO unlisted
-tant que la publication listed n’est pas approuvée. Textes et captures :
-[`amo/`](amo/) — détail dans [docs/AMO.md](docs/AMO.md).
+`main`. Le workflow de publication soumet la version à Modules Firefox
+(`listed`). Une fois Mozilla approuvée, une release GitHub suit avec le
+`.xpi` signé. Textes et captures : [`amo/`](amo/) — détail dans
+[docs/AMO.md](docs/AMO.md).
 
 ## Limites connues
 

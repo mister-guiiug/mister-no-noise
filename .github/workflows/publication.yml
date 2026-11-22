@@ -46,6 +46,7 @@ jobs:
           npx web-ext sign \
             --config web-ext-config.mjs \
             --channel "${{ inputs.channel }}" \
+            --amo-metadata amo/fiche.json \
             --artifacts-dir web-ext-artifacts \
             --timeout 900000
 

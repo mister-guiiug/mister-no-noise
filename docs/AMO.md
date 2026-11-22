@@ -10,8 +10,7 @@ Préparé dans le dépôt ; **soumission listed uniquement au go**.
 | Nom produit EN / FR | No Noise / Sans bruit |
 | Catégorie | `privacy-security` |
 | Licence | MIT |
-| Canal déjà utilisé | **unlisted** (signature locale / sideload) |
-| Canal cible | **listed** (fiche publique) |
+| Canal | **listed** (fiche publique) — première soumission en 1.3.1 |
 
 ## Fichiers prêts
 

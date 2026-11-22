@@ -20,7 +20,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/mister-guiiug/mister-no-noise/releases/latest">Download the signed .xpi</a>
+  <a href="https://addons.mozilla.org/firefox/addon/mister-no-noise@mister-guiiug/"><strong>Get it on Firefox Add-ons</strong></a>
+  · <a href="https://github.com/mister-guiiug/mister-no-noise/releases/latest">Download the signed .xpi</a>
   · <a href="README.fr.md">Lire en français</a>
   · <a href="https://github.com/mister-guiiug/mister-no-prices">Sister extension: No Prices</a>
 </p>
@@ -85,12 +86,10 @@ Firefox 140 or later on desktop, Firefox for Android 142 or later.
 
 | Method | Lasts | How |
 | ------ | ----- | --- |
-| **Signed file from a release** (recommended) | permanent, auto-updates once listed | open the `.xpi` of the [latest release](https://github.com/mister-guiiug/mister-no-noise/releases/latest) in Firefox |
+| **Firefox Add-ons** (recommended) | permanent, auto-updates | open the [extension page](https://addons.mozilla.org/firefox/addon/mister-no-noise@mister-guiiug/) → *Add to Firefox* |
+| **Signed file from a release** | permanent, auto-updates | open the `.xpi` of the [latest release](https://github.com/mister-guiiug/mister-no-noise/releases/latest) in Firefox |
 | **Temporary, from source** | until Firefox restarts | `about:debugging#/runtime/this-firefox` → *Load Temporary Add-on…* → pick `manifest.json` |
 | **With web-ext** | until the window closes | `npm install` then `npm start` |
-
-Firefox Add-ons (listed channel) — ready in the repo (`amo/`), submitted when
-you give the go. Id: `mister-no-noise@mister-guiiug`.
 
 ## Privacy
 
@@ -173,10 +172,10 @@ on every pull request.
 
 ## Releases
 
-Bump `version` in `manifest.json` and `package.json`, merge to `main`. Signing
-for a GitHub release uses the unlisted AMO channel until the listed
-publication is approved. Listing copy and screenshots live in [`amo/`](amo/)
-— see [docs/AMO.md](docs/AMO.md).
+Bump `version` in `manifest.json` and `package.json`, merge to `main`. The
+publication workflow submits the version to Firefox Add-ons (`listed`). Once
+Mozilla approves it, a GitHub release follows with the signed `.xpi`. Listing
+copy and screenshots live in [`amo/`](amo/) — see [docs/AMO.md](docs/AMO.md).
 
 ## Known limitations
 
