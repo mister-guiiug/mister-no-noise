@@ -38,6 +38,14 @@
             <button id="enableAll" class="btn ghost" data-i18n="enableAll">Enable all</button>
             <button id="disableAll" class="btn ghost" data-i18n="disableAll">Disable all</button>
           </div>
+          <div class="packs" aria-label="Rule packs">
+            <span class="packs-label" data-i18n="packsLabel">Add a pack:</span>
+            <button type="button" class="btn ghost" data-pack="social" data-i18n="packSocial">Social</button>
+            <button type="button" class="btn ghost" data-pack="google" data-i18n="packGoogle">Google</button>
+            <button type="button" class="btn ghost" data-pack="shopping" data-i18n="packShopping">Shopping</button>
+            <button type="button" class="btn ghost" data-pack="news" data-i18n="packNews">News</button>
+          </div>
+          <p id="packsMsg" class="hint"></p>
           <div id="rulesBody" class="rules"></div>
           <p id="noRules" class="empty hidden" data-i18n="noRules">No rules yet. Add one or import a configuration.</p>
         </section>
@@ -96,6 +104,7 @@
             <span class="inline"><input type="number" id="massThreshold" min="0" class="in num"> <span data-i18n="unitEntries">entries</span></span></label>
           <hr>
           <label class="opt"><input type="checkbox" id="ctxMenu"><span><span data-i18n="optContextMenuLabel">"Add this site" right-click menu</span></span></label>
+          <label class="opt"><input type="checkbox" id="syncSettings"><span><span data-i18n="optSyncSettings">Sync settings (Firefox Sync)</span><em data-i18n="optSyncSettingsHint">Rules stay on this device; toggles follow your account</em></span></label>
           <label class="opt"><input type="checkbox" id="notifications"><span><span data-i18n="optNotifications">Desktop notifications</span></span></label>
           <label class="opt sub"><span data-i18n="notifDetailLabel">Notification content</span>
             <select id="notificationDetail" class="sel">

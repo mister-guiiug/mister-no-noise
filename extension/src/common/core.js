@@ -52,6 +52,45 @@
     confirmManual: true,
     massThreshold: 500,
     contextMenu: true,           // show the "Add this site" right-click entry
+    pauseJusqua: 0,              // timestamp ms ; 0 = pas de pause
+    syncSettings: false,         // réglages via storage.sync (règles restent locales)
+  };
+
+  // Une pause ne dure pas plus d'une journée (horloge dérglée / valeur abîmée).
+  const PAUSE_MAX = 24 * 60 * 60 * 1000;
+  const SYNC_SETTINGS_KEY = 'mnn.settings';
+
+  /** Packs de règles prêts à l'emploi (id → motifs). */
+  const RULE_PACKS = {
+    social: {
+      noteKey: 'noteSocial',
+      items: [
+        ['domain', 'facebook.com'], ['domain', 'instagram.com'], ['domain', 'tiktok.com'],
+        ['domain', 'twitter.com'], ['domain', 'x.com'], ['domain', 'linkedin.com'],
+        ['domain', 'reddit.com'], ['domain', 'snapchat.com'],
+      ],
+    },
+    google: {
+      noteKey: 'noteGoogle',
+      items: [
+        ['contains', 'www.google.com'], ['contains', 'www.google.fr'],
+        ['contains', 'photos.google.com'], ['domain', 'youtube.com'],
+      ],
+    },
+    shopping: {
+      noteKey: 'packNoteShopping',
+      items: [
+        ['domain', 'amazon.fr'], ['domain', 'amazon.com'], ['domain', 'cdiscount.com'],
+        ['domain', 'fnac.com'], ['domain', 'ebay.fr'], ['domain', 'leboncoin.fr'],
+      ],
+    },
+    news: {
+      noteKey: 'packNoteNews',
+      items: [
+        ['domain', 'lemonde.fr'], ['domain', 'lefigaro.fr'], ['domain', 'bbc.com'],
+        ['domain', 'cnn.com'], ['domain', 'nytimes.com'],
+      ],
+    },
   };
 
   const DEFAULT_STATS = { totalDeleted: 0, lastRun: null, lastRunDeleted: 0, log: [] };
@@ -280,6 +319,20 @@
     };
   }
 
+  function normalizePause(raw) {
+    const pause = Number(raw);
+    return Number.isFinite(pause) && pause > 0 && pause <= Date.now() + PAUSE_MAX ? pause : 0;
+  }
+
+  function enPause(settings, maintenant = Date.now()) {
+    return normalizePause(settings && settings.pauseJusqua) > maintenant;
+  }
+
+  /** Nettoyage actif : interrupteur on et pas de pause minutée. */
+  function estActif(settings, maintenant = Date.now()) {
+    return !!(settings && settings.enabled) && !enPause(settings, maintenant);
+  }
+
   function normalizeConfig(obj) {
     obj = obj || {};
     const settings = Object.assign({}, DEFAULT_SETTINGS, obj.settings || {});
@@ -287,9 +340,27 @@
     settings.massThreshold = Math.max(0, parseInt(settings.massThreshold, 10) || 0);
     if (!['count', 'host'].includes(settings.notificationDetail)) settings.notificationDetail = 'count';
     if (!['host', 'full', 'off'].includes(settings.logDetail)) settings.logDetail = 'host';
+    settings.pauseJusqua = normalizePause(settings.pauseJusqua);
+    settings.syncSettings = settings.syncSettings === true;
     let rules = Array.isArray(obj.rules) ? obj.rules.map(normRule).filter(Boolean) : defaultRules();
     if (rules.length > MAX_RULES) rules = rules.slice(0, MAX_RULES);
     return { version: 2, settings, rules };
+  }
+
+  /** Règles d'un pack, sans doublon exact (type+value+kind) déjà présent. */
+  function rulesFromPack(packId, existing) {
+    const pack = RULE_PACKS[packId];
+    if (!pack) return [];
+    const note = t(pack.noteKey) || packId;
+    const have = new Set((existing || []).map((r) => r.kind + '|' + r.type + '|' + r.value.toLowerCase()));
+    const out = [];
+    for (const [type, value] of pack.items) {
+      const key = 'block|' + type + '|' + String(value).toLowerCase();
+      if (have.has(key)) continue;
+      have.add(key);
+      out.push(rule(type, value, note));
+    }
+    return out;
   }
 
   function normalizeStats(obj) {
@@ -313,13 +384,34 @@
   }
   async function loadConfig() {
     const raw = await migrateKey(LEGACY_CONFIG_KEY, CONFIG_KEY);
-    return normalizeConfig(raw);
+    const local = normalizeConfig(raw);
+    if (!local.settings.syncSettings || !browser.storage.sync) return local;
+    try {
+      const sync = await browser.storage.sync.get(SYNC_SETTINGS_KEY);
+      const distant = sync[SYNC_SETTINGS_KEY];
+      if (!distant || typeof distant !== 'object') return local;
+      // Les règles restent locales ; seuls les réglages suivent le compte.
+      local.settings = normalizeConfig({ settings: Object.assign({}, local.settings, distant), rules: local.rules }).settings;
+      local.settings.syncSettings = true;
+    } catch (e) { /* sync indisponible */ }
+    return local;
   }
   async function saveConfig(cfg) {
     const norm = normalizeConfig(cfg);
     clearCache(); // rules/settings may have changed
     await browser.storage.local.set({ [CONFIG_KEY]: norm });
     await browser.storage.local.remove(LEGACY_CONFIG_KEY).catch(() => {});
+    if (browser.storage.sync) {
+      try {
+        if (norm.settings.syncSettings) {
+          const rest = Object.assign({}, norm.settings);
+          delete rest.syncSettings;
+          await browser.storage.sync.set({ [SYNC_SETTINGS_KEY]: rest });
+        } else {
+          await browser.storage.sync.remove(SYNC_SETTINGS_KEY);
+        }
+      } catch (e) { /* quota / sync off */ }
+    }
     return norm;
   }
   async function loadStats() {
@@ -334,14 +426,14 @@
   }
 
   root.MNN = {
-    CONFIG_KEY, STATS_KEY, LOG_MAX, MAX_RULES, MAX_VALUE_LEN,
-    DEFAULT_SETTINGS, DEFAULT_STATS,
+    CONFIG_KEY, STATS_KEY, SYNC_SETTINGS_KEY, LOG_MAX, MAX_RULES, MAX_VALUE_LEN, PAUSE_MAX,
+    DEFAULT_SETTINGS, DEFAULT_STATS, RULE_PACKS,
     RULE_TYPE_KEYS, RULE_TYPE_FALLBACK, RULE_KINDS, RULE_MODES,
     t, formatDate, localizeDom, ruleTypeLabel,
-    makeId, rule, defaultRules, clone,
+    makeId, rule, defaultRules, clone, rulesFromPack,
     patternMatches, hostMatchesDomain, decide, evaluateUrl,
     ruleUnsafe, ruleInvalid, regexSelfTest, clearCache,
-    parseLegacy, normalizeConfig, normalizeStats,
+    parseLegacy, normalizeConfig, normalizeStats, normalizePause, enPause, estActif,
     loadConfig, saveConfig, loadStats, saveStats,
   };
 })(typeof self !== 'undefined' ? self : this);

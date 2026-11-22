@@ -61,8 +61,11 @@ Regenerate screenshots: `npm run captures` (Chrome + `playwright-core`).
 
 Config and stats use `mnn.config` / `mnn.stats`. Older installs with
 `shc.*` are migrated once on load, then the legacy keys are removed.
+Settings may optionally be mirrored to `storage.sync` as `mnn.settings`
+(rules stay local).
 
 ## Sister extension
 
 [No Prices](https://github.com/mister-guiiug/mister-no-prices) — same author,
-same publishing and listing tooling pattern.
+same publishing and listing tooling pattern. The `amo.mjs` / `fiche-amo.mjs` /
+`paquet.mjs` scripts are kept as twins (only `AGENT` and paths differ).

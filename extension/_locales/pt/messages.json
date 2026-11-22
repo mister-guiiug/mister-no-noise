@@ -517,5 +517,106 @@
   },
   "titreInactif": {
     "message": "Sem ruído: em pausa"
+  },
+  "popupPause": {
+    "message": "Pause cleaning"
+  },
+  "pause5": {
+    "message": "5 min"
+  },
+  "pause15": {
+    "message": "15 min"
+  },
+  "pause60": {
+    "message": "1 h"
+  },
+  "pauseReprendre": {
+    "message": "Resume"
+  },
+  "pauseJusqua": {
+    "message": "Paused until $time$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "titrePauseJusqua": {
+    "message": "No Noise: paused until $time$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "packsLabel": {
+    "message": "Add a pack:"
+  },
+  "packSocial": {
+    "message": "Social"
+  },
+  "packGoogle": {
+    "message": "Google"
+  },
+  "packShopping": {
+    "message": "Shopping"
+  },
+  "packNews": {
+    "message": "News"
+  },
+  "packNoteShopping": {
+    "message": "Shopping"
+  },
+  "packNoteNews": {
+    "message": "News"
+  },
+  "packsAdded": {
+    "message": "$count$ rule(s) added.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "packsAlready": {
+    "message": "All rules from this pack are already present."
+  },
+  "optSyncSettings": {
+    "message": "Sync settings (Firefox Sync)"
+  },
+  "optSyncSettingsHint": {
+    "message": "Rules stay on this device; toggles follow your account"
+  },
+  "nouveautesTitre": {
+    "message": "No Noise $version$",
+    "placeholders": {
+      "version": {
+        "content": "$1"
+      }
+    }
+  },
+  "nouveautesQuoiDeNeuf": {
+    "message": "What's new"
+  },
+  "nouveautesDemarrer": {
+    "message": "Get started"
+  },
+  "nouveautesDemarrerTexte": {
+    "message": "Scan your history to find noisy domains, or add a ready-made rule pack."
+  },
+  "nouveautesPoint1": {
+    "message": "Timed pause (5 / 15 / 60 min) from the toolbar popup."
+  },
+  "nouveautesPoint2": {
+    "message": "Ready-made rule packs: social, Google, shopping, news."
+  },
+  "nouveautesPoint3": {
+    "message": "Optional Firefox Sync for settings (rules stay local)."
+  },
+  "nouveautesPoint4": {
+    "message": "Dry-run still lets you preview deletions safely."
+  },
+  "langue": {
+    "message": "pt"
   }
 }

@@ -7,18 +7,43 @@ let pendingToken = null; // preview token, lets cleanNow reuse the scan
 async function refresh() {
   const cfg = await S.loadConfig();
   const stats = await S.loadStats();
+  const pause = S.enPause(cfg.settings);
   $('enabled').checked = cfg.settings.enabled;
   $('realtime').checked = cfg.settings.realtime;
   $('periodic').checked = cfg.settings.periodic;
   $('dryRun').checked = cfg.settings.dryRun;
   $('dry').classList.toggle('hidden', !cfg.settings.dryRun);
-  document.body.classList.toggle('off', !cfg.settings.enabled);
+  document.body.classList.toggle('off', !S.estActif(cfg.settings));
+  const banner = $('pauseBanner');
+  if (pause) {
+    const heure = new Date(cfg.settings.pauseJusqua).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+    banner.textContent = t('pauseJusqua', [heure]);
+    banner.classList.remove('hidden');
+  } else {
+    banner.classList.add('hidden');
+  }
+  $('reprendre').hidden = !pause;
   $('stTotal').textContent = stats.totalDeleted;
   $('stRules').textContent = cfg.rules.filter((r) => r.enabled).length;
   $('stLast').textContent = stats.lastRun
     ? t('lastRun', [S.formatDate(stats.lastRun)]) + (stats.lastRunDeleted ? ' (' + stats.lastRunDeleted + ')' : '')
     : t('noRun');
 }
+
+document.querySelectorAll('.pause [data-minutes]').forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    const cfg = await S.loadConfig();
+    cfg.settings.pauseJusqua = Date.now() + Number(btn.dataset.minutes) * 60_000;
+    await S.saveConfig(cfg);
+    refresh();
+  });
+});
+$('reprendre').addEventListener('click', async () => {
+  const cfg = await S.loadConfig();
+  cfg.settings.pauseJusqua = 0;
+  await S.saveConfig(cfg);
+  refresh();
+});
 
 async function patch(key, value) {
   const cfg = await S.loadConfig();

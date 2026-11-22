@@ -59,9 +59,12 @@ Régénérer les captures : `npm run captures` (Chrome + `playwright-core`).
 ## Clés de stockage (1.4.0+)
 
 Config et stats : `mnn.config` / `mnn.stats`. Les anciennes clés `shc.*` sont
-migrées une fois au chargement, puis retirées.
+migrées une fois au chargement, puis retirées. Réglages optionnellement
+recopiés dans `storage.sync` sous `mnn.settings` (les règles restent locales).
 
 ## Extension sœur
 
 [Sans prix](https://github.com/mister-guiiug/mister-no-prices) — même auteur,
-même schéma de publication et de fiche.
+même schéma de publication et de fiche. Les scripts `amo.mjs` / `fiche-amo.mjs`
+/ `paquet.mjs` sont volontairement jumeaux (seul l’`AGENT` et les chemins
+diffèrent) : une correction dans l’un se reporte dans l’autre.

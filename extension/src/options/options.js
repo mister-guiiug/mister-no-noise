@@ -30,6 +30,7 @@ function renderSettings() {
   $('notificationDetail').value = s.notificationDetail;
   $('logDetail').value = s.logDetail;
   $('ctxMenu').checked = s.contextMenu;
+  $('syncSettings').checked = s.syncSettings;
 }
 
 async function saveCfg() { cfg = await S.saveConfig(cfg); }
@@ -77,6 +78,22 @@ $('notifications').addEventListener('change', async (e) => {
 // Firefox does not allow `contextMenus` as an optional permission, so the
 // right-click entry is controlled by a plain setting (the background reacts).
 bindSetting('ctxMenu', 'contextMenu');
+bindSetting('syncSettings', 'syncSettings');
+
+document.querySelectorAll('[data-pack]').forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    const added = S.rulesFromPack(btn.dataset.pack, cfg.rules);
+    if (!added.length) {
+      $('packsMsg').textContent = t('packsAlready');
+      return;
+    }
+    cfg.rules = cfg.rules.concat(added);
+    await saveCfg();
+    renderRules();
+    runTest();
+    $('packsMsg').textContent = t('packsAdded', [String(added.length)]);
+  });
+});
 
 /* -------------------------------- rules ------------------------------- */
 function renderRules() {
