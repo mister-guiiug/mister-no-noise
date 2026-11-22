@@ -507,5 +507,15 @@
   },
   "importReplace": {
     "message": "すべて置き換え"
+  },
+  "badgeOff": {
+    "message": "off",
+    "description": "Toolbar badge when the extension is disabled. At most 4 characters."
+  },
+  "titreActif": {
+    "message": "ノイズなし：クリーン有効"
+  },
+  "titreInactif": {
+    "message": "ノイズなし：一時停止"
   }
 }

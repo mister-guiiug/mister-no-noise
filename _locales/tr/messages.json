@@ -507,5 +507,15 @@
   },
   "importReplace": {
     "message": "Tümünü değiştir"
+  },
+  "badgeOff": {
+    "message": "kap",
+    "description": "Toolbar badge when the extension is disabled. At most 4 characters."
+  },
+  "titreActif": {
+    "message": "Gürültüsüz: temizleme açık"
+  },
+  "titreInactif": {
+    "message": "Gürültüsüz: duraklatıldı"
   }
 }

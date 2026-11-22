@@ -507,5 +507,15 @@
   },
   "importReplace": {
     "message": "Заменить всё"
+  },
+  "badgeOff": {
+    "message": "выкл",
+    "description": "Toolbar badge when the extension is disabled. At most 4 characters."
+  },
+  "titreActif": {
+    "message": "Без шума: очистка включена"
+  },
+  "titreInactif": {
+    "message": "Без шума: на паузе"
   }
 }

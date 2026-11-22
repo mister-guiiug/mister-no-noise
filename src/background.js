@@ -25,6 +25,19 @@ async function init() {
   await setupAlarm();
   registerMenuClick();
   await setupMenu();
+  await afficherEtat();
+}
+
+/** Pastille « off » sur l’icône quand l’extension est coupée — comme No Prices. */
+async function afficherEtat() {
+  const actif = cfg.settings.enabled;
+  try {
+    await browser.action.setBadgeBackgroundColor({ color: '#4b5563' });
+    await browser.action.setBadgeText({ text: actif ? '' : (S.t('badgeOff') || 'off') });
+    await browser.action.setTitle({
+      title: actif ? (S.t('titreActif') || 'No Noise') : (S.t('titreInactif') || 'No Noise'),
+    });
+  } catch (e) { /* Android / pas d’action */ }
 }
 
 // Serialize stats mutations (single writer). ------------------------------
@@ -49,6 +62,7 @@ browser.runtime.onInstalled.addListener(async (details) => {
   await setupAlarm();
   registerMenuClick();
   await setupMenu();
+  await afficherEtat();
   if (details && details.reason === 'install') { // onboarding (F7)
     try { await browser.storage.local.set({ 'shc.firstRun': true }); await browser.runtime.openOptionsPage(); } catch (e) { /* */ }
   }
@@ -58,6 +72,7 @@ browser.runtime.onStartup.addListener(async () => {
   cfg = await S.loadConfig(); stats = await S.loadStats();
   await refreshNotifPerm(); await setupAlarm();
   registerMenuClick(); await setupMenu();
+  await afficherEtat();
 });
 
 // Keep the cache in sync with storage (the UI writes the config, we write stats).
@@ -74,6 +89,7 @@ browser.storage.onChanged.addListener((changes, area) => {
         || prev.intervalMinutes !== cfg.settings.intervalMinutes) {
       setupAlarm().catch(() => {});
     }
+    if (prev.enabled !== cfg.settings.enabled) afficherEtat().catch(() => {});
     if (prev.contextMenu !== cfg.settings.contextMenu) setupMenu().catch(() => {});
   }
   if (changes[S.STATS_KEY]) stats = S.normalizeStats(changes[S.STATS_KEY].newValue);

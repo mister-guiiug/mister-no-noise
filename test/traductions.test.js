@@ -44,4 +44,14 @@ describe('traductions', () => {
       }
     }
   });
+
+  it('badgeOff tient sur la pastille (≤ 4 caractères)', () => {
+    for (const langue of dossiers) {
+      const messages = JSON.parse(
+        fs.readFileSync(path.join(localesDir, langue, 'messages.json'), 'utf8'),
+      );
+      assert.ok([...messages.badgeOff.message].length <= 4, `badgeOff : ${langue}`);
+    }
+  });
 });
+

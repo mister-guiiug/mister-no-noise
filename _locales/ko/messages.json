@@ -507,5 +507,15 @@
   },
   "importReplace": {
     "message": "모두 바꾸기"
+  },
+  "badgeOff": {
+    "message": "끔",
+    "description": "Toolbar badge when the extension is disabled. At most 4 characters."
+  },
+  "titreActif": {
+    "message": "노이즈 없음: 정리 활성"
+  },
+  "titreInactif": {
+    "message": "노이즈 없음: 일시 중지"
   }
 }

@@ -507,5 +507,15 @@
   },
   "importReplace": {
     "message": "Alles vervangen"
+  },
+  "badgeOff": {
+    "message": "uit",
+    "description": "Toolbar badge when the extension is disabled. At most 4 characters."
+  },
+  "titreActif": {
+    "message": "Zonder ruis: opschonen actief"
+  },
+  "titreInactif": {
+    "message": "Zonder ruis: gepauzeerd"
   }
 }

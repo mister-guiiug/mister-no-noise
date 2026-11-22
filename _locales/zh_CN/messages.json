@@ -507,5 +507,15 @@
   },
   "importReplace": {
     "message": "全部替换"
+  },
+  "badgeOff": {
+    "message": "关",
+    "description": "Toolbar badge when the extension is disabled. At most 4 characters."
+  },
+  "titreActif": {
+    "message": "无噪音：清理已开启"
+  },
+  "titreInactif": {
+    "message": "无噪音：已暂停"
   }
 }

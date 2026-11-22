@@ -507,5 +507,15 @@
   },
   "importReplace": {
     "message": "सभी बदलें"
+  },
+  "badgeOff": {
+    "message": "बंद",
+    "description": "Toolbar badge when the extension is disabled. At most 4 characters."
+  },
+  "titreActif": {
+    "message": "बिना शोर: सफ़ाई सक्रिय"
+  },
+  "titreInactif": {
+    "message": "बिना शोर: रुका हुआ"
   }
 }
