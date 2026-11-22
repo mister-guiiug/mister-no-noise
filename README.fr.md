@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icons/icon.svg" alt="" width="112">
+  <img src="extension/icons/icone.svg" alt="" width="112">
 </p>
 
 <h1 align="center">Sans bruit</h1>
@@ -123,12 +123,13 @@ hindi et russe. L’extension suit la langue de Firefox.
 
 Les traductions hors français et anglais n’ont pas encore été relues par des
 locuteurs natifs. Les corrections sont bienvenues : un fichier par langue,
-[`_locales/<langue>/messages.json`](_locales).
+[`extension/_locales/<langue>/messages.json`](extension/_locales).
+Voir aussi [Maintenance](docs/MAINTENANCE.fr.md).
 
 ## Contribuer
 
 Issues et pull requests bienvenues. Pour ajouter une langue : copier
-`_locales/en/messages.json` et traduire les `message` (placeholders inchangés).
+`extension/_locales/en/messages.json` et traduire les `message` (placeholders inchangés).
 `npm test` vérifie que toutes les locales ont les mêmes clés.
 
 ## Développement
@@ -146,11 +147,11 @@ npm run build
 
 ## Versions
 
-Incrémenter `version` dans `manifest.json` et `package.json`, fusionner dans
-`main`. Le workflow de publication soumet la version à Modules Firefox
-(`listed`). Une fois Mozilla approuvée, une release GitHub suit avec le
-`.xpi` signé. Textes et captures : [`amo/`](amo/) — détail dans
-[docs/AMO.md](docs/AMO.md).
+Incrémenter `version` dans `extension/manifest.json` et `package.json`,
+fusionner dans `main`. Le workflow de publication soumet la version à Modules
+Firefox (`listed`). Une fois Mozilla approuvée, une release GitHub suit avec
+le `.xpi` signé. Textes et captures : [`amo/`](amo/) — détail dans
+[Maintenance](docs/MAINTENANCE.fr.md) et [docs/AMO.md](docs/AMO.md).
 
 ## Limites connues
 

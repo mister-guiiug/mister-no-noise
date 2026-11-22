@@ -4,13 +4,13 @@
  * Real-time cleaning (onVisited), full/periodic sweeps, history analyzer,
  * per-rule preview, context menu and keyboard command. Sole writer of stats.
  */
-const S = self.SHC;
-const ALARM = 'shc-sweep';
+const S = self.MNN;
+const ALARM = 'mnn-sweep';
 const DELETE_BATCH = 100;
 const SCAN_CAP = 50000;
 const DAY = 86400000;
 const PREVIEW_TTL = 60000;   // a preview's match list can be reused this long
-const NOTIF_ID = 'shc-clean'; // fixed id: new notifications replace, not stack
+const NOTIF_ID = 'mnn-clean'; // fixed id: new notifications replace, not stack
 
 let cfg = S.normalizeConfig(null);
 let stats = S.normalizeStats(null);
@@ -64,7 +64,7 @@ browser.runtime.onInstalled.addListener(async (details) => {
   await setupMenu();
   await afficherEtat();
   if (details && details.reason === 'install') { // onboarding (F7)
-    try { await browser.storage.local.set({ 'shc.firstRun': true }); await browser.runtime.openOptionsPage(); } catch (e) { /* */ }
+    try { await browser.storage.local.set({ 'mnn.firstRun': true }); await browser.runtime.openOptionsPage(); } catch (e) { /* */ }
   }
 });
 
@@ -108,6 +108,7 @@ async function refreshNotifPerm() {
 
 // Periodic sweep ----------------------------------------------------------
 async function setupAlarm() {
+  await browser.alarms.clear('shc-sweep').catch(() => {}); // clé avant 1.4.0
   await browser.alarms.clear(ALARM);
   if (cfg.settings.enabled && cfg.settings.periodic) {
     const m = Math.max(1, cfg.settings.intervalMinutes || 30);
@@ -154,7 +155,7 @@ function emitNotification(message) {
   try {
     browser.notifications.create(NOTIF_ID, {
       type: 'basic', title: S.t('notifTitle') || 'No Noise', message,
-      iconUrl: browser.runtime.getURL('icons/icon.svg'),
+      iconUrl: browser.runtime.getURL('icons/icone.svg'),
     }).catch(() => {});
   } catch (e) { /* a notification must never block the cleaning */ }
 }
@@ -179,7 +180,7 @@ function notifySweep(count) { if (canNotify()) emitNotification(S.t('notifDelete
 
 function postProgress(p) {
   // sendMessage rejects when no page is listening (popup closed): ignore.
-  try { browser.runtime.sendMessage(Object.assign({ type: 'shcProgress' }, p)).catch(() => {}); }
+  try { browser.runtime.sendMessage(Object.assign({ type: 'mnnProgress' }, p)).catch(() => {}); }
   catch (e) { /* */ }
 }
 
@@ -306,7 +307,7 @@ async function previewRule(ruleId) {
 // only created when settings.contextMenu is on.
 let menuClickRegistered = false;
 async function onMenuClick(info, tab) {
-  if (info.menuItemId !== 'shc-add-site') return;
+  if (info.menuItemId !== 'mnn-add-site') return;
   const target = info.linkUrl || info.pageUrl || (tab && tab.url);
   let host; try { host = new URL(target).hostname; } catch (e) { return; }
   const c = await S.loadConfig();
@@ -327,7 +328,7 @@ async function setupMenu() {
     await browser.contextMenus.removeAll();
     if (cfg.settings.contextMenu) {
       browser.contextMenus.create(
-        { id: 'shc-add-site', title: S.t('ctxAddSite') || 'Add this site to No Noise', contexts: ['page', 'link'] },
+        { id: 'mnn-add-site', title: S.t('ctxAddSite') || 'Add this site to No Noise', contexts: ['page', 'link'] },
         () => browser.runtime.lastError, // read lastError to silence the warning
       );
     }

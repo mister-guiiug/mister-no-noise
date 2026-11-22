@@ -6,8 +6,8 @@ const { test } = require('node:test');
 // Minimal WebExtension shims so core.js can load outside the browser.
 global.self = global;
 global.browser = { i18n: { getMessage: () => '', getUILanguage: () => 'en' } };
-require('../src/common/core.js');
-const S = global.SHC;
+require('../extension/src/common/core.js');
+const S = global.MNN;
 
 test('contains matches a substring, case-insensitive by default', () => {
   const r = S.rule('contains', 'facebook.com');
@@ -148,4 +148,9 @@ test('ReDoS guard: cumulative budget marks later patterns unsafe instead of spen
   assert.equal(res.valid, true);
   assert.equal(res.safe, false);
   S.clearCache(); // restore the budget for any following test
+});
+
+test('storage keys use the mnn. prefix', () => {
+  assert.equal(S.CONFIG_KEY, 'mnn.config');
+  assert.equal(S.STATS_KEY, 'mnn.stats');
 });

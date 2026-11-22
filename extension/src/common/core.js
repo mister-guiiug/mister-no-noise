@@ -3,7 +3,7 @@
  * No Noise — Firefox history cleaner
  * core.js: shared logic (storage, rules, URL matching, i18n helpers).
  * Loaded in the background (event page / service worker) and the popup/options
- * pages. Exposes a global `SHC` object.
+ * pages. Exposes a global `MNN` object.
  *
  * @typedef {Object} Rule
  * @property {string}  id            Stable identifier.
@@ -30,8 +30,11 @@
  * @property {boolean} contextMenu
  */
 (function (root) {
-  const CONFIG_KEY = 'shc.config'; // { version, settings, rules }  — written by the UI
-  const STATS_KEY = 'shc.stats';   // { totalDeleted, lastRun, ... } — written by the background
+  const CONFIG_KEY = 'mnn.config'; // { version, settings, rules }  — written by the UI
+  const STATS_KEY = 'mnn.stats';   // { totalDeleted, lastRun, ... } — written by the background
+  // Clés avant le renommage SHC→MNN (1.4.0) : lues une fois, puis migrées.
+  const LEGACY_CONFIG_KEY = 'shc.config';
+  const LEGACY_STATS_KEY = 'shc.stats';
   const LOG_MAX = 300;
   const MAX_RULES = 5000;          // import hardening
   const MAX_VALUE_LEN = 2000;
@@ -300,27 +303,36 @@
   }
 
   // --- storage ------------------------------------------------------------
+  async function migrateKey(from, to) {
+    const s = await browser.storage.local.get([from, to]);
+    if (s[to] != null || s[from] == null) return s[to];
+    await browser.storage.local.set({ [to]: s[from] });
+    await browser.storage.local.remove(from);
+    return s[from];
+  }
   async function loadConfig() {
-    const s = await browser.storage.local.get(CONFIG_KEY);
-    return normalizeConfig(s[CONFIG_KEY]);
+    const raw = await migrateKey(LEGACY_CONFIG_KEY, CONFIG_KEY);
+    return normalizeConfig(raw);
   }
   async function saveConfig(cfg) {
     const norm = normalizeConfig(cfg);
     clearCache(); // rules/settings may have changed
     await browser.storage.local.set({ [CONFIG_KEY]: norm });
+    await browser.storage.local.remove(LEGACY_CONFIG_KEY).catch(() => {});
     return norm;
   }
   async function loadStats() {
-    const s = await browser.storage.local.get(STATS_KEY);
-    return normalizeStats(s[STATS_KEY]);
+    const raw = await migrateKey(LEGACY_STATS_KEY, STATS_KEY);
+    return normalizeStats(raw);
   }
   async function saveStats(stats) {
     const norm = normalizeStats(stats);
     await browser.storage.local.set({ [STATS_KEY]: norm });
+    await browser.storage.local.remove(LEGACY_STATS_KEY).catch(() => {});
     return norm;
   }
 
-  root.SHC = {
+  root.MNN = {
     CONFIG_KEY, STATS_KEY, LOG_MAX, MAX_RULES, MAX_VALUE_LEN,
     DEFAULT_SETTINGS, DEFAULT_STATS,
     RULE_TYPE_KEYS, RULE_TYPE_FALLBACK, RULE_KINDS, RULE_MODES,

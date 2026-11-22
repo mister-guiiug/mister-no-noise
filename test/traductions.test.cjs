@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const localesDir = path.join(__dirname, '..', '_locales');
+const localesDir = path.join(__dirname, '..', 'extension', '_locales');
 const attendues = [
   'ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'nl', 'pl', 'pt', 'ru', 'tr', 'zh_CN',
 ];

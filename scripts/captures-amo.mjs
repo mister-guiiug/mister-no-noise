@@ -1,22 +1,22 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
- * Génère les icônes PNG et les captures AMO (1280×800) à partir de l'UI.
- * Usage: node scripts/captures-amo.mjs
+ * Régénère les captures AMO (1280×800) et les icônes PNG à partir du CSS
+ * réel de l'extension. Chrome requis (CHROME_PATH ou chemin Windows).
  */
-import { chromium } from 'playwright-core';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { chromium } from "playwright-core";
+import { mkdir, readFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const racine = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const racine = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const chrome =
   process.env.CHROME_PATH ||
-  'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 
-const cssPopup = await readFile(path.join(racine, 'src/popup/popup.css'), 'utf8');
-const cssOptions = await readFile(path.join(racine, 'src/options/options.css'), 'utf8');
-const iconSvg = await readFile(path.join(racine, 'icons/icon.svg'), 'utf8');
-const iconData = `data:image/svg+xml;base64,${Buffer.from(iconSvg).toString('base64')}`;
+const cssPopup = await readFile(path.join(racine, "extension/src/popup/popup.css"), "utf8");
+const cssOptions = await readFile(path.join(racine, "extension/src/options/options.css"), "utf8");
+const iconSvg = await readFile(path.join(racine, "extension/icons/icone.svg"), "utf8");
+const iconData = `data:image/svg+xml;base64,${Buffer.from(iconSvg).toString("base64")}`;
 
 function pageShell(title, bodyCss, bodyHtml) {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>${title}</title>
@@ -46,7 +46,7 @@ const popupInner = `
     <label class="row"><span>Simulation (dry-run)</span><span class="sw"><input type="checkbox" disabled><span class="switch sm"></span></span></label>
   </div>
   <div class="stats">
-    <div><strong>1 248</strong><span>deleted in total</span></div>
+    <div><strong>1 248</strong><span>deleted in total</span></div>
     <div><strong>4</strong><span>active rules</span></div>
   </div>
   <a class="opts" href="#">Manage rules and settings →</a>
@@ -57,7 +57,7 @@ const optionsRules = `
   <header style="display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid #e7e7ee">
     <img src="${iconData}" width="36" height="36" alt="">
     <div><h1 style="margin:0;font-size:20px">No Noise</h1>
-    <p style="margin:2px 0 0;color:#6b7280;font-size:13px">Firefox history cleaner — adaptive & configurable</p></div>
+    <p style="margin:2px 0 0;color:#6b7280;font-size:13px">Firefox history cleaner</p></div>
   </header>
   <div style="padding:18px 22px">
     <h2 style="margin:0 0 10px;font-size:16px">Cleaning rules</h2>
@@ -79,23 +79,11 @@ const noiseAnalyzer = `
 <div class="card" style="width:720px">
   <div style="padding:22px 24px">
     <h2 style="margin:0 0 6px;font-size:18px">History noise</h2>
-    <p style="margin:0 0 16px;color:#6b7280;font-size:13px">Domains that clutter your history most — one click to add a rule.</p>
+    <p style="margin:0 0 16px;color:#6b7280;font-size:13px">Domains that clutter your history most.</p>
     <div style="display:flex;flex-direction:column;gap:10px">
-      ${[
-        ['github.com', '412'],
-        ['photos.google.com', '287'],
-        ['mail.google.com', '196'],
-        ['stackoverflow.com', '94'],
-      ]
-        .map(
-          ([d, n]) =>
-            `<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:#f6f6fb;border-radius:10px">
-              <strong style="flex:1;font-size:14px">${d}</strong>
-              <span style="color:#6b7280;font-size:13px">${n} entries</span>
-              <button style="appearance:none;border:0;background:#7c3aed;color:#fff;padding:8px 12px;border-radius:8px;font-weight:600;font-size:12px">Add rule</button>
-            </div>`,
-        )
-        .join('')}
+      ${[["github.com","412"],["photos.google.com","287"],["mail.google.com","196"],["stackoverflow.com","94"]]
+        .map(([d,n]) => `<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:#f6f6fb;border-radius:10px"><strong style="flex:1;font-size:14px">${d}</strong><span style="color:#6b7280;font-size:13px">${n} entries</span><button style="appearance:none;border:0;background:#7c3aed;color:#fff;padding:8px 12px;border-radius:8px;font-weight:600;font-size:12px">Add rule</button></div>`)
+        .join("")}
     </div>
   </div>
 </div>`;
@@ -115,48 +103,26 @@ const previewDry = `
 </div>`;
 
 const captures = [
-  { fichier: '1-popup.png', html: pageShell('popup', cssPopup, popupInner) },
-  { fichier: '2-regles.png', html: pageShell('rules', '', optionsRules) },
-  { fichier: '3-bruit.png', html: pageShell('noise', '', noiseAnalyzer) },
-  { fichier: '4-apercu.png', html: pageShell('preview', '', previewDry) },
+  { fichier: "1-popup.png", html: pageShell("popup", cssPopup, popupInner) },
+  { fichier: "2-regles.png", html: pageShell("rules", cssOptions, optionsRules) },
+  { fichier: "3-bruit.png", html: pageShell("noise", cssOptions, noiseAnalyzer) },
+  { fichier: "4-apercu.png", html: pageShell("preview", cssPopup, previewDry) },
 ];
 
-const browser = await chromium.launch({
-  executablePath: chrome,
-  headless: true,
-});
+const browser = await chromium.launch({ executablePath: chrome, headless: true });
 const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
-
-await mkdir(path.join(racine, 'amo', 'captures'), { recursive: true });
-await mkdir(path.join(racine, 'icons'), { recursive: true });
-
+await mkdir(path.join(racine, "amo", "captures"), { recursive: true });
+await mkdir(path.join(racine, "extension", "icons"), { recursive: true });
 for (const { fichier, html } of captures) {
-  await page.setContent(html, { waitUntil: 'load' });
-  await page.screenshot({
-    path: path.join(racine, 'amo', 'captures', fichier),
-    type: 'png',
-    clip: { x: 0, y: 0, width: 1280, height: 800 },
-  });
-  console.log('capture', fichier);
+  await page.setContent(html, { waitUntil: "load" });
+  await page.screenshot({ path: path.join(racine, "amo", "captures", fichier), type: "png", clip: { x: 0, y: 0, width: 1280, height: 800 } });
+  console.log("capture", fichier);
 }
-
-// Icônes PNG depuis le SVG
-const sizes = [32, 48, 64, 96, 128];
-for (const size of sizes) {
+for (const size of [32, 48, 64, 96, 128]) {
   await page.setViewportSize({ width: size, height: size });
-  await page.setContent(
-    `<!DOCTYPE html><html><body style="margin:0">${iconSvg.replace(
-      /width="96"/,
-      `width="${size}"`,
-    ).replace(/height="96"/, `height="${size}"`)}</body></html>`,
-    { waitUntil: 'load' },
-  );
-  await page.locator('svg').screenshot({
-    path: path.join(racine, 'icons', `icone-${size}.png`),
-    type: 'png',
-  });
-  console.log('icon', size);
+  await page.setContent(`<!DOCTYPE html><html><body style="margin:0">${iconSvg.replace(/width="96"/, `width="${size}"`).replace(/height="96"/, `height="${size}"`)}</body></html>`, { waitUntil: "load" });
+  await page.locator("svg").screenshot({ path: path.join(racine, "extension", "icons", `icone-${size}.png`), type: "png" });
+  console.log("icon", size);
 }
-
 await browser.close();
-console.log('OK');
+console.log("OK");

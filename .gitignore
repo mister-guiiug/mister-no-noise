@@ -4,6 +4,6 @@ web-ext-artifacts/
 *.xpi
 *.zip
 _agent/
-
+.env
 .amo-upload-uuid
 

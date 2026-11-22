@@ -1,5 +1,5 @@
 'use strict';
-const S = self.SHC;
+const S = self.MNN;
 const t = S.t;
 const $ = (id) => document.getElementById(id);
 let pendingToken = null; // preview token, lets cleanNow reuse the scan
@@ -84,7 +84,7 @@ $('openOptions').addEventListener('click', (e) => {
 
 // Live progress during long operations (T3).
 browser.runtime.onMessage.addListener((msg) => {
-  if (!msg || msg.type !== 'shcProgress') return;
+  if (!msg || msg.type !== 'mnnProgress') return;
   if (msg.phase === 'scan') showResult(t('progressScan', [String(msg.scanned)]), '');
   else if (msg.phase === 'delete') showResult(t('progressDelete', [String(msg.deleted), String(msg.total)]), '');
 });

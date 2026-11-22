@@ -5,17 +5,16 @@ const webext = {
   document: 'readonly', console: 'readonly', URL: 'readonly', Blob: 'readonly',
   FileReader: 'readonly', fetch: 'readonly', performance: 'readonly',
   setTimeout: 'readonly', clearTimeout: 'readonly', structuredClone: 'readonly',
-  importScripts: 'readonly', SHC: 'writable',
+  importScripts: 'readonly', MNN: 'writable',
 };
 
 module.exports = [
   {
-    files: ['src/**/*.js'],
+    files: ['extension/src/**/*.js'],
     languageOptions: { ecmaVersion: 2022, sourceType: 'script', globals: webext },
     rules: {
       'no-undef': 'error',
       'no-unused-vars': ['warn', { args: 'none', caughtErrors: 'none' }],
-      // Security: forbid innerHTML/outerHTML to keep the UI XSS-safe (S6).
       'no-restricted-properties': [
         'error',
         { property: 'innerHTML', message: 'Use textContent / DOM APIs — no innerHTML.' },

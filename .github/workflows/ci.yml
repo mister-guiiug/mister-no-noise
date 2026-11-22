@@ -1,4 +1,4 @@
-# CI locale-ready : tests, ESLint, web-ext lint, build.
+# CI : tests, ESLint, web-ext lint, build, vérification fiche AMO.
 name: CI
 
 on:
@@ -35,3 +35,5 @@ jobs:
       - run: npm run lint
 
       - run: npm run build
+
+      - run: node scripts/fiche-amo.mjs --verifier

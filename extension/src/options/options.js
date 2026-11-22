@@ -1,5 +1,5 @@
 'use strict';
-const S = self.SHC;
+const S = self.MNN;
 const t = S.t;
 const $ = (id) => document.getElementById(id);
 const send = (m) => browser.runtime.sendMessage(m);
@@ -360,19 +360,27 @@ function ieMsg(text, ok) { const el = $('ieMsg'); el.textContent = text; el.clas
 
 /* ------------------------------- welcome (F7) ------------------------- */
 async function checkWelcome() {
-  try { const f = await browser.storage.local.get('shc.firstRun'); if (f['shc.firstRun']) $('welcome').classList.remove('hidden'); } catch (e) { /* */ }
+  try {
+    const f = await browser.storage.local.get(['mnn.firstRun', 'shc.firstRun']);
+    if (f['shc.firstRun'] && !f['mnn.firstRun']) {
+      await browser.storage.local.set({ 'mnn.firstRun': true });
+      await browser.storage.local.remove('shc.firstRun');
+      f['mnn.firstRun'] = true;
+    }
+    if (f['mnn.firstRun']) $('welcome').classList.remove('hidden');
+  } catch (e) { /* */ }
 }
-$('welcomeDismiss').addEventListener('click', async () => { $('welcome').classList.add('hidden'); try { await browser.storage.local.remove('shc.firstRun'); } catch (e) { /* */ } });
+$('welcomeDismiss').addEventListener('click', async () => { $('welcome').classList.add('hidden'); try { await browser.storage.local.remove(['mnn.firstRun', 'shc.firstRun']); } catch (e) { /* */ } });
 $('welcomeAnalyze').addEventListener('click', async () => {
   $('welcome').classList.add('hidden');
-  try { await browser.storage.local.remove('shc.firstRun'); } catch (e) { /* */ }
+  try { await browser.storage.local.remove(['mnn.firstRun', 'shc.firstRun']); } catch (e) { /* */ }
   $('analyzeBtn').scrollIntoView({ behavior: 'smooth', block: 'center' });
   runAnalyze();
 });
 
 /* -------------------------------- progress ---------------------------- */
 browser.runtime.onMessage.addListener((msg) => {
-  if (!msg || msg.type !== 'shcProgress') return;
+  if (!msg || msg.type !== 'mnnProgress') return;
   if (msg.phase === 'analyze') $('suggestProgress').textContent = t('suggestScan', [String(msg.scanned)]);
   else if (msg.phase === 'scan') $('runResult').textContent = t('progressScan', [String(msg.scanned)]);
   else if (msg.phase === 'delete') $('runResult').textContent = t('progressDelete', [String(msg.deleted), String(msg.total)]);

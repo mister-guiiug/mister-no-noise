@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icons/icon.svg" alt="" width="112">
+  <img src="extension/icons/icone.svg" alt="" width="112">
 </p>
 
 <h1 align="center">No Noise</h1>
@@ -113,11 +113,11 @@ in batches; a preview returns a short-lived token so “Clean now” does not
 re-scan.
 
 ```
-src/common/core.js      rules, matching, storage, i18n
-src/background.js       real-time, sweeps, analyzer, menu, command
-src/popup/  src/options/
-_locales/               15 languages
-amo/                    Firefox Add-ons listing texts and screenshots
+extension/src/common/core.js   rules, matching, storage, i18n
+extension/src/background.js    real-time, sweeps, analyzer, menu, command
+extension/src/popup/  options/
+extension/_locales/            15 languages
+amo/                           Firefox Add-ons listing texts and screenshots
 ```
 
 ## Languages
@@ -128,15 +128,16 @@ and Russian. The extension follows Firefox’s language.
 
 Translations other than French and English have not yet been reviewed by
 native speakers. Corrections are welcome: one file per language,
-[`_locales/<language>/messages.json`](_locales).
+[`extension/_locales/<language>/messages.json`](extension/_locales).
+See also [Maintaining](docs/MAINTAINING.md).
 
 ## Contributing
 
 Issues and pull requests are welcome — a clearer rule UX, a translation fix,
 a safer default.
 
-**Adding a language**: copy `_locales/en/messages.json` to
-`_locales/<code>/messages.json` and translate the `message` values (keep
+**Adding a language**: copy `extension/_locales/en/messages.json` to
+`extension/_locales/<code>/messages.json` and translate the `message` values (keep
 placeholders). `npm test` checks that every locale has the same keys.
 
 ## Development
@@ -172,10 +173,11 @@ on every pull request.
 
 ## Releases
 
-Bump `version` in `manifest.json` and `package.json`, merge to `main`. The
-publication workflow submits the version to Firefox Add-ons (`listed`). Once
+Bump `version` in `extension/manifest.json` and `package.json`, merge to `main`.
+The publication workflow submits the version to Firefox Add-ons (`listed`). Once
 Mozilla approves it, a GitHub release follows with the signed `.xpi`. Listing
-copy and screenshots live in [`amo/`](amo/) — see [docs/AMO.md](docs/AMO.md).
+copy and screenshots live in [`amo/`](amo/) — see [Maintaining](docs/MAINTAINING.md)
+and [docs/AMO.md](docs/AMO.md).
 
 ## Known limitations
 

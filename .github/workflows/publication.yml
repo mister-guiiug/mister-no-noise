@@ -1,64 +1,103 @@
-# Publication AMO — ne pas lancer sans go explicite (canal listed).
-# Secrets : AMO_API_KEY, AMO_API_SECRET (jetons addons.mozilla.org).
-name: Publication AMO
+# Publication automatique : chaque version nouvelle sur main est soumise au
+# catalogue d'addons.mozilla.org, puis mise en release GitHub une fois publiée.
+#
+# Monter `version` dans extension/manifest.json et package.json, fusionner.
+# Secrets : AMO_API_KEY, AMO_API_SECRET.
+name: Publication
 
 on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "47 */3 * * *"
   workflow_dispatch:
-    inputs:
-      channel:
-        description: 'Canal AMO (unlisted | listed)'
-        required: true
-        default: 'unlisted'
-        type: choice
-        options:
-          - unlisted
-          - listed
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: publication
+  cancel-in-progress: false
 
 jobs:
-  signer:
-    name: Signer et publier
+  publier:
+    name: Publier la version du manifeste
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
 
+      - name: Version du manifeste, déjà publiée ?
+        id: version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          version=$(node -p "require('./extension/manifest.json').version")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          if gh release view "v$version" > /dev/null 2>&1; then
+            echo "a-publier=non" >> "$GITHUB_OUTPUT"
+            echo "::notice::v$version est déjà publiée : rien à faire. Monter la version pour publier."
+          else
+            echo "a-publier=oui" >> "$GITHUB_OUTPUT"
+            echo "::notice::v$version n'est pas publiée : signature et release."
+          fi
+
       - uses: actions/setup-node@v7
+        if: steps.version.outputs.a-publier == 'oui'
         with:
           node-version: 24
           cache: npm
 
-      - run: npm ci
+      - if: steps.version.outputs.a-publier == 'oui'
+        run: npm ci --no-audit --no-fund
 
-      - run: npm test
+      - if: steps.version.outputs.a-publier == 'oui'
+        run: npm test
 
-      - run: npm run lint
+      - if: steps.version.outputs.a-publier == 'oui'
+        run: npm run lint -- --warnings-as-errors
 
-      - name: Signer (web-ext)
+      - name: Soumission à addons.mozilla.org, paquet signé
+        id: paquet
+        if: steps.version.outputs.a-publier == 'oui'
         env:
           WEB_EXT_API_KEY: ${{ secrets.AMO_API_KEY }}
           WEB_EXT_API_SECRET: ${{ secrets.AMO_API_SECRET }}
-        run: |
-          npx web-ext sign \
-            --config web-ext-config.mjs \
-            --channel "${{ inputs.channel }}" \
-            --amo-metadata amo/fiche.json \
-            --artifacts-dir web-ext-artifacts \
-            --timeout 900000
+          EXIGER_SIGNATURE: "1"
+        run: npm run paquet
 
-      - name: Attacher le .xpi à une release (tag = version)
-        if: success()
+      - name: Archive du paquet
+        if: steps.paquet.outputs.signe == 'oui'
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        working-directory: web-ext-artifacts
+        run: zip -r "mister-no-noise-$VERSION-paquet.zip" "mister-no-noise-$VERSION"
+
+      - uses: actions/upload-artifact@v7
+        if: steps.paquet.outputs.signe == 'oui'
+        with:
+          name: mister-no-noise-${{ steps.version.outputs.version }}
+          path: web-ext-artifacts/mister-no-noise-${{ steps.version.outputs.version }}/
+          if-no-files-found: error
+
+      - name: Release
+        if: steps.paquet.outputs.signe == 'oui'
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          VERSION: ${{ steps.version.outputs.version }}
         run: |
-          VERSION=$(node -p "require('./package.json').version")
-          XPI=$(ls web-ext-artifacts/*.xpi | head -n1)
-          gh release create "v${VERSION}" "$XPI" \
-            --title "v${VERSION}" \
-            --notes "No Noise ${VERSION} (canal ${{ inputs.channel }})." \
-            --latest \
-            || gh release upload "v${VERSION}" "$XPI" --clobber
+          dossier="web-ext-artifacts/mister-no-noise-$VERSION"
+          test -f "$dossier/mister-no-noise-$VERSION.xpi" && test -f "$dossier/updates.json"
+          gh release create "v$VERSION" --target "$GITHUB_SHA" --latest \
+            --title "No Noise $VERSION" \
+            --notes "Installer : depuis addons.mozilla.org (https://addons.mozilla.org/firefox/addon/mister-no-noise@mister-guiiug/), ou ouvrir mister-no-noise-$VERSION.xpi dans Firefox (140 ou plus récent). Mode d'emploi : INSTALLER.md, dans mister-no-noise-$VERSION-paquet.zip." \
+            --generate-notes \
+            "web-ext-artifacts/mister-no-noise-$VERSION-paquet.zip" \
+            "$dossier"/*
