@@ -66,19 +66,32 @@ if (apiKey && apiSecret) {
     console.log(`${version} est déjà sur addons.mozilla.org (canal ${enLigne.channel}) : pas de nouvelle soumission.`);
   } else {
     const telechargement = path.join(dossier, ".signature");
-    await webExt.cmd.sign(
-      {
-        sourceDir: source,
-        artifactsDir: telechargement,
-        apiKey,
-        apiSecret,
-        channel: "listed",
-        amoBaseUrl: API,
-        amoMetadata: path.join(racine, "amo", "fiche.json"),
-        approvalTimeout: 0,
-      },
-      { shouldExitProgram: false },
-    );
+    try {
+      await webExt.cmd.sign(
+        {
+          sourceDir: source,
+          artifactsDir: telechargement,
+          apiKey,
+          apiSecret,
+          channel: "listed",
+          amoBaseUrl: API,
+          amoMetadata: path.join(racine, "amo", "fiche.json"),
+          approvalTimeout: 0,
+        },
+        { shouldExitProgram: false },
+      );
+    } catch (erreur) {
+      // AMO throttle les soumissions (souvent après plusieurs essais le même
+      // jour) : sortir en vert, le passage planifié reprendra.
+      const detail = String(erreur?.message ?? erreur);
+      if (/throttled|Expected available in/i.test(detail) || /Request was throttled/i.test(String(erreur))) {
+        console.log(`::notice::AMO limite le débit sur la soumission : reprise au prochain passage. (${detail.slice(0, 200)})`);
+        await sortie("signe", "non");
+        await rm(dossier, { recursive: true, force: true });
+        process.exit(0);
+      }
+      throw erreur;
+    }
     await rm(telechargement, { recursive: true, force: true });
   }
   const minutes = Number(process.env.ATTENTE_MINUTES ?? 15);
