@@ -28,13 +28,13 @@ step. Mozilla accepts a version number **once** across all channels.
 
 `npm run paquet` builds `web-ext-artifacts/mister-no-noise-<version>/`:
 
-| File | Purpose |
-| ---- | ------- |
-| `mister-no-noise-<version>.xpi` | signed by Mozilla — only with API keys |
-| `mister-no-noise-<version>.zip` | unsigned extension |
-| `INSTALLER.md` | step-by-step install guide (French) |
-| `policies.json` | enterprise policy that force-installs the extension |
-| `SHA256SUMS` | checksums |
+| File                            | Purpose                                             |
+| ------------------------------- | --------------------------------------------------- |
+| `mister-no-noise-<version>.xpi` | signed by Mozilla — only with API keys              |
+| `mister-no-noise-<version>.zip` | unsigned extension                                  |
+| `INSTALLER.md`                  | step-by-step install guide (French)                 |
+| `policies.json`                 | enterprise policy that force-installs the extension |
+| `SHA256SUMS`                    | checksums                                           |
 
 Templates live in [`deploiement/`](../deploiement/).
 
@@ -46,13 +46,13 @@ Templates live in [`deploiement/`](../deploiement/).
 [`fiche-amo.yml`](../.github/workflows/fiche-amo.yml) syncs the listing when
 its sources change on `main`, and daily.
 
-| On the listing | Comes from |
-| -------------- | ---------- |
-| name, summary | `extName`, `extDescription` per language |
-| description, category | [`amo/fiche.json`](../amo/fiche.json) |
-| homepage | the manifest’s `homepage_url` |
-| icon | `extension/icons/icone-128.png` |
-| screenshots | [`amo/captures.json`](../amo/captures.json) + `amo/captures/` (1280×800) |
+| On the listing        | Comes from                                                               |
+| --------------------- | ------------------------------------------------------------------------ |
+| name, summary         | `extName`, `extDescription` per language                                 |
+| description, category | [`amo/fiche.json`](../amo/fiche.json)                                    |
+| homepage              | the manifest’s `homepage_url`                                            |
+| icon                  | `extension/icons/icone-128.png`                                          |
+| screenshots           | [`amo/captures.json`](../amo/captures.json) + `amo/captures/` (1280×800) |
 
 Regenerate screenshots: `npm run captures` (Chrome + `playwright-core`).
 

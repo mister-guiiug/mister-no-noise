@@ -88,12 +88,12 @@ as you browse — and never sends a byte off your machine.
 
 Firefox 140 or later on desktop, Firefox for Android 142 or later.
 
-| Method | Lasts | How |
-| ------ | ----- | --- |
-| **Firefox Add-ons** (recommended) | permanent, auto-updates | open the [extension page](https://addons.mozilla.org/firefox/addon/mister-no-noise@mister-guiiug/) → *Add to Firefox* |
-| **Signed file from a release** | permanent, auto-updates | open the `.xpi` of the [latest release](https://github.com/mister-guiiug/mister-no-noise/releases/latest) in Firefox |
-| **Temporary, from source** | until Firefox restarts | `about:debugging#/runtime/this-firefox` → *Load Temporary Add-on…* → pick `manifest.json` |
-| **With web-ext** | until the window closes | `npm install` then `npm start` |
+| Method                            | Lasts                   | How                                                                                                                   |
+| --------------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **Firefox Add-ons** (recommended) | permanent, auto-updates | open the [extension page](https://addons.mozilla.org/firefox/addon/mister-no-noise@mister-guiiug/) → _Add to Firefox_ |
+| **Signed file from a release**    | permanent, auto-updates | open the `.xpi` of the [latest release](https://github.com/mister-guiiug/mister-no-noise/releases/latest) in Firefox  |
+| **Temporary, from source**        | until Firefox restarts  | `about:debugging#/runtime/this-firefox` → _Load Temporary Add-on…_ → pick `manifest.json`                             |
+| **With web-ext**                  | until the window closes | `npm install` then `npm start`                                                                                        |
 
 ## Privacy
 

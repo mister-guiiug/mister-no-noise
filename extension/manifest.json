@@ -12,33 +12,20 @@
       "id": "mister-no-noise@mister-guiiug",
       "strict_min_version": "140.0",
       "data_collection_permissions": {
-        "required": [
-          "none"
-        ]
+        "required": ["none"]
       }
     },
     "gecko_android": {
       "strict_min_version": "142.0"
     }
   },
-  "permissions": [
-    "history",
-    "storage",
-    "alarms",
-    "contextMenus"
-  ],
-  "optional_permissions": [
-    "notifications"
-  ],
+  "permissions": ["history", "storage", "alarms", "contextMenus"],
+  "optional_permissions": ["notifications"],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   },
   "background": {
-    "scripts": [
-      "src/common/compat.js",
-      "src/common/core.js",
-      "src/background.js"
-    ]
+    "scripts": ["src/common/compat.js", "src/common/core.js", "src/background.js"]
   },
   "action": {
     "default_title": "__MSG_actionTitle__",

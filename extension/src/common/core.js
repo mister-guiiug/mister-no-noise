@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /*
  * No Noise — Firefox history cleaner
  * core.js: shared logic (storage, rules, URL matching, i18n helpers).
@@ -30,13 +30,13 @@
  * @property {boolean} contextMenu
  */
 (function (root) {
-  const CONFIG_KEY = 'mnn.config'; // { version, settings, rules }  — written by the UI
-  const STATS_KEY = 'mnn.stats';   // { totalDeleted, lastRun, ... } — written by the background
+  const CONFIG_KEY = "mnn.config"; // { version, settings, rules }  — written by the UI
+  const STATS_KEY = "mnn.stats"; // { totalDeleted, lastRun, ... } — written by the background
   // Clés avant le renommage SHC→MNN (1.4.0) : lues une fois, puis migrées.
-  const LEGACY_CONFIG_KEY = 'shc.config';
-  const LEGACY_STATS_KEY = 'shc.stats';
+  const LEGACY_CONFIG_KEY = "shc.config";
+  const LEGACY_STATS_KEY = "shc.stats";
   const LOG_MAX = 300;
-  const MAX_RULES = 5000;          // import hardening
+  const MAX_RULES = 5000; // import hardening
   const MAX_VALUE_LEN = 2000;
 
   const DEFAULT_SETTINGS = {
@@ -47,117 +47,166 @@
     dryRun: false,
     caseSensitive: false,
     notifications: true,
-    notificationDetail: 'count', // 'count' | 'host'
-    logDetail: 'host',           // 'host' | 'full' | 'off'
+    notificationDetail: "count", // 'count' | 'host'
+    logDetail: "host", // 'host' | 'full' | 'off'
     confirmManual: true,
     massThreshold: 500,
-    contextMenu: true,           // show the "Add this site" right-click entry
-    pauseJusqua: 0,              // timestamp ms ; 0 = pas de pause
-    syncSettings: false,         // réglages via storage.sync (règles restent locales)
+    contextMenu: true, // show the "Add this site" right-click entry
+    pauseJusqua: 0, // timestamp ms ; 0 = pas de pause
+    syncSettings: false, // réglages via storage.sync (règles restent locales)
   };
 
   // Une pause ne dure pas plus d'une journée (horloge dérglée / valeur abîmée).
   const PAUSE_MAX = 24 * 60 * 60 * 1000;
-  const SYNC_SETTINGS_KEY = 'mnn.settings';
+  const SYNC_SETTINGS_KEY = "mnn.settings";
 
   /** Packs de règles prêts à l'emploi (id → motifs). */
   const RULE_PACKS = {
     social: {
-      noteKey: 'noteSocial',
+      noteKey: "noteSocial",
       items: [
-        ['domain', 'facebook.com'], ['domain', 'instagram.com'], ['domain', 'tiktok.com'],
-        ['domain', 'twitter.com'], ['domain', 'x.com'], ['domain', 'linkedin.com'],
-        ['domain', 'reddit.com'], ['domain', 'snapchat.com'],
+        ["domain", "facebook.com"],
+        ["domain", "instagram.com"],
+        ["domain", "tiktok.com"],
+        ["domain", "twitter.com"],
+        ["domain", "x.com"],
+        ["domain", "linkedin.com"],
+        ["domain", "reddit.com"],
+        ["domain", "snapchat.com"],
       ],
     },
     google: {
-      noteKey: 'noteGoogle',
+      noteKey: "noteGoogle",
       items: [
-        ['contains', 'www.google.com'], ['contains', 'www.google.fr'],
-        ['contains', 'photos.google.com'], ['domain', 'youtube.com'],
+        ["contains", "www.google.com"],
+        ["contains", "www.google.fr"],
+        ["contains", "photos.google.com"],
+        ["domain", "youtube.com"],
       ],
     },
     shopping: {
-      noteKey: 'packNoteShopping',
+      noteKey: "packNoteShopping",
       items: [
-        ['domain', 'amazon.fr'], ['domain', 'amazon.com'], ['domain', 'cdiscount.com'],
-        ['domain', 'fnac.com'], ['domain', 'ebay.fr'], ['domain', 'leboncoin.fr'],
+        ["domain", "amazon.fr"],
+        ["domain", "amazon.com"],
+        ["domain", "cdiscount.com"],
+        ["domain", "fnac.com"],
+        ["domain", "ebay.fr"],
+        ["domain", "leboncoin.fr"],
       ],
     },
     news: {
-      noteKey: 'packNoteNews',
+      noteKey: "packNoteNews",
       items: [
-        ['domain', 'lemonde.fr'], ['domain', 'lefigaro.fr'], ['domain', 'bbc.com'],
-        ['domain', 'cnn.com'], ['domain', 'nytimes.com'],
+        ["domain", "lemonde.fr"],
+        ["domain", "lefigaro.fr"],
+        ["domain", "bbc.com"],
+        ["domain", "cnn.com"],
+        ["domain", "nytimes.com"],
       ],
     },
   };
 
   const DEFAULT_STATS = { totalDeleted: 0, lastRun: null, lastRunDeleted: 0, log: [] };
 
-  const RULE_TYPE_KEYS = ['contains', 'domain', 'wildcard', 'regex'];
+  const RULE_TYPE_KEYS = ["contains", "domain", "wildcard", "regex"];
   const RULE_TYPE_FALLBACK = {
-    contains: 'Contains', domain: 'Domain', wildcard: 'Wildcard (*)', regex: 'Regular expression',
+    contains: "Contains",
+    domain: "Domain",
+    wildcard: "Wildcard (*)",
+    regex: "Regular expression",
   };
-  const RULE_KINDS = ['block', 'allow'];
-  const RULE_MODES = ['both', 'realtime', 'periodic'];
+  const RULE_KINDS = ["block", "allow"];
+  const RULE_MODES = ["both", "realtime", "periodic"];
 
   // --- i18n helpers -------------------------------------------------------
   function t(key, subs) {
-    try { return browser.i18n.getMessage(key, subs) || ''; } catch (e) { return ''; }
+    try {
+      return browser.i18n.getMessage(key, subs) || "";
+    } catch (e) {
+      return "";
+    }
   }
   function formatDate(ts) {
-    try { return new Date(ts).toLocaleString(browser.i18n.getUILanguage()); }
-    catch (e) { return new Date(ts).toLocaleString(); }
+    try {
+      return new Date(ts).toLocaleString(browser.i18n.getUILanguage());
+    } catch (e) {
+      return new Date(ts).toLocaleString();
+    }
   }
   function localizeDom(rootEl) {
     rootEl = rootEl || document;
-    rootEl.querySelectorAll('[data-i18n]').forEach((el) => {
-      const m = t(el.getAttribute('data-i18n')); if (m) el.textContent = m;
+    rootEl.querySelectorAll("[data-i18n]").forEach((el) => {
+      const m = t(el.getAttribute("data-i18n"));
+      if (m) el.textContent = m;
     });
-    rootEl.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
-      const m = t(el.getAttribute('data-i18n-placeholder')); if (m) el.setAttribute('placeholder', m);
+    rootEl.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const m = t(el.getAttribute("data-i18n-placeholder"));
+      if (m) el.setAttribute("placeholder", m);
     });
-    rootEl.querySelectorAll('[data-i18n-title]').forEach((el) => {
-      const m = t(el.getAttribute('data-i18n-title'));
-      if (m) { el.setAttribute('title', m); el.setAttribute('aria-label', m); }
+    rootEl.querySelectorAll("[data-i18n-title]").forEach((el) => {
+      const m = t(el.getAttribute("data-i18n-title"));
+      if (m) {
+        el.setAttribute("title", m);
+        el.setAttribute("aria-label", m);
+      }
     });
-    try { document.documentElement.lang = browser.i18n.getUILanguage(); } catch (e) { /* no document */ }
+    try {
+      document.documentElement.lang = browser.i18n.getUILanguage();
+    } catch (e) {
+      /* no document */
+    }
   }
-  function ruleTypeLabel(type) { return t('ruleType_' + type) || RULE_TYPE_FALLBACK[type] || type; }
+  function ruleTypeLabel(type) {
+    return t("ruleType_" + type) || RULE_TYPE_FALLBACK[type] || type;
+  }
 
   // --- rules --------------------------------------------------------------
-  function makeId() { return 'r_' + Math.random().toString(36).slice(2, 10); }
+  function makeId() {
+    return "r_" + Math.random().toString(36).slice(2, 10);
+  }
 
   /** @returns {Rule} */
   function rule(type, value, note, extra) {
-    return Object.assign({
-      id: makeId(), enabled: true, kind: 'block',
-      type: type || 'contains', value: value || '', note: note || '',
-      mode: 'both', olderThanDays: 0,
-    }, extra || {});
+    return Object.assign(
+      {
+        id: makeId(),
+        enabled: true,
+        kind: "block",
+        type: type || "contains",
+        value: value || "",
+        note: note || "",
+        mode: "both",
+        olderThanDays: 0,
+      },
+      extra || {},
+    );
   }
 
   function defaultRules() {
-    const social = t('noteSocial') || 'Social media';
-    const google = t('noteGoogle') || 'Google';
+    const social = t("noteSocial") || "Social media";
+    const google = t("noteGoogle") || "Google";
     return [
-      rule('domain', 'facebook.com', social),
-      rule('contains', 'www.google.com', google),
-      rule('contains', 'www.google.fr', google),
-      rule('contains', 'photos.google.com', google),
+      rule("domain", "facebook.com", social),
+      rule("contains", "www.google.com", google),
+      rule("contains", "www.google.fr", google),
+      rule("contains", "photos.google.com", google),
     ];
   }
 
-  function clone(o) { return JSON.parse(JSON.stringify(o)); }
-  function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function clone(o) {
+    return JSON.parse(JSON.stringify(o));
+  }
+  function escapeRegex(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
 
   function ruleToRegex(r, caseSensitive) {
-    const flags = caseSensitive ? '' : 'i';
-    if (r.type === 'regex') return new RegExp(r.value, flags);
-    if (r.type === 'wildcard') {
-      let out = '';
-      for (const ch of r.value) out += ch === '*' ? '.*' : escapeRegex(ch);
+    const flags = caseSensitive ? "" : "i";
+    if (r.type === "regex") return new RegExp(r.value, flags);
+    if (r.type === "wildcard") {
+      let out = "";
+      for (const ch of r.value) out += ch === "*" ? ".*" : escapeRegex(ch);
       return new RegExp(out, flags);
     }
     return new RegExp(escapeRegex(r.value), flags); // contains: literal substring
@@ -166,23 +215,34 @@
   function normDomain(domain, cs) {
     let d = String(domain).trim();
     if (!cs) d = d.toLowerCase();
-    return d.replace(/^\*?\.?/, '').replace(/^www\./, '');
+    return d.replace(/^\*?\.?/, "").replace(/^www\./, "");
   }
   function hostMatchesDomain(url, d, cs) {
     let host;
-    try { host = new URL(url).hostname; } catch (e) { return false; }
+    try {
+      host = new URL(url).hostname;
+    } catch (e) {
+      return false;
+    }
     if (!cs) host = host.toLowerCase();
-    host = host.replace(/^www\./, '');
-    return !!d && (host === d || host.endsWith('.' + d));
+    host = host.replace(/^www\./, "");
+    return !!d && (host === d || host.endsWith("." + d));
   }
 
   // --- compiled-matcher cache (T1) + ReDoS guard (S5) ---------------------
-  const _cache = new Map();      // key -> matcher | null
+  const _cache = new Map(); // key -> matcher | null
   const SELFTEST_BUDGET_MS = 5000;
   let _selfTestBudget = SELFTEST_BUDGET_MS; // cumulative, reset with the cache
-  function cacheKey(r, cs) { return r.type + ' ' + (cs ? '1' : '0') + ' ' + r.value; }
-  function clearCache() { _cache.clear(); _selfTestBudget = SELFTEST_BUDGET_MS; }
-  function nowMs() { return typeof performance !== 'undefined' ? performance.now() : Date.now(); }
+  function cacheKey(r, cs) {
+    return r.type + " " + (cs ? "1" : "0") + " " + r.value;
+  }
+  function clearCache() {
+    _cache.clear();
+    _selfTestBudget = SELFTEST_BUDGET_MS;
+  }
+  function nowMs() {
+    return typeof performance !== "undefined" ? performance.now() : Date.now();
+  }
 
   // Self-test for user regexes, designed so the test itself can never hang:
   // probe with SHORT inputs first and escalate. Exponential backtracking
@@ -194,38 +254,60 @@
   // of slow patterns); once exhausted, untested patterns count as unsafe.
   function regexSelfTest(pattern, cs) {
     let re;
-    try { re = new RegExp(pattern, cs ? '' : 'i'); } catch (e) { return { valid: false, safe: false }; }
+    try {
+      re = new RegExp(pattern, cs ? "" : "i");
+    } catch (e) {
+      return { valid: false, safe: false };
+    }
     if (_selfTestBudget <= 0) return { valid: true, safe: false };
     const t0 = nowMs();
     let safe = true;
     try {
-      for (const n of [8, 12, 16, 22]) { // exponential probes (near-miss input)
-        re.test('a'.repeat(n) + '!' + 'b'.repeat(n));
-        if (nowMs() - t0 > 25) { safe = false; break; }
-      }
-      if (safe) {
-        for (const n of [64, 128, 256, 512, 1024]) { // polynomial probes (URL-like input)
-          re.test('https://sub.example.test/path/' + 'ab/'.repeat(Math.ceil(n / 3)) + '?q=x');
-          if (nowMs() - t0 > 25) { safe = false; break; }
+      for (const n of [8, 12, 16, 22]) {
+        // exponential probes (near-miss input)
+        re.test("a".repeat(n) + "!" + "b".repeat(n));
+        if (nowMs() - t0 > 25) {
+          safe = false;
+          break;
         }
       }
-    } catch (e) { safe = false; }
+      if (safe) {
+        for (const n of [64, 128, 256, 512, 1024]) {
+          // polynomial probes (URL-like input)
+          re.test("https://sub.example.test/path/" + "ab/".repeat(Math.ceil(n / 3)) + "?q=x");
+          if (nowMs() - t0 > 25) {
+            safe = false;
+            break;
+          }
+        }
+      }
+    } catch (e) {
+      safe = false;
+    }
     _selfTestBudget -= nowMs() - t0;
     return { valid: true, safe };
   }
 
   function buildMatcher(r, cs) {
     if (!r.value) return null;
-    if (r.type === 'domain') { const d = normDomain(r.value, cs); return d ? { domain: d } : null; }
+    if (r.type === "domain") {
+      const d = normDomain(r.value, cs);
+      return d ? { domain: d } : null;
+    }
     // contains/wildcard compile to escaped literals (+ `.*`) — safe by
     // construction; only user-written regexes need the self-test.
     let unsafe = false;
-    if (r.type === 'regex') {
+    if (r.type === "regex") {
       const test = regexSelfTest(r.value, cs);
       if (!test.valid) return null;
       unsafe = !test.safe;
     }
-    let re; try { re = ruleToRegex(r, cs); } catch (e) { return null; }
+    let re;
+    try {
+      re = ruleToRegex(r, cs);
+    } catch (e) {
+      return null;
+    }
     return { re, unsafe };
   }
   function matcher(r, cs) {
@@ -242,12 +324,16 @@
     const m = matcher(r, cs);
     if (!m || m.unsafe) return false; // unsafe regex is skipped at match time (surfaced in UI)
     if (m.domain) return hostMatchesDomain(url, m.domain, cs);
-    try { return m.re.test(url); } catch (e) { return false; }
+    try {
+      return m.re.test(url);
+    } catch (e) {
+      return false;
+    }
   }
 
   /** Is this rule's regex flagged unsafe? (for UI warnings) */
   function ruleUnsafe(r, cs) {
-    if (r.type !== 'regex') return false; // other types are safe by construction
+    if (r.type !== "regex") return false; // other types are safe by construction
     const m = matcher(r, cs);
     return !!(m && m.unsafe);
   }
@@ -257,8 +343,8 @@
   }
 
   function blockEligibleFor(ctx) {
-    if (ctx === 'realtime') return (r) => r.mode !== 'periodic' && !(r.olderThanDays > 0);
-    return (r) => r.mode !== 'realtime'; // sweep / manual
+    if (ctx === "realtime") return (r) => r.mode !== "periodic" && !(r.olderThanDays > 0);
+    return (r) => r.mode !== "realtime"; // sweep / manual
   }
 
   /**
@@ -267,12 +353,12 @@
    * @returns {Rule|null} the winning block rule, or null to keep.
    */
   function decide(rules, url, cs, ctx) {
-    const eligible = blockEligibleFor(ctx || 'sweep');
+    const eligible = blockEligibleFor(ctx || "sweep");
     let block = null;
     for (const r of rules) {
       if (!r.enabled) continue;
       if (!patternMatches(r, url, cs)) continue;
-      if (r.kind === 'allow') return null; // protected
+      if (r.kind === "allow") return null; // protected
       if (!block && eligible(r)) block = r;
     }
     return block;
@@ -280,42 +366,48 @@
 
   /** Rich evaluation for the URL tester. */
   function evaluateUrl(rules, url, cs) {
-    const blocks = [], allows = [];
+    const blocks = [],
+      allows = [];
     for (const r of rules) {
       if (!r.enabled) continue;
       if (!patternMatches(r, url, cs)) continue;
-      (r.kind === 'allow' ? allows : blocks).push(r);
+      (r.kind === "allow" ? allows : blocks).push(r);
     }
     return { blocks, allows, deleted: blocks.length > 0 && allows.length === 0 };
   }
 
   function parseLegacy(text) {
     const out = [];
-    const note = t('noteImported') || 'imported';
+    const note = t("noteImported") || "imported";
     for (const raw of String(text).split(/\r?\n/)) {
       const line = raw.trim();
-      if (!line || line.startsWith('#')) continue;
-      const value = line.replace(/^%+/, '').replace(/%+$/, '').trim();
-      if (value) out.push(rule('contains', value, note));
+      if (!line || line.startsWith("#")) continue;
+      const value = line.replace(/^%+/, "").replace(/%+$/, "").trim();
+      if (value) out.push(rule("contains", value, note));
     }
     return out;
   }
 
   function normRule(r) {
-    if (!r || typeof r !== 'object') return null;
+    if (!r || typeof r !== "object") return null;
     // Valeur vide autorisée : le bouton « Ajouter » crée une règle brouillon
     // que l'UI focus ensuite ; patternMatches ignore déjà les valeurs vides.
-    let value = typeof r.value === 'string' ? r.value : '';
+    let value = typeof r.value === "string" ? r.value : "";
     if (value.length > MAX_VALUE_LEN) value = value.slice(0, MAX_VALUE_LEN);
-    const type = RULE_TYPE_FALLBACK[r.type] ? r.type : 'contains';
-    const kind = RULE_KINDS.includes(r.kind) ? r.kind : 'block';
-    const mode = RULE_MODES.includes(r.mode) ? r.mode : 'both';
-    let older = parseInt(r.olderThanDays, 10); if (!(older >= 0)) older = 0;
+    const type = RULE_TYPE_FALLBACK[r.type] ? r.type : "contains";
+    const kind = RULE_KINDS.includes(r.kind) ? r.kind : "block";
+    const mode = RULE_MODES.includes(r.mode) ? r.mode : "both";
+    let older = parseInt(r.olderThanDays, 10);
+    if (!(older >= 0)) older = 0;
     return {
-      id: typeof r.id === 'string' ? r.id : makeId(),
+      id: typeof r.id === "string" ? r.id : makeId(),
       enabled: r.enabled !== false,
-      kind, type, value, mode, olderThanDays: older,
-      note: typeof r.note === 'string' ? r.note.slice(0, 200) : '',
+      kind,
+      type,
+      value,
+      mode,
+      olderThanDays: older,
+      note: typeof r.note === "string" ? r.note.slice(0, 200) : "",
     };
   }
 
@@ -338,8 +430,8 @@
     const settings = Object.assign({}, DEFAULT_SETTINGS, obj.settings || {});
     settings.intervalMinutes = Math.max(1, parseInt(settings.intervalMinutes, 10) || 30);
     settings.massThreshold = Math.max(0, parseInt(settings.massThreshold, 10) || 0);
-    if (!['count', 'host'].includes(settings.notificationDetail)) settings.notificationDetail = 'count';
-    if (!['host', 'full', 'off'].includes(settings.logDetail)) settings.logDetail = 'host';
+    if (!["count", "host"].includes(settings.notificationDetail)) settings.notificationDetail = "count";
+    if (!["host", "full", "off"].includes(settings.logDetail)) settings.logDetail = "host";
     settings.pauseJusqua = normalizePause(settings.pauseJusqua);
     settings.syncSettings = settings.syncSettings === true;
     let rules = Array.isArray(obj.rules) ? obj.rules.map(normRule).filter(Boolean) : defaultRules();
@@ -352,10 +444,10 @@
     const pack = RULE_PACKS[packId];
     if (!pack) return [];
     const note = t(pack.noteKey) || packId;
-    const have = new Set((existing || []).map((r) => r.kind + '|' + r.type + '|' + r.value.toLowerCase()));
+    const have = new Set((existing || []).map((r) => r.kind + "|" + r.type + "|" + r.value.toLowerCase()));
     const out = [];
     for (const [type, value] of pack.items) {
-      const key = 'block|' + type + '|' + String(value).toLowerCase();
+      const key = "block|" + type + "|" + String(value).toLowerCase();
       if (have.has(key)) continue;
       have.add(key);
       out.push(rule(type, value, note));
@@ -389,11 +481,16 @@
     try {
       const sync = await browser.storage.sync.get(SYNC_SETTINGS_KEY);
       const distant = sync[SYNC_SETTINGS_KEY];
-      if (!distant || typeof distant !== 'object') return local;
+      if (!distant || typeof distant !== "object") return local;
       // Les règles restent locales ; seuls les réglages suivent le compte.
-      local.settings = normalizeConfig({ settings: Object.assign({}, local.settings, distant), rules: local.rules }).settings;
+      local.settings = normalizeConfig({
+        settings: Object.assign({}, local.settings, distant),
+        rules: local.rules,
+      }).settings;
       local.settings.syncSettings = true;
-    } catch (e) { /* sync indisponible */ }
+    } catch (e) {
+      /* sync indisponible */
+    }
     return local;
   }
   async function saveConfig(cfg) {
@@ -410,7 +507,9 @@
         } else {
           await browser.storage.sync.remove(SYNC_SETTINGS_KEY);
         }
-      } catch (e) { /* quota / sync off */ }
+      } catch (e) {
+        /* quota / sync off */
+      }
     }
     return norm;
   }
@@ -426,14 +525,46 @@
   }
 
   root.MNN = {
-    CONFIG_KEY, STATS_KEY, SYNC_SETTINGS_KEY, LOG_MAX, MAX_RULES, MAX_VALUE_LEN, PAUSE_MAX,
-    DEFAULT_SETTINGS, DEFAULT_STATS, RULE_PACKS,
-    RULE_TYPE_KEYS, RULE_TYPE_FALLBACK, RULE_KINDS, RULE_MODES,
-    t, formatDate, localizeDom, ruleTypeLabel,
-    makeId, rule, defaultRules, clone, rulesFromPack,
-    patternMatches, hostMatchesDomain, decide, evaluateUrl,
-    ruleUnsafe, ruleInvalid, regexSelfTest, clearCache,
-    parseLegacy, normalizeConfig, normalizeStats, normalizePause, enPause, estActif,
-    loadConfig, saveConfig, loadStats, saveStats,
+    CONFIG_KEY,
+    STATS_KEY,
+    SYNC_SETTINGS_KEY,
+    LOG_MAX,
+    MAX_RULES,
+    MAX_VALUE_LEN,
+    PAUSE_MAX,
+    DEFAULT_SETTINGS,
+    DEFAULT_STATS,
+    RULE_PACKS,
+    RULE_TYPE_KEYS,
+    RULE_TYPE_FALLBACK,
+    RULE_KINDS,
+    RULE_MODES,
+    t,
+    formatDate,
+    localizeDom,
+    ruleTypeLabel,
+    makeId,
+    rule,
+    defaultRules,
+    clone,
+    rulesFromPack,
+    patternMatches,
+    hostMatchesDomain,
+    decide,
+    evaluateUrl,
+    ruleUnsafe,
+    ruleInvalid,
+    regexSelfTest,
+    clearCache,
+    parseLegacy,
+    normalizeConfig,
+    normalizeStats,
+    normalizePause,
+    enPause,
+    estActif,
+    loadConfig,
+    saveConfig,
+    loadStats,
+    saveStats,
   };
-})(typeof self !== 'undefined' ? self : this);
+})(typeof self !== "undefined" ? self : this);

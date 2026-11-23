@@ -91,7 +91,9 @@ if (apiKey && apiSecret) {
       // jour) : sortir en vert, le passage planifié reprendra.
       const detail = String(erreur?.message ?? erreur);
       if (/throttled|Expected available in/i.test(detail) || /Request was throttled/i.test(String(erreur))) {
-        console.log(`::notice::AMO limite le débit sur la soumission : reprise au prochain passage. (${detail.slice(0, 200)})`);
+        console.log(
+          `::notice::AMO limite le débit sur la soumission : reprise au prochain passage. (${detail.slice(0, 200)})`,
+        );
         await sortie("signe", "non");
         await rm(dossier, { recursive: true, force: true });
         process.exit(0);
@@ -104,14 +106,18 @@ if (apiKey && apiSecret) {
   enLigne = await amo.attendre(id, version, { delai: minutes * 60_000 });
   if (!enLigne) throw new Error(`${version} introuvable sur addons.mozilla.org après la soumission`);
   if (enLigne.channel !== "listed") {
-    throw new Error(`${version} a été signée hors catalogue (canal ${enLigne.channel}) : monter la version pour la publier`);
+    throw new Error(
+      `${version} a été signée hors catalogue (canal ${enLigne.channel}) : monter la version pour la publier`,
+    );
   }
   const etat = etatDe(enLigne);
   if (etat === "refusee") {
     throw new Error(`${version} a été refusée par addons.mozilla.org`);
   }
   if (etat === "en-relecture") {
-    console.log(`::notice::${version} est soumise à addons.mozilla.org et attend sa relecture : pas de paquet ni de release pour l'instant. Le prochain passage reprendra.`);
+    console.log(
+      `::notice::${version} est soumise à addons.mozilla.org et attend sa relecture : pas de paquet ni de release pour l'instant. Le prochain passage reprendra.`,
+    );
     await sortie("signe", "non");
     await rm(dossier, { recursive: true, force: true });
     process.exit(0);
