@@ -9,9 +9,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const racine = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const chrome =
-  process.env.CHROME_PATH ||
-  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+const chrome = process.env.CHROME_PATH || "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 
 const cssPopup = await readFile(path.join(racine, "extension/src/popup/popup.css"), "utf8");
 const cssOptions = await readFile(path.join(racine, "extension/src/options/options.css"), "utf8");
@@ -81,8 +79,16 @@ const noiseAnalyzer = `
     <h2 style="margin:0 0 6px;font-size:18px">History noise</h2>
     <p style="margin:0 0 16px;color:#6b7280;font-size:13px">Domains that clutter your history most.</p>
     <div style="display:flex;flex-direction:column;gap:10px">
-      ${[["github.com","412"],["photos.google.com","287"],["mail.google.com","196"],["stackoverflow.com","94"]]
-        .map(([d,n]) => `<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:#f6f6fb;border-radius:10px"><strong style="flex:1;font-size:14px">${d}</strong><span style="color:#6b7280;font-size:13px">${n} entries</span><button style="appearance:none;border:0;background:#7c3aed;color:#fff;padding:8px 12px;border-radius:8px;font-weight:600;font-size:12px">Add rule</button></div>`)
+      ${[
+        ["github.com", "412"],
+        ["photos.google.com", "287"],
+        ["mail.google.com", "196"],
+        ["stackoverflow.com", "94"],
+      ]
+        .map(
+          ([d, n]) =>
+            `<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:#f6f6fb;border-radius:10px"><strong style="flex:1;font-size:14px">${d}</strong><span style="color:#6b7280;font-size:13px">${n} entries</span><button style="appearance:none;border:0;background:#7c3aed;color:#fff;padding:8px 12px;border-radius:8px;font-weight:600;font-size:12px">Add rule</button></div>`,
+        )
         .join("")}
     </div>
   </div>
@@ -115,13 +121,22 @@ await mkdir(path.join(racine, "amo", "captures"), { recursive: true });
 await mkdir(path.join(racine, "extension", "icons"), { recursive: true });
 for (const { fichier, html } of captures) {
   await page.setContent(html, { waitUntil: "load" });
-  await page.screenshot({ path: path.join(racine, "amo", "captures", fichier), type: "png", clip: { x: 0, y: 0, width: 1280, height: 800 } });
+  await page.screenshot({
+    path: path.join(racine, "amo", "captures", fichier),
+    type: "png",
+    clip: { x: 0, y: 0, width: 1280, height: 800 },
+  });
   console.log("capture", fichier);
 }
 for (const size of [32, 48, 64, 96, 128]) {
   await page.setViewportSize({ width: size, height: size });
-  await page.setContent(`<!DOCTYPE html><html><body style="margin:0">${iconSvg.replace(/width="96"/, `width="${size}"`).replace(/height="96"/, `height="${size}"`)}</body></html>`, { waitUntil: "load" });
-  await page.locator("svg").screenshot({ path: path.join(racine, "extension", "icons", `icone-${size}.png`), type: "png" });
+  await page.setContent(
+    `<!DOCTYPE html><html><body style="margin:0">${iconSvg.replace(/width="96"/, `width="${size}"`).replace(/height="96"/, `height="${size}"`)}</body></html>`,
+    { waitUntil: "load" },
+  );
+  await page
+    .locator("svg")
+    .screenshot({ path: path.join(racine, "extension", "icons", `icone-${size}.png`), type: "png" });
   console.log("icon", size);
 }
 await browser.close();

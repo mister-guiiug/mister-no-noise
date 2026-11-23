@@ -27,13 +27,13 @@ Mozilla n’accepte un numéro de version **qu’une fois**, tous canaux confond
 
 `npm run paquet` produit `web-ext-artifacts/mister-no-noise-<version>/` :
 
-| Fichier | Rôle |
-| ------- | ---- |
-| `mister-no-noise-<version>.xpi` | signé par Mozilla — seulement avec les clés |
-| `mister-no-noise-<version>.zip` | non signé |
-| `INSTALLER.md` | guide d’installation |
-| `policies.json` | stratégie d’entreprise (installation forcée) |
-| `SHA256SUMS` | empreintes |
+| Fichier                         | Rôle                                         |
+| ------------------------------- | -------------------------------------------- |
+| `mister-no-noise-<version>.xpi` | signé par Mozilla — seulement avec les clés  |
+| `mister-no-noise-<version>.zip` | non signé                                    |
+| `INSTALLER.md`                  | guide d’installation                         |
+| `policies.json`                 | stratégie d’entreprise (installation forcée) |
+| `SHA256SUMS`                    | empreintes                                   |
 
 Modèles dans [`deploiement/`](../deploiement/).
 
@@ -45,13 +45,13 @@ Modèles dans [`deploiement/`](../deploiement/).
 [`fiche-amo.yml`](../.github/workflows/fiche-amo.yml) la resynchronise quand
 ses sources bougent sur `main`, et chaque jour.
 
-| Sur la fiche | Source |
-| ------------ | ------ |
-| nom, résumé | `extName`, `extDescription` |
-| description, catégorie | [`amo/fiche.json`](../amo/fiche.json) |
-| page d’accueil | `homepage_url` du manifeste |
-| icône | `extension/icons/icone-128.png` |
-| captures | [`amo/captures.json`](../amo/captures.json) + `amo/captures/` |
+| Sur la fiche           | Source                                                        |
+| ---------------------- | ------------------------------------------------------------- |
+| nom, résumé            | `extName`, `extDescription`                                   |
+| description, catégorie | [`amo/fiche.json`](../amo/fiche.json)                         |
+| page d’accueil         | `homepage_url` du manifeste                                   |
+| icône                  | `extension/icons/icone-128.png`                               |
+| captures               | [`amo/captures.json`](../amo/captures.json) + `amo/captures/` |
 
 Régénérer les captures : `npm run captures` (Chrome + `playwright-core`).
 

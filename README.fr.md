@@ -91,12 +91,12 @@ votre machine.
 
 Firefox 140 ou plus récent sur ordinateur, Firefox pour Android 142 ou plus.
 
-| Méthode | Durée | Comment |
-| ------- | ----- | ------- |
-| **Modules Firefox** (recommandé) | durable, mises à jour auto | ouvrir la [page de l’extension](https://addons.mozilla.org/fr/firefox/addon/mister-no-noise@mister-guiiug/) → *Ajouter à Firefox* |
-| **Fichier signé d’une release** | durable, mises à jour auto | ouvrir le `.xpi` de la [dernière release](https://github.com/mister-guiiug/mister-no-noise/releases/latest) dans Firefox |
-| **Temporaire, depuis les sources** | jusqu’au redémarrage | `about:debugging#/runtime/this-firefox` → *Charger un module temporaire…* → `manifest.json` |
-| **Avec web-ext** | jusqu’à la fermeture de la fenêtre | `npm install` puis `npm start` |
+| Méthode                            | Durée                              | Comment                                                                                                                           |
+| ---------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Modules Firefox** (recommandé)   | durable, mises à jour auto         | ouvrir la [page de l’extension](https://addons.mozilla.org/fr/firefox/addon/mister-no-noise@mister-guiiug/) → _Ajouter à Firefox_ |
+| **Fichier signé d’une release**    | durable, mises à jour auto         | ouvrir le `.xpi` de la [dernière release](https://github.com/mister-guiiug/mister-no-noise/releases/latest) dans Firefox          |
+| **Temporaire, depuis les sources** | jusqu’au redémarrage               | `about:debugging#/runtime/this-firefox` → _Charger un module temporaire…_ → `manifest.json`                                       |
+| **Avec web-ext**                   | jusqu’à la fermeture de la fenêtre | `npm install` puis `npm start`                                                                                                    |
 
 ## Vie privée
 

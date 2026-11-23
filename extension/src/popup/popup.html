@@ -1,73 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="popup.css">
-  <title>No Noise</title>
-</head>
-<body>
-  <header class="hd">
-    <img src="../../icons/icone.svg" class="logo" alt="">
-    <div class="ht">
-      <strong data-i18n="extShortName">No Noise</strong>
-      <span data-i18n="appSubtitle">History Cleaner</span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>No Noise</title>
+  </head>
+  <body>
+    <header class="hd">
+      <img src="../../icons/icone.svg" class="logo" alt="" />
+      <div class="ht">
+        <strong data-i18n="extShortName">No Noise</strong>
+        <span data-i18n="appSubtitle">History Cleaner</span>
+      </div>
+      <label class="master" data-i18n-title="masterTitle" title="Enable / disable the extension">
+        <input type="checkbox" id="enabled" />
+        <span class="switch"></span>
+      </label>
+    </header>
+
+    <div id="dry" class="banner hidden" data-i18n="bannerDryRun">Simulation mode — no actual deletion</div>
+    <div id="pauseBanner" class="banner pause-banner hidden"></div>
+
+    <section class="pause" aria-labelledby="pause-titre">
+      <div class="pause-ligne">
+        <span id="pause-titre" data-i18n="popupPause">Pause</span>
+        <button type="button" class="btn ghost sm" data-minutes="5" data-i18n="pause5">5 min</button>
+        <button type="button" class="btn ghost sm" data-minutes="15" data-i18n="pause15">15 min</button>
+        <button type="button" class="btn ghost sm" data-minutes="60" data-i18n="pause60">1 h</button>
+        <button type="button" class="btn ghost sm" id="reprendre" hidden data-i18n="pauseReprendre">Resume</button>
+      </div>
+    </section>
+
+    <section class="grid">
+      <button id="cleanNow" class="btn primary" data-i18n="cleanNow">Clean now</button>
+      <button id="preview" class="btn" data-i18n="preview">Preview</button>
+    </section>
+
+    <div id="confirm" class="confirm hidden">
+      <span id="confirmMsg"></span>
+      <div class="confirm-btns">
+        <button id="confirmYes" class="btn danger" data-i18n="confirmYes">Delete</button>
+        <button id="confirmNo" class="btn" data-i18n="cancel">Cancel</button>
+      </div>
     </div>
-    <label class="master" data-i18n-title="masterTitle" title="Enable / disable the extension">
-      <input type="checkbox" id="enabled">
-      <span class="switch"></span>
-    </label>
-  </header>
 
-  <div id="dry" class="banner hidden" data-i18n="bannerDryRun">Simulation mode — no actual deletion</div>
-  <div id="pauseBanner" class="banner pause-banner hidden"></div>
+    <div id="result" class="result hidden"></div>
 
-  <section class="pause" aria-labelledby="pause-titre">
-    <div class="pause-ligne">
-      <span id="pause-titre" data-i18n="popupPause">Pause</span>
-      <button type="button" class="btn ghost sm" data-minutes="5" data-i18n="pause5">5 min</button>
-      <button type="button" class="btn ghost sm" data-minutes="15" data-i18n="pause15">15 min</button>
-      <button type="button" class="btn ghost sm" data-minutes="60" data-i18n="pause60">1 h</button>
-      <button type="button" class="btn ghost sm" id="reprendre" hidden data-i18n="pauseReprendre">Resume</button>
-    </div>
-  </section>
+    <section class="toggles">
+      <label class="row"
+        ><span data-i18n="toggleRealtime">Real-time (adaptive)</span>
+        <span class="sw"><input type="checkbox" id="realtime" /><span class="switch sm"></span></span
+      ></label>
+      <label class="row"
+        ><span data-i18n="togglePeriodic">Periodic sweep</span>
+        <span class="sw"><input type="checkbox" id="periodic" /><span class="switch sm"></span></span
+      ></label>
+      <label class="row"
+        ><span data-i18n="toggleDryRun">Simulation (dry-run)</span>
+        <span class="sw"><input type="checkbox" id="dryRun" /><span class="switch sm"></span></span
+      ></label>
+    </section>
 
-  <section class="grid">
-    <button id="cleanNow" class="btn primary" data-i18n="cleanNow">Clean now</button>
-    <button id="preview" class="btn" data-i18n="preview">Preview</button>
-  </section>
+    <section class="stats">
+      <div><b id="stTotal">0</b><span data-i18n="statTotal">deleted in total</span></div>
+      <div><b id="stRules">0</b><span data-i18n="statRules">active rules</span></div>
+    </section>
+    <div class="last" id="stLast"></div>
 
-  <div id="confirm" class="confirm hidden">
-    <span id="confirmMsg"></span>
-    <div class="confirm-btns">
-      <button id="confirmYes" class="btn danger" data-i18n="confirmYes">Delete</button>
-      <button id="confirmNo" class="btn" data-i18n="cancel">Cancel</button>
-    </div>
-  </div>
+    <footer>
+      <a href="#" id="openOptions" data-i18n="openOptions">Manage rules and settings &rarr;</a>
+    </footer>
 
-  <div id="result" class="result hidden"></div>
-
-  <section class="toggles">
-    <label class="row"><span data-i18n="toggleRealtime">Real-time (adaptive)</span>
-      <span class="sw"><input type="checkbox" id="realtime"><span class="switch sm"></span></span></label>
-    <label class="row"><span data-i18n="togglePeriodic">Periodic sweep</span>
-      <span class="sw"><input type="checkbox" id="periodic"><span class="switch sm"></span></span></label>
-    <label class="row"><span data-i18n="toggleDryRun">Simulation (dry-run)</span>
-      <span class="sw"><input type="checkbox" id="dryRun"><span class="switch sm"></span></span></label>
-  </section>
-
-  <section class="stats">
-    <div><b id="stTotal">0</b><span data-i18n="statTotal">deleted in total</span></div>
-    <div><b id="stRules">0</b><span data-i18n="statRules">active rules</span></div>
-  </section>
-  <div class="last" id="stLast"></div>
-
-  <footer>
-    <a href="#" id="openOptions" data-i18n="openOptions">Manage rules and settings &rarr;</a>
-  </footer>
-
-  <script src="../common/compat.js"></script>
-  <script src="../common/core.js"></script>
-  <script src="popup.js"></script>
-</body>
+    <script src="../common/compat.js"></script>
+    <script src="../common/core.js"></script>
+    <script src="popup.js"></script>
+  </body>
 </html>

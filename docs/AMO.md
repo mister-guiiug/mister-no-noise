@@ -5,23 +5,23 @@ Automatisée depuis 1.4.0 : monter la version, fusionner sur `main`. Voir
 
 ## Identifiants
 
-| Champ | Valeur |
-| ----- | ------ |
-| Add-on id | `mister-no-noise@mister-guiiug` |
-| Nom produit EN / FR | No Noise / Sans bruit |
-| Catégorie | `privacy-security` |
-| Licence | MIT |
-| Canal | **listed** |
+| Champ               | Valeur                          |
+| ------------------- | ------------------------------- |
+| Add-on id           | `mister-no-noise@mister-guiiug` |
+| Nom produit EN / FR | No Noise / Sans bruit           |
+| Catégorie           | `privacy-security`              |
+| Licence             | MIT                             |
+| Canal               | **listed**                      |
 
 ## Fichiers
 
-| Chemin | Rôle |
-| ------ | ---- |
-| [`amo/fiche.json`](../amo/fiche.json) | Descriptions multi-langue + catégorie |
-| [`amo/captures.json`](../amo/captures.json) | Ordre et légendes des captures |
-| [`amo/captures/*.png`](../amo/captures/) | 4 PNG **1280×800** |
-| [`extension/icons/icone-128.png`](../extension/icons/icone-128.png) | Icône fiche |
-| [`extension/_locales/*/messages.json`](../extension/_locales/) | Nom + résumé (15 langues ; AMO n’affiche pas ar/hi) |
+| Chemin                                                              | Rôle                                                |
+| ------------------------------------------------------------------- | --------------------------------------------------- |
+| [`amo/fiche.json`](../amo/fiche.json)                               | Descriptions multi-langue + catégorie               |
+| [`amo/captures.json`](../amo/captures.json)                         | Ordre et légendes des captures                      |
+| [`amo/captures/*.png`](../amo/captures/)                            | 4 PNG **1280×800**                                  |
+| [`extension/icons/icone-128.png`](../extension/icons/icone-128.png) | Icône fiche                                         |
+| [`extension/_locales/*/messages.json`](../extension/_locales/)      | Nom + résumé (15 langues ; AMO n’affiche pas ar/hi) |
 
 ## Commandes
 

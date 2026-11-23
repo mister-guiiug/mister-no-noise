@@ -26,7 +26,6 @@ describe("le paquet de déploiement", () => {
 });
 
 describe("la publication", () => {
-
   it("l'identifiant est mister-no-noise@mister-guiiug", () => {
     assert.equal(manifeste.browser_specific_settings.gecko.id, "mister-no-noise@mister-guiiug");
   });
@@ -50,9 +49,21 @@ describe("la fiche d'addons.mozilla.org", async () => {
   const fiche = JSON.parse(lire("amo/fiche.json"));
   const { etatDe, jeton } = await import("../scripts/amo.mjs");
   const CATEGORIES = [
-    "alerts-updates", "appearance", "bookmarks", "download-management", "feeds-news-blogging",
-    "games-entertainment", "language-support", "photos-music-videos", "privacy-security",
-    "search-tools", "shopping", "social-communication", "tabs", "web-development", "other",
+    "alerts-updates",
+    "appearance",
+    "bookmarks",
+    "download-management",
+    "feeds-news-blogging",
+    "games-entertainment",
+    "language-support",
+    "photos-music-videos",
+    "privacy-security",
+    "search-tools",
+    "shopping",
+    "social-communication",
+    "tabs",
+    "web-development",
+    "other",
   ];
 
   it("a des catégories connues et la licence du dépôt", () => {
@@ -86,7 +97,11 @@ describe("la fiche d'addons.mozilla.org", async () => {
 
 describe("le client d'addons.mozilla.org", async () => {
   const { client } = await import("../scripts/amo.mjs");
-  const json = (corps) => ({ ok: true, headers: new Headers({ "content-type": "application/json" }), json: async () => corps });
+  const json = (corps) => ({
+    ok: true,
+    headers: new Headers({ "content-type": "application/json" }),
+    json: async () => corps,
+  });
 
   it("cherche la version sur toutes les pages, tous canaux, avec un jeton", async () => {
     const vues = [];
@@ -107,7 +122,10 @@ describe("le client d'addons.mozilla.org", async () => {
     let appels = 0;
     const fetch = async () => {
       appels += 1;
-      return json({ results: [{ version: "1.4.0", file: { status: appels < 3 ? "unreviewed" : "public" } }], next: null });
+      return json({
+        results: [{ version: "1.4.0", file: { status: appels < 3 ? "unreviewed" : "public" } }],
+        next: null,
+      });
     };
     const amo = client({ cle: "k", secret: "s", fetch });
     const dormir = async () => {};
@@ -124,7 +142,10 @@ describe("les captures de la fiche", async () => {
     for (const c of captures) {
       for (const langue of languesDeFiche()) assert.ok(c.legende[langue], `${c.fichier} : ${langue}`);
     }
-    assert.deepEqual(captures.map((c) => c.position), captures.map((_, i) => i));
+    assert.deepEqual(
+      captures.map((c) => c.position),
+      captures.map((_, i) => i),
+    );
   });
 
   it("ajoute ce qui manque et ne touche pas aux captures étrangères", () => {
@@ -136,7 +157,10 @@ describe("les captures de la fiche", async () => {
       { id: 7, caption: { fr: "B", "en-US": "vieux" }, position: 1 },
       { id: 9, caption: { fr: "Faite à la main" }, position: 2 },
     ]);
-    assert.deepEqual(ajouter.map((c) => c.fichier), ["a.png"]);
+    assert.deepEqual(
+      ajouter.map((c) => c.fichier),
+      ["a.png"],
+    );
     assert.equal(modifier.length, 1);
     assert.equal(modifier[0].id, 7);
     assert.equal(etrangeres.length, 1);
