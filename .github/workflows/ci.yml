@@ -1,4 +1,15 @@
-# CI : tests, ESLint, web-ext lint, build, vérification fiche AMO.
+# La CI de l'extension, sur chaque PR et sur main.
+#
+# Les gestes qu'on ferait avant de signer l'extension : les tests, ESLint et le
+# format, la validation du manifeste par l'outil de Mozilla (web-ext lint, qui
+# échoue sur un avertissement — comme publication.yml, sans quoi une PR verte
+# pourrait bloquer la publication après sa fusion), la fiche addons.mozilla.org
+# et le paquet de déploiement (npm run paquet, sans signature : les clés ne
+# servent qu'à publication.yml).
+#
+# Le nom du job est un contexte exigé par le ruleset (CHECKS de
+# scripts/apply-rulesets.mjs, dans dev-pwa-config) : le renommer gèlerait toutes
+# les PR du dépôt. Pas de matrice, pas d'apostrophe : un nom stable.
 name: CI
 
 on:
@@ -21,19 +32,21 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version-file: .nvmrc
           cache: npm
 
       - run: node --version && npm --version
 
-      - run: npm ci
+      - run: npm ci --no-audit --no-fund
 
       - run: npm test
 
       - run: npm run lint:js
 
-      - run: npm run lint
+      - run: npm run format:check
 
-      - run: npm run build
+      - run: npm run lint -- --warnings-as-errors
 
       - run: node scripts/fiche-amo.mjs --verifier
+
+      - run: npm run paquet

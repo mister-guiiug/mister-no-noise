@@ -25,9 +25,7 @@ describe("le paquet de déploiement", () => {
   });
 });
 
-describe("la publication et les mises à jour", async () => {
-  const { depotDe, manifesteDeMiseAJour, nomXpi } = await import("../scripts/mises-a-jour.mjs");
-  const EMPREINTE = "a".repeat(64);
+describe("la publication", () => {
 
   it("l'identifiant est mister-no-noise@mister-guiiug", () => {
     assert.equal(manifeste.browser_specific_settings.gecko.id, "mister-no-noise@mister-guiiug");
@@ -38,25 +36,13 @@ describe("la publication et les mises à jour", async () => {
   });
 
   it("le dépôt des releases est homepage_url", () => {
-    assert.equal(depotDe(manifeste), "https://github.com/mister-guiiug/mister-no-noise");
+    assert.equal(manifeste.homepage_url, "https://github.com/mister-guiiug/mister-no-noise");
   });
 
-  it("updates.json pointe le .xpi de la release de sa version, avec son empreinte", () => {
-    const { addons } = manifesteDeMiseAJour(manifeste, EMPREINTE);
-    const [maj] = addons[manifeste.browser_specific_settings.gecko.id].updates;
-    assert.equal(maj.version, manifeste.version);
-    assert.equal(
-      maj.update_link,
-      `https://github.com/mister-guiiug/mister-no-noise/releases/download/v${manifeste.version}/${nomXpi(manifeste.version)}`,
-    );
-    assert.equal(maj.update_hash, `sha256:${EMPREINTE}`);
-  });
-
-  it("refuse une empreinte invalide et une homepage_url hors GitHub", () => {
-    assert.throws(() => manifesteDeMiseAJour(manifeste, "abc"));
-    const ailleurs = structuredClone(manifeste);
-    ailleurs.homepage_url = "https://exemple.com/";
-    assert.throws(() => depotDe(ailleurs));
+  it("aucun updates.json : Firefox met à jour depuis addons.mozilla.org", async () => {
+    const { readFile } = await import("node:fs/promises");
+    const paquet = await readFile(new URL("../scripts/paquet.mjs", import.meta.url), "utf8");
+    assert.doesNotMatch(paquet, /writeFile\([^)]*updates\.json/u);
   });
 });
 
