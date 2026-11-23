@@ -10,6 +10,12 @@ import globals from "globals";
  */
 const PROPRES = { MNN: "writable" };
 
+/**
+ * Les scripts qui pilotent un navigateur : le corps de leurs `evaluate(() => …)`
+ * s'exécute dans la page, d'où les globales du navigateur en plus de Node.
+ */
+const PILOTES = ["scripts/captures-amo.mjs"];
+
 const REGLES = {
   "no-undef": "error",
   "no-unused-vars": ["error", { args: "none", caughtErrors: "none" }],
@@ -43,5 +49,9 @@ export default [
     files: ["scripts/**/*.mjs", "test/**/*.{js,mjs,cjs}", "*.{js,mjs,cjs}"],
     languageOptions: { ecmaVersion: "latest", globals: globals.node },
     rules: REGLES,
+  },
+  {
+    files: PILOTES,
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
   },
 ];
