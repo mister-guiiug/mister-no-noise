@@ -176,3 +176,25 @@ describe("l'arborescence extension/", () => {
     assert.match(lire("extension/src/common/core.js"), /root\.MNN\s*=/);
   });
 });
+
+describe("le débit limité d'addons.mozilla.org à la soumission", async () => {
+  const { estDebitLimite } = await import("../scripts/amo.mjs");
+
+  it("reconnaît l'erreur relevée le 23/11/2026, et le 429 seul", () => {
+    const relevee = new Error(
+      'Submission failed (2): 429\n{\n  "detail": "Request was throttled. Expected available in 40287 seconds."\n}',
+    );
+    assert.equal(estDebitLimite(relevee), true);
+    assert.equal(estDebitLimite(new Error("Submission failed (2): 429")), true);
+  });
+
+  it("laisse échouer tout le reste", () => {
+    assert.equal(estDebitLimite(new Error("Submission failed (1): 400")), false);
+    assert.equal(
+      estDebitLimite(new Error("AMO 404 sur GET https://addons.mozilla.org/api/v5/addons/addon/x/versions/6750429/")),
+      false,
+    );
+    assert.equal(estDebitLimite(new Error("getaddrinfo ENOTFOUND addons.mozilla.org")), false);
+    assert.equal(estDebitLimite(undefined), false);
+  });
+});
