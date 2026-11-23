@@ -18,7 +18,7 @@ import { createHash } from "node:crypto";
 import { appendFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import webExt from "web-ext";
-import { API, client, etatDe } from "./amo.mjs";
+import { API, client, estDebitLimite, etatDe } from "./amo.mjs";
 
 const racine = path.resolve(import.meta.dirname, "..");
 const source = path.join(racine, "extension");
@@ -87,10 +87,10 @@ if (apiKey && apiSecret) {
         { shouldExitProgram: false },
       );
     } catch (erreur) {
-      // AMO throttle les soumissions (souvent après plusieurs essais le même
-      // jour) : sortir en vert, le passage planifié reprendra.
+      // AMO limite le débit des soumissions (429) : sortir en vert, le passage
+      // planifié reprendra.
       const detail = String(erreur?.message ?? erreur);
-      if (/throttled|Expected available in/i.test(detail) || /Request was throttled/i.test(String(erreur))) {
+      if (estDebitLimite(erreur)) {
         console.log(
           `::notice::AMO limite le débit sur la soumission : reprise au prochain passage. (${detail.slice(0, 200)})`,
         );
