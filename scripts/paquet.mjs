@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 /**
  * Le paquet de déploiement : zip, xpi signé (si clés AMO), INSTALLER.md,
- * policies.json, updates.json, SHA256SUMS. Soumet au canal listed.
+ * policies.json, SHA256SUMS. Soumet au canal listed.
+ *
+ * Pas d'`updates.json` : l'extension n'a jamais été distribuée hors
+ * d'addons.mozilla.org, et Firefox met à jour une version du catalogue depuis
+ * le catalogue, `.xpi` de release compris. mister-no-prices le garde pour ses
+ * installations faites depuis les releases jusqu'à sa 1.7.0.
  *
  *   node scripts/paquet.mjs
  *
@@ -14,7 +19,6 @@ import { appendFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import webExt from "web-ext";
 import { API, client, etatDe } from "./amo.mjs";
-import { manifesteDeMiseAJour, nomXpi } from "./mises-a-jour.mjs";
 
 const racine = path.resolve(import.meta.dirname, "..");
 const source = path.join(racine, "extension");
@@ -38,6 +42,8 @@ if (versionPaquet !== version) {
 }
 
 const nom = `mister-no-noise-${version}`;
+/** Le nom du `.xpi` signé d'une version : celui que la release joint. */
+const nomXpi = (v) => `mister-no-noise-${v}.xpi`;
 const dossier = path.join(racine, "web-ext-artifacts", nom);
 await rm(dossier, { recursive: true, force: true });
 await mkdir(dossier, { recursive: true });
@@ -125,12 +131,6 @@ for (const fichier of annexes) {
   await writeFile(path.join(dossier, fichier), remplir(modele));
 }
 JSON.parse(await readFile(path.join(dossier, "policies.json"), "utf8"));
-
-if (extensions.includes(nomXpi(version))) {
-  const misesAJour = manifesteDeMiseAJour(manifeste, await empreinte(nomXpi(version)));
-  await writeFile(path.join(dossier, "updates.json"), `${JSON.stringify(misesAJour, null, 2)}\n`);
-  annexes.push("updates.json");
-}
 
 const empreintes = [];
 for (const fichier of extensions) empreintes.push(`${await empreinte(fichier)}  ${fichier}\n`);

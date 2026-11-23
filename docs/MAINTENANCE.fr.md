@@ -33,7 +33,6 @@ Mozilla n’accepte un numéro de version **qu’une fois**, tous canaux confond
 | `mister-no-noise-<version>.zip` | non signé |
 | `INSTALLER.md` | guide d’installation |
 | `policies.json` | stratégie d’entreprise (installation forcée) |
-| `updates.json` | pour les installs depuis les releases GitHub |
 | `SHA256SUMS` | empreintes |
 
 Modèles dans [`deploiement/`](../deploiement/).

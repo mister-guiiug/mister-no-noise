@@ -11,18 +11,20 @@
   "scripts": {
     "start": "web-ext run --config web-ext-config.mjs",
     "lint": "web-ext lint --config web-ext-config.mjs",
-    "lint:js": "eslint .",
+    "lint:js": "eslint . --max-warnings 0",
     "format": "prettier --write .",
     "test": "node --test",
     "build": "web-ext build --config web-ext-config.mjs --overwrite-dest",
     "paquet": "node scripts/paquet.mjs",
     "fiche-amo": "node scripts/fiche-amo.mjs",
-    "captures": "node scripts/captures-amo.mjs"
+    "captures": "node scripts/captures-amo.mjs",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "eslint": "^9.13.0",
+    "eslint": "^9.39.5",
+    "globals": "^17.14.0",
     "playwright-core": "^1.49.0",
-    "prettier": "^3.3.0",
+    "prettier": "^3.10.1",
     "web-ext": "^10.8.0"
   }
 }

@@ -34,7 +34,6 @@ step. Mozilla accepts a version number **once** across all channels.
 | `mister-no-noise-<version>.zip` | unsigned extension |
 | `INSTALLER.md` | step-by-step install guide (French) |
 | `policies.json` | enterprise policy that force-installs the extension |
-| `updates.json` | for copies installed from GitHub releases |
 | `SHA256SUMS` | checksums |
 
 Templates live in [`deploiement/`](../deploiement/).
